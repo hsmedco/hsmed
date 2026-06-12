@@ -312,7 +312,7 @@ body{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;ba
         </div>
         <div class="div-used hidden" id="divUsed">
           <div class="dr-icon">🌿</div>
-          <p class="du-title">今日已占卜</p>
+          <p class="dr-date" id="duDate"></p><p class="du-title">今日已占卜</p>
           <p class="du-sub">你今天的草本緣份已定</p>
           <h3 class="dr-name" id="duName"></h3>
           <p class="dr-desc" id="duDesc"></p>
@@ -322,9 +322,9 @@ body{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;ba
         </div>
       </div>
       <div class="div-info">
-        <div class="dii"><span class="dii-icon">🌦</span><div><p class="dii-label">今日天氣</p><p class="dii-val">台灣・雨</p></div></div>
+        <div class="dii"><span class="dii-icon">🌦</span><div><p class="dii-label">今日天氣</p><p class="dii-val" id="weatherDisplay">偵測中…</p></div></div>
         <div class="dii"><span class="dii-icon">🕐</span><div><p class="dii-label">台灣時間</p><p class="dii-val" id="timeVal">—</p></div></div>
-        <div class="dii"><span class="dii-icon">🗓</span><div><p class="dii-label">節氣提示</p><p class="dii-val">芒種・梅雨時節</p></div></div>
+        <div class="dii"><span class="dii-icon">🗓</span><div><p class="dii-label">節氣提示</p><p class="dii-val" id="solarTermVal">計算中…</p></div></div>
       </div>
     </div>
   </div>
@@ -832,7 +832,7 @@ const PRODUCTS=[
     cat: 'children',
     catLabel: '｜童｜學齡照護',
     emoji: '✍️',
-    img: "https://www.hsmed.co/products/gastrodia-mind-wellness-tea",
+    img: "https://img.shoplineapp.com/media/image_clips/6944bf6330fbf6a7223178ce/original.jpg?1766113122=&owner_id=659b67f8c2815b0061a5f135",
     pain: '課業繁重、高壓辦公，需要長時間高效用腦？',
     name: '天麻益智茶',
     desc: '課業繁重需要高效用腦的學生考生，以及高壓辦公的商務人士日常首選。調和天麻、川芎、西洋參、麥門冬、黃耆、紅棗與枸杞，通絡舒壓、降下體內虛火，讓頭腦保持清明。',
@@ -1869,17 +1869,52 @@ function closeMobileNav(){document.getElementById('navMobile').classList.remove(
 
 // Real Taiwan time
 function getTWTime(){
-  // Use real current time with Taiwan offset (UTC+8)
-  const now=new Date();
-  const twOffset=8*60;
-  const utc=now.getTime()+(now.getTimezoneOffset()*60000);
-  const tw=new Date(utc+(twOffset*60000));
-  const d=tw.getFullYear()+'/'+(String(tw.getMonth()+1).padStart(2,'0'))+'/'+String(tw.getDate()).padStart(2,'0');
-  const h=tw.getHours();
-  const p=h<6?'清晨':h<12?'上午':h<18?'下午':'夜晚';
-  const hash=tw.getFullYear()*10000+(tw.getMonth()+1)*100+tw.getDate();
-  return{dateStr:d,period:p,hash,tw};
+  // Real Taiwan time (UTC+8)
+  const now = new Date();
+  const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  const tw  = new Date(utc + (8 * 60 * 60000));
+  const yyyy = tw.getFullYear();
+  const mm   = String(tw.getMonth()+1).padStart(2,'0');
+  const dd   = String(tw.getDate()).padStart(2,'0');
+  const hh   = String(tw.getHours()).padStart(2,'0');
+  const min  = String(tw.getMinutes()).padStart(2,'0');
+  const dateStr = yyyy+'/'+mm+'/'+dd;
+  const timeStr = hh+':'+min;           // 24-hour, e.g. "14:32"
+  const hash = yyyy*10000+(tw.getMonth()+1)*100+tw.getDate();
+  return { dateStr, timeStr, hash, tw,
+           month: tw.getMonth()+1, day: tw.getDate() };
 }
+
+// Solar term (節氣) — approximate dates for Taiwan (農曆節氣)
+function getSolarTerm(month, day){
+  const terms = [
+    // [month, approx_start_day, term_name, season_note]
+    [1,  6,  '小寒','冬季養生'],  [1, 20, '大寒','冬末滋補'],
+    [2,  4,  '立春','春回大地'],  [2, 19, '雨水','春雨綿綿'],
+    [3,  6,  '驚蟄','萬物復甦'],  [3, 21, '春分','陰陽平衡'],
+    [4,  5,  '清明','踏青時節'],  [4, 20, '穀雨','春雨潤土'],
+    [5,  6,  '立夏','夏日將至'],  [5, 21, '小滿','麥穗初熟'],
+    [6,  6,  '芒種','梅雨時節'],  [6, 21, '夏至','晝最長夜'],
+    [7,  7,  '小暑','暑氣漸盛'],  [7, 23, '大暑','一年最熱'],
+    [8,  7,  '立秋','秋風初至'],  [8, 23, '處暑','暑氣漸退'],
+    [9,  8,  '白露','露水初凝'],  [9, 23, '秋分','秋高氣爽'],
+    [10, 8,  '寒露','秋意漸濃'],  [10,23, '霜降','草木漸黃'],
+    [11, 7,  '立冬','冬日降臨'],  [11,22, '小雪','北方初雪'],
+    [12, 7,  '大雪','積雪時節'],  [12,22, '冬至','一年最短'],
+  ];
+  // Find current and upcoming term
+  let current = null;
+  for(let i = terms.length-1; i >= 0; i--){
+    const [m, d, name, note] = terms[i];
+    if(month > m || (month === m && day >= d)){
+      current = terms[i];
+      break;
+    }
+  }
+  if(!current) current = terms[terms.length-1]; // wrap to Dec
+  return current[2] + '・' + current[3];
+}
+
 
 function getTodayKey(){
   const{dateStr}=getTWTime();
@@ -1906,7 +1941,7 @@ async function fetchTaiwanWeather(){
     else if(code<=99){cond='rainy';label='⛈ 雷雨';desc='雷雨'}
     else{cond='cloudy';label='🌥 多雲';desc='多雲'}
     todayWeatherCondition=cond;
-    todayWeatherLabel='台灣・'+label.split(' ')[1]||label;
+    todayWeatherLabel='台灣・'+(label.split(' ')[1]||label);
     todayWeatherDesc=desc;
     const wEl=document.getElementById('weatherDisplay');
     if(wEl)wEl.textContent='台灣・'+label;
@@ -1922,12 +1957,12 @@ function updateWeatherDisplays(label,desc){
   // Update time+weather badge in divination if already showing
   const drDate=document.getElementById('drDate');
   if(drDate&&drDate.textContent){
-    const{dateStr,period}=getTWTime();
+    const{dateStr,timeStr}=getTWTime();
     drDate.textContent='台灣時間 '+dateStr+' '+period+'・'+label;
   }
   const bbrDate=document.getElementById('bbrDate');
   if(bbrDate&&bbrDate.textContent){
-    const{dateStr,period}=getTWTime();
+    const{dateStr,timeStr}=getTWTime();
     bbrDate.textContent='台灣時間 '+dateStr+' '+period+'・'+label;
   }
 }
@@ -1947,10 +1982,21 @@ document.getElementById('navToggle').addEventListener('click',()=>{
 });
 
 // ---- TIME ----
-const{dateStr,period}=getTWTime();
-document.getElementById('timeVal').textContent=dateStr+' '+period;
+const{dateStr,timeStr,month,day}=getTWTime();
+// 24-hour format display e.g. "2026/06/12 14:32"
+document.getElementById('timeVal').textContent=dateStr+' '+timeStr;
+// Dynamic solar term
+const solarTerm = getSolarTerm(month, day);
+const solarEl = document.getElementById('solarTermVal');
+if(solarEl) solarEl.textContent = solarTerm;
 // Fetch real weather (async)
 fetchTaiwanWeather();
+// Live clock — update every minute
+setInterval(function(){
+  const t = getTWTime();
+  const el = document.getElementById('timeVal');
+  if(el) el.textContent = t.dateStr+' '+t.timeStr;
+}, 60000);
 
 // ---- TABS ----
 function buildTabs(){
@@ -2039,23 +2085,23 @@ function doDivination(){
   btn.disabled=true;btn.textContent='占卜中…';
   setTimeout(()=>{
     const teaId=getTeaForDate();
-    const{dateStr,period,hash}=getTWTime();
+    const{dateStr,timeStr,hash,month,day}=getTWTime();
     const td=DIV_DATA[teaId]||DIV_DATA['moisture-balance-herbal-tea'];
     const wk=todayWeatherCondition in (td.msgs||{}) ? todayWeatherCondition : Object.keys(td.msgs||{rainy:[]})[0]||'rainy';
     const msgs=td.msgs[wk]||td.msgs['rainy']||['今日草木為你選了這一杯好茶。'];
     const poems=(td.poems||{})[wk]||(td.poems||{})['rainy']||['草本護心，日日好元'];
     const idx=hash%msgs.length;
     localStorage.setItem(getTodayKey(),JSON.stringify({teaId,idx,wk}));
-    showDivResult(teaId,td.name,dateStr,period,msgs[idx],poems[idx]);
+    showDivResult(teaId,td.name,dateStr,timeStr,msgs[idx],poems[idx]);
     currentBoxTeaId=teaId;
     updateBoxHint(td.name);
   },1100);
 }
-function showDivResult(teaId,name,dateStr,period,desc,poem){
+function showDivResult(teaId,name,dateStr,timeStr,desc,poem){
   document.getElementById('divIdle').classList.add('hidden');
   document.getElementById('divUsed').classList.add('hidden');
   const r=document.getElementById('divResult');r.classList.remove('hidden');
-  document.getElementById('drDate').textContent='台灣時間 '+dateStr+' '+period+'・'+todayWeatherLabel;
+  document.getElementById('drDate').textContent='台灣時間 '+dateStr+' '+timeStr+'・'+todayWeatherLabel;
   document.getElementById('drName').textContent='【'+name+'】';
   document.getElementById('drDesc').textContent=desc;
   document.getElementById('drPoem').textContent=poem;
@@ -2069,6 +2115,9 @@ function showDivUsed(saved){
   const wk=saved.wk||(td.msgs&&todayWeatherCondition in td.msgs?todayWeatherCondition:Object.keys(td.msgs||{})[0]||'rainy');
   const msgs=(td.msgs&&td.msgs[wk])||['今日草木為你選了這款好茶。'];
   const idx=saved.idx%msgs.length;
+  const{dateStr:duDateStr,timeStr:duTimeStr}=getTWTime();
+  const duDateEl=document.getElementById('duDate');
+  if(duDateEl) duDateEl.textContent='台灣時間 '+duDateStr+' '+duTimeStr+'・'+todayWeatherLabel;
   document.getElementById('duName').textContent='【'+td.name+'】';
   document.getElementById('duDesc').textContent=msgs[idx];
   document.getElementById('duGo').onclick=()=>goToProduct(saved.teaId);
@@ -2124,8 +2173,8 @@ function renderBoxResult(){
   const td=DIV_DATA[teaId]||DIV_DATA['moisture-balance-herbal-tea']||Object.values(DIV_DATA)[0];
   const ex=EXERCISES[Math.floor(Math.random()*EXERCISES.length)];
   const ac=ACUPOINTS[Math.floor(Math.random()*ACUPOINTS.length)];
-  const{dateStr,period}=getTWTime();
-  document.getElementById('bbrDate').textContent='台灣時間 '+dateStr+' '+period+'・'+todayWeatherLabel;
+  const{dateStr,timeStr}=getTWTime();
+  document.getElementById('bbrDate').textContent='台灣時間 '+dateStr+' '+timeStr+'・'+todayWeatherLabel;
   document.getElementById('bbrTea').textContent='【'+td.name+'】';
   document.getElementById('bbrEx').textContent=ex.name;
   document.getElementById('bbrAcName').textContent=ac.emoji+' '+ac.name+'（'+ac.loc+'）';
