@@ -107,7 +107,7 @@ body{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;ba
 .fcb-name{font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:500;margin-bottom:0.4rem}
 .fcb-desc{font-size:0.72rem;line-height:1.65;color:rgba(255,255,255,0.82);flex:1;overflow:hidden;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical}
 .fcb-more{margin-top:0.6rem;padding:0.42rem;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:2px;font-size:0.72rem;color:#fff;cursor:pointer;transition:all 0.2s;letter-spacing:0.06em;width:100%;font-family:inherit}
-.fcb-more:hover{background:rgba(255,255,255,0.28)}
+.fcb-more:hover{background:rgba(255,255,255,0.28)}.fcb-flip-hint{font-size:0.62rem;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-align:center;margin-top:0.4rem}
 
 /* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(26,22,18,0.78);z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem;animation:fadeIn 0.2s ease}
@@ -224,6 +224,46 @@ body{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;ba
 }
 @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
 .hidden{display:none!important}
+
+.quiz-fab{position:fixed;bottom:2rem;right:2rem;z-index:80;background:var(--moss);color:#fff;border:none;border-radius:50px;padding:0.85rem 1.4rem;font-size:0.85rem;font-family:inherit;letter-spacing:0.06em;cursor:pointer;box-shadow:0 4px 20px rgba(74,92,58,0.45);display:flex;align-items:center;gap:0.5rem;transition:all 0.25s ease;animation:fabPop 0.5s cubic-bezier(0.34,1.56,0.64,1) 1.5s both}
+@keyframes fabPop{from{opacity:0;transform:translateY(20px) scale(0.8)}to{opacity:1;transform:translateY(0) scale(1)}}
+.quiz-fab:hover{background:var(--moss2);transform:translateY(-2px);box-shadow:0 6px 24px rgba(74,92,58,0.5)}
+.quiz-overlay{position:fixed;inset:0;background:rgba(26,22,18,0.75);z-index:210;display:flex;align-items:center;justify-content:center;padding:1rem;animation:fadeIn 0.2s ease}
+.quiz-box{background:var(--cream);border-radius:8px;max-width:480px;width:100%;max-height:88vh;overflow-y:auto;position:relative;animation:slideUp 0.3s ease}
+.quiz-header{background:var(--moss);padding:1.75rem 1.75rem 1.25rem;color:#fff;border-radius:8px 8px 0 0;position:relative}
+.quiz-header h2{font-family:'Noto Serif TC',serif;font-size:1.25rem;font-weight:400;letter-spacing:0.06em;margin-bottom:0.3rem}
+.quiz-header p{font-size:0.78rem;color:rgba(255,255,255,0.7)}
+.quiz-close{position:absolute;top:1rem;right:1rem;background:rgba(0,0,0,0.2);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:0.9rem;color:#fff;display:flex;align-items:center;justify-content:center}
+.quiz-close:hover{background:rgba(0,0,0,0.35)}
+.quiz-body{padding:1.5rem 1.75rem}
+.quiz-progress{display:flex;gap:0.3rem;margin-bottom:1.5rem}
+.quiz-prog-dot{height:4px;flex:1;border-radius:2px;background:var(--mist);transition:background 0.3s}
+.quiz-prog-dot.done{background:var(--moss)}
+.quiz-prog-dot.active{background:var(--clay)}
+.quiz-question{font-family:'Noto Serif TC',serif;font-size:1.05rem;font-weight:400;color:var(--ink);margin-bottom:0.35rem;line-height:1.6}
+.quiz-sub{font-size:0.78rem;color:var(--fog);margin-bottom:1.2rem}
+.quiz-options{display:flex;flex-direction:column;gap:0.55rem}
+.quiz-opt{padding:0.85rem 1.1rem;border:1.5px solid var(--mist);border-radius:6px;background:#fff;cursor:pointer;font-size:0.87rem;color:var(--ink2);text-align:left;font-family:inherit;transition:all 0.18s ease;display:flex;align-items:center;gap:0.75rem;line-height:1.5}
+.quiz-opt:hover{border-color:var(--moss);color:var(--moss);background:rgba(74,92,58,0.04)}
+.quiz-opt.selected{border-color:var(--moss);background:rgba(74,92,58,0.08);color:var(--moss)}
+.quiz-opt-emoji{font-size:1.15rem;flex-shrink:0}
+.quiz-nav{display:flex;gap:0.75rem;margin-top:1.5rem;justify-content:flex-end;flex-wrap:wrap}
+.quiz-btn-back{padding:0.6rem 1.25rem;background:transparent;border:1.5px solid var(--fog);border-radius:4px;font-size:0.82rem;color:var(--ink2);cursor:pointer;font-family:inherit;transition:all 0.2s}
+.quiz-btn-back:hover{border-color:var(--moss);color:var(--moss)}
+.quiz-btn-next{padding:0.6rem 1.5rem;background:var(--moss);border:none;border-radius:4px;font-size:0.82rem;color:#fff;cursor:pointer;font-family:inherit;transition:all 0.2s;letter-spacing:0.06em}
+.quiz-btn-next:hover{background:var(--moss2)}
+.quiz-btn-next:disabled{opacity:0.45;cursor:not-allowed}
+.quiz-result{text-align:center;padding:0.25rem 0 0.5rem}
+.quiz-result-badge{font-size:3rem;margin-bottom:0.6rem}
+.quiz-result-label{font-size:0.7rem;letter-spacing:0.22em;color:var(--clay);margin-bottom:0.35rem}
+.quiz-result-name{font-family:'Noto Serif TC',serif;font-size:1.55rem;font-weight:400;color:var(--ink);margin-bottom:0.75rem;letter-spacing:0.06em}
+.quiz-result-reason{font-size:0.85rem;color:var(--ink2);line-height:1.9;margin-bottom:1.5rem;background:var(--parch);padding:1rem 1.1rem;border-radius:6px;border-left:3px solid var(--clay);text-align:left}
+.quiz-result-actions{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
+.quiz-result-go{padding:0.75rem 1.75rem;background:var(--moss);color:#fff;border:none;border-radius:4px;font-size:0.88rem;letter-spacing:0.06em;cursor:pointer;font-family:inherit;transition:all 0.2s}
+.quiz-result-go:hover{background:var(--moss2)}
+.quiz-result-retry{padding:0.75rem 1.25rem;background:transparent;color:var(--moss);border:1.5px solid var(--moss);border-radius:4px;font-size:0.88rem;cursor:pointer;font-family:inherit;transition:all 0.2s}
+.quiz-result-retry:hover{background:var(--moss);color:#fff}
+@media(max-width:480px){.quiz-fab span:last-child{display:none}.quiz-fab{padding:0.9rem 1rem;border-radius:50%}.quiz-body{padding:1.25rem}}
 </style>
 </head>
 <body>
@@ -2030,6 +2070,7 @@ function renderCards(){
           <p class="fcb-name">${p.name}</p>
           <p class="fcb-desc">${p.desc}</p>
           <button class="fcb-more" onclick="event.stopPropagation();openModal('${p.id}')">查看完整介紹 →</button>
+          <p class="fcb-flip-hint">點擊卡片翻回正面</p>
         </div>
       </div>
     </div>`).join('');
@@ -2039,8 +2080,11 @@ function renderCards(){
 function handleCardClick(e,id){
   if(e.target.closest('.fcb-more'))return;
   const card=document.getElementById('fc-'+id);
-  if(card.classList.contains('flipped')){openModal(id);}
-  else{card.classList.add('flipped');}
+  if(card.classList.contains('flipped')){
+    card.classList.remove('flipped');
+  } else {
+    card.classList.add('flipped');
+  }
 }
 
 // ---- MODAL ----
@@ -2186,6 +2230,266 @@ function renderBoxResult(){
 // ---- INIT ----
 buildTabs();
 renderCards();
+
+
+// ============================================================
+// 茶款推薦問答系統 — 單題複選痛點，每款茶都涵蓋
+// ============================================================
+
+// 每個 option 直接對應一個或多個 productId（按優先順序）
+const QUIZ_OPTIONS = [
+  // ── 睡眠 ──
+  { emoji:'😴', text:'睡不好，容易淺眠、入睡困難',           products:['night-calm-herbal-tea','herbal-sleep-wellness-sachet'] },
+  { emoji:'🦉', text:'常熬夜，隔天整個人很疲憊',             products:['night-owl-herbal-tea','daily-vitality-herbal-teay'] },
+  // ── 精力 ──
+  { emoji:'😩', text:'整天沒精神、容易疲憊倦怠',             products:['daily-vitality-herbal-teay','nourish-vitality-herbal-tea'] },
+  { emoji:'💪', text:'體力大病初癒，需要深層滋補',            products:['nourish-vitality-herbal-tea','andys-herbal-tea-plus'] },
+  { emoji:'🔥', text:'手腳冰冷、體質偏寒涼',                 products:['soothing-ginger-herbal-tea','longan-red-date-herbal-tea'] },
+  // ── 濕氣 ──
+  { emoji:'🌧', text:'身體沉重、水腫感，感覺濕氣重',         products:['moisture-balance-herbal-tea','metabolic-balance-herbal-tea'] },
+  { emoji:'⚖️', text:'想維持輕盈體態、日常管理身材',          products:['light-fit-herbal-tea','moisture-balance-herbal-tea'] },
+  // ── 美顏 ──
+  { emoji:'🌸', text:'氣色暗沉，想找回好膚況與光彩',         products:['rose-radiance-herbal-tea','nourishing-beauty-herbal-tea'] },
+  { emoji:'🌹', text:'想每天寵愛自己，喝點有花香的茶',        products:['rose-radiance-herbal-tea','rose-vitality-herbal-tea'] },
+  // ── 眼睛 ──
+  { emoji:'👁️', text:'長時間盯螢幕，眼睛乾澀疲勞',            products:['chrysanthemum-and-goji-berry-tea','bright-and-comfort-herbal-tea'] },
+  // ── 喉嚨 ──
+  { emoji:'🎙️', text:'喉嚨容易乾澀，說話後不舒服',            products:['soothing-throat-herbal-tea','nourishing-tea'] },
+  { emoji:'🫧', text:'天氣乾燥，嘴唇乾、想要清涼消暑',        products:['roselle-and-plum-herbal-tea','soothing-throat-herbal-tea'] },
+  // ── 心情 ──
+  { emoji:'😤', text:'壓力大、心情鬱悶、情緒起伏大',         products:['harmony-and-comfort-herbal-tea','rose-vitality-herbal-tea'] },
+  // ── 腸胃 ──
+  { emoji:'🍽', text:'腸胃消化不佳，飯後容易脹氣',           products:['good-appetite-herbal-tea','metabolic-balance-herbal-tea'] },
+  // ── 元氣 / 男性 ──
+  { emoji:'⚡', text:'想補充男性活力、找回精力狀態',          products:['maca-herbal-tea','imperial-vitality-herbal-tea'] },
+  { emoji:'🏃', text:'運動後或體能消耗大，需要恢復元氣',      products:['rhodiola-herbal-tea','daily-vitality-herbal-teay'] },
+  // ── 女性 ──
+  { emoji:'🌺', text:'生理期不適，需要溫柔呵護',             products:['warm-balance-herbal-tea','feminine-radiance-herbal-tea'] },
+  { emoji:'🤱', text:'備孕、懷孕或哺乳期，想溫和滋補',       products:['maternity-care-herbal-tea','postnatal-nursing-tea'] },
+  // ── 成長 ──
+  { emoji:'📚', text:'學業壓力大，需要提升專注與記憶',        products:['gastrodia-mind-wellness-tea','teen-wellness-herbal-tea'] },
+  { emoji:'🧒', text:'孩子正在發育成長，想幫助轉骨',         products:['teen-wellness-for-boy-herbal-tea','teen-wellness-herbal-tea'] },
+  // ── 修護 ──
+  { emoji:'🌿', text:'腰膝無力、久坐後腰部酸軟',             products:['black-bean-and-eucommia-herbal-tea','nourish-vitality-herbal-tea'] },
+  { emoji:'🫁', text:'容易換季過敏、體質敏感',               products:['seasonal-soothing-herbal-tea','chrysanthemum-and-goji-berry-tea'] },
+  { emoji:'💊', text:'術後恢復期，需要溫和調補',             products:['recovery-support-herbal-tea','andys-herbal-tea-plus'] },
+  // ── 外用 ──
+  { emoji:'🛁', text:'想泡澡放鬆，消除一整天疲勞',           products:['chinese-herb-bathing-pack','chinese-herb-lavender-foot-soak-bundle'] },
+  { emoji:'🦶', text:'泡腳舒緩，想暖身或去除沉悶感',          products:['chinese-herb-foot-soak-bundle','chinese-herb-rose-foot-soak-bundle'] },
+  { emoji:'🦟', text:'夏天蚊蟲多，想天然防蚊',              products:['mosquito-repellent','pet-mosquito-pack'] },
+  // ── 日常茶飲 ──
+  { emoji:'🌼', text:'只是想每天喝杯順口暖心的養生茶',        products:['longan-red-date-herbal-tea','nourishing-tea'] },
+  { emoji:'☀️', text:'想每天精神好，維持健康日常作息',         products:['daily-vitality-herbal-teay','rhodiola-herbal-tea'] },
+];
+
+// Product display name map (for result display)
+var _PROD_NAMES = {};
+(function(){
+  if(typeof PRODUCTS !== 'undefined'){
+    PRODUCTS.forEach(function(p){ _PROD_NAMES[p.id] = { name: p.name, emoji: p.emoji, catLabel: p.catLabel }; });
+  }
+})();
+
+// Selected option indices (multi-select)
+var quizSelected = {};  // { optionIndex: true }
+
+function openQuiz() {
+  quizSelected = {};
+  // Refresh name map in case PRODUCTS loaded after this script
+  if(typeof PRODUCTS !== 'undefined'){
+    PRODUCTS.forEach(function(p){ _PROD_NAMES[p.id] = { name: p.name, emoji: p.emoji||'🍵', catLabel: p.catLabel }; });
+  }
+  renderQuizPanel();
+}
+
+function closeQuiz() {
+  var root = document.getElementById('quizRoot');
+  if(root) root.innerHTML = '';
+}
+
+function renderQuizPanel() {
+  var root = document.getElementById('quizRoot');
+  if(!root) return;
+
+  var optionsHTML = QUIZ_OPTIONS.map(function(opt, i) {
+    var isSel = !!quizSelected[i];
+    return '<button id="qopt-' + i + '" class="quiz-opt' + (isSel ? ' selected' : '') + '" onclick="toggleQuizOpt(' + i + ')">'
+      + '<span class="quiz-opt-emoji">' + opt.emoji + '</span>'
+      + '<span>' + opt.text + '</span>'
+      + '<span class="qopt-ck" style="margin-left:auto;font-size:1rem;flex-shrink:0;' + (isSel ? '' : 'display:none') + '">✓</span>'
+      + '</button>';
+  }).join('');
+
+  var selCount = Object.keys(quizSelected).length;
+
+  root.innerHTML =
+    '<div class="quiz-overlay" id="quizOverlay">'
+    + '<div class="quiz-box">'
+    + '<div class="quiz-header">'
+    + '<button class="quiz-close" onclick="closeQuiz()">✕</button>'
+    + '<div style="font-size:1.75rem;margin-bottom:0.5rem">🍵</div>'
+    + '<h2>不知道自己適合什麼茶款嗎？</h2>'
+    + '<p>勾選你最近有感的情境（可複選），立即找到最適合的草本茶</p>'
+    + '</div>'
+    + '<div class="quiz-body">'
+    + '<p class="quiz-question">最近哪些情境讓你有感觸？</p>'
+    + '<p class="quiz-sub">可以複選，選越多推薦越準確</p>'
+    + '<div class="quiz-options">' + optionsHTML + '</div>'
+    + '<div class="quiz-nav">'
+    + '<span id="quiz-sel-count" style="font-size:0.78rem;color:var(--fog)">已選 ' + selCount + ' 項</span>'
+    + '<button id="quiz-next-btn" class="quiz-btn-next" onclick="showQuizResult()" ' + (selCount > 0 ? '' : 'disabled') + '>查看推薦結果 →</button>'
+    + '</div>'
+    + '</div>'
+    + '</div>'
+    + '</div>';
+
+  document.getElementById('quizOverlay').addEventListener('click', function(e) {
+    if(e.target === this) closeQuiz();
+  });
+}
+
+function toggleQuizOpt(i) {
+  if(quizSelected[i]) {
+    delete quizSelected[i];
+  } else {
+    quizSelected[i] = true;
+  }
+  // Patch DOM in-place — no scroll jump
+  var btn = document.getElementById('qopt-' + i);
+  if(btn) {
+    var isSel = !!quizSelected[i];
+    btn.classList.toggle('selected', isSel);
+    // update checkmark span
+    var ck = btn.querySelector('.qopt-ck');
+    if(ck) ck.style.display = isSel ? '' : 'none';
+    // update count + next button
+    var selCount = Object.keys(quizSelected).length;
+    var countEl = document.getElementById('quiz-sel-count');
+    if(countEl) countEl.textContent = '已選 ' + selCount + ' 項';
+    var nextBtn = document.getElementById('quiz-next-btn');
+    if(nextBtn) nextBtn.disabled = selCount === 0;
+  }
+}
+
+function calcMultiResult() {
+  // Score every product based on how many selected options map to it
+  var scores = {};
+  Object.keys(quizSelected).forEach(function(idx) {
+    var opt = QUIZ_OPTIONS[parseInt(idx)];
+    opt.products.forEach(function(pid, rank) {
+      // First product in list scores 2, second scores 1
+      scores[pid] = (scores[pid] || 0) + (rank === 0 ? 2 : 1);
+    });
+  });
+
+  // Sort by score desc
+  var sorted = Object.keys(scores).sort(function(a, b) { return scores[b] - scores[a]; });
+
+  // Return top 3 unique results
+  var results = [];
+  sorted.slice(0, 3).forEach(function(pid) {
+    var info = _PROD_NAMES[pid] || { name: pid, emoji: '🍵', catLabel: '' };
+    results.push({ productId: pid, name: info.name, emoji: info.emoji, catLabel: info.catLabel, score: scores[pid] });
+  });
+  return results;
+}
+
+function buildResultReason(results) {
+  // Build a reason string based on which options were selected
+  var selectedTexts = Object.keys(quizSelected).map(function(i) {
+    return QUIZ_OPTIONS[parseInt(i)].text;
+  });
+  if(selectedTexts.length === 1) return '你提到「' + selectedTexts[0] + '」，草木為你精選了最對應的茶款。';
+  if(selectedTexts.length <= 3) return '你提到了「' + selectedTexts.slice(0, 2).join('」、「') + '」等情境，這款茶最能全面回應你的需求。';
+  return '根據你勾選的 ' + selectedTexts.length + ' 個情境，這是最能覆蓋你日常需求的草本茶款推薦。';
+}
+
+function showQuizResult() {
+  var results = calcMultiResult();
+  if(!results.length) return;
+  var root = document.getElementById('quizRoot');
+  if(!root) return;
+
+  var cardsHTML = results.map(function(r, idx) {
+    var badge = idx === 0 ? '<span style="background:var(--clay);color:#fff;font-size:0.65rem;padding:0.2rem 0.6rem;border-radius:10px;letter-spacing:0.1em;vertical-align:middle;margin-left:0.5rem">最推薦</span>' : '';
+    return '<div class="quiz-result-card" style="display:flex;align-items:center;gap:1rem;padding:0.9rem 1rem;background:' + (idx===0?'var(--parch)':'#fff') + ';border:1.5px solid ' + (idx===0?'var(--clay)':'var(--mist)') + ';border-radius:6px;margin-bottom:0.6rem;cursor:pointer" onclick="quizGoProduct(\'' + r.productId + '\')">'
+      + '<span style="font-size:1.8rem;flex-shrink:0">' + r.emoji + '</span>'
+      + '<div style="flex:1;min-width:0">'
+      + '<p style="font-size:0.65rem;letter-spacing:0.15em;color:var(--clay);margin-bottom:0.15rem">' + r.catLabel + '</p>'
+      + '<p style="font-family:\'Noto Serif TC\',serif;font-size:0.98rem;font-weight:500;color:var(--ink)">' + r.name + badge + '</p>'
+      + '</div>'
+      + '<span style="color:var(--fog);font-size:0.8rem;flex-shrink:0">查看 →</span>'
+      + '</div>';
+  }).join('');
+
+  // Store result product ids for flip-on-close
+  var _resultIds = results.map(function(r){ return r.productId; });
+  window._quizResultIds = _resultIds;
+
+  root.innerHTML =
+    '<div class="quiz-overlay" id="quizOverlay">'
+    + '<div class="quiz-box">'
+    + '<div class="quiz-header">'
+    + '<button class="quiz-close" onclick="closeAndFlipAll()">✕</button>'
+    + '<div style="font-size:1.75rem;margin-bottom:0.5rem">✨</div>'
+    + '<h2>你的草本推薦出爐了！</h2>'
+    + '<p>' + buildResultReason(results) + '</p>'
+    + '</div>'
+    + '<div class="quiz-body">'
+    + '<p class="quiz-question" style="margin-bottom:1rem">為你推薦 ' + results.length + ' 款茶</p>'
+    + cardsHTML
+    + '<div class="quiz-nav" style="margin-top:1rem">'
+    + '<button class="quiz-btn-back" onclick="openQuiz()">← 重新選擇</button>'
+    + '<button class="quiz-btn-next" onclick="closeAndFlipAll()">完成，前往查看</button>'
+    + '</div>'
+    + '</div>'
+    + '</div>'
+    + '</div>';
+
+  document.getElementById('quizOverlay').addEventListener('click', function(e) {
+    if(e.target === this) closeQuiz();
+  });
+}
+
+function closeAndFlipAll() {
+  var ids = window._quizResultIds || [];
+  closeQuiz();
+  if(ids.length > 0) {
+    goToProductAndFlip(ids);
+  } else {
+    scrollToId('products');
+  }
+}
+
+function quizGoProduct(productId) {
+  closeQuiz();
+  goToProductAndFlip([productId]);
+}
+
+function goToProductAndFlip(productIds) {
+  scrollToId('products');
+  setTimeout(function() {
+    currentCat = 'all';
+    buildTabs();
+    renderCards();
+    setTimeout(function() {
+      var firstCard = document.getElementById('fc-' + productIds[0]);
+      if(firstCard) {
+        firstCard.scrollIntoView({ behavior:'smooth', block:'center' });
+        productIds.forEach(function(pid, idx) {
+          setTimeout(function() {
+            var card = document.getElementById('fc-' + pid);
+            if(card) card.classList.add('flipped');
+          }, 500 + idx * 150);
+        });
+      }
+    }, 100);
+  }, 350);
+}
+
 </script>
+
+<button class="quiz-fab" onclick="openQuiz()">🍵 不知道喝什麼茶？</button>
+<div id="quizRoot"></div>
 </body>
 </html>
