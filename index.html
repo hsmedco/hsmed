@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="referrer" content="no-referrer"/>
+<title>合順本草 HSMED｜三代傳承漢方世家</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;background:#faf7f2;color:#1a1612;overflow-x:hidden}
+:root{
+  --ink:#1a1612;--ink2:#3d3530;--moss:#4a5c3a;--moss2:#6a7f56;
+  --parch:#f7f3ec;--cream:#faf7f2;--clay:#c8a97e;--mist:#e8e2d8;
+  --fog:#d0c9bd;--sienna:#9c6b3c;
+}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all 0.3s ease}
+.nav.scrolled{background:rgba(250,247,242,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--mist);box-shadow:0 1px 20px rgba(26,22,18,0.06)}
+.nav-inner{max-width:1160px;margin:0 auto;padding:1.1rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;flex-direction:column;line-height:1.1;cursor:pointer;text-decoration:none}
+.logo-cn{font-family:'Noto Serif TC',serif;font-size:1.05rem;font-weight:600;color:var(--ink)}
+.logo-en{font-size:0.6rem;letter-spacing:0.28em;color:var(--moss);font-weight:500}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-link{font-size:0.82rem;letter-spacing:0.05em;color:var(--ink2);text-decoration:none;position:relative;transition:color 0.2s;background:none;border:none;cursor:pointer;padding:0}
+.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--moss);transition:width 0.3s ease}
+.nav-link:hover{color:var(--moss)}
+.nav-link:hover::after{width:100%}
+.nav-cta{padding:0.45rem 1.1rem;background:var(--moss);color:#fff;border:none;border-radius:2px;font-size:0.8rem;letter-spacing:0.06em;cursor:pointer;transition:all 0.2s;text-decoration:none;font-family:inherit}
+.nav-cta:hover{background:var(--moss2)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;padding:4px;background:none;border:none;cursor:pointer}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.3s}
+.nav-mobile{display:none;flex-direction:column;background:rgba(250,247,242,0.98);border-top:1px solid var(--mist);padding:1rem 1.5rem 1.5rem;gap:0.25rem}
+.nav-mobile.open{display:flex}
+.nav-mobile-link{padding:0.7rem 0;font-size:0.95rem;color:var(--ink2);border-bottom:1px solid var(--mist);background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;font-family:inherit;text-align:left;letter-spacing:0.04em}
+.nav-mobile-cta{margin-top:0.75rem;padding:0.75rem;background:var(--moss);color:#fff;border:none;border-radius:3px;font-size:0.95rem;cursor:pointer;font-family:inherit;letter-spacing:0.06em}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--ink)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(74,92,58,0.2) 0%,transparent 60%),radial-gradient(ellipse 40% 60% at 20% 80%,rgba(200,169,126,0.12) 0%,transparent 50%),linear-gradient(160deg,#1a1612 0%,#2a2218 50%,#1e1a14 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;color:#fff;max-width:600px;padding:0 1.5rem;animation:heroIn 1.2s ease forwards}
+@keyframes heroIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.hero-eye{font-size:0.75rem;letter-spacing:0.35em;color:var(--clay);margin-bottom:1.5rem;font-weight:300}
+.hero-h1{font-family:'Noto Serif TC',serif;font-size:clamp(2.6rem,7vw,5rem);font-weight:300;line-height:1.2;letter-spacing:0.06em;color:var(--parch);margin-bottom:1.25rem}
+.hero-sub{font-size:0.85rem;letter-spacing:0.2em;color:rgba(247,243,236,0.5);margin-bottom:2.5rem;font-weight:300}
+.hero-btns{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
+.hbtn{padding:0.7rem 1.8rem;border-radius:2px;font-size:0.88rem;letter-spacing:0.08em;cursor:pointer;transition:all 0.2s;border:none;font-family:inherit}
+.hbtn-p{background:var(--moss);color:#fff}
+.hbtn-p:hover{background:var(--moss2);transform:translateY(-1px)}
+.hbtn-o{background:transparent;color:rgba(247,243,236,0.8);border:1.5px solid rgba(247,243,236,0.3)!important}
+.hbtn-o:hover{background:rgba(247,243,236,0.08)}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.6rem;color:rgba(247,243,236,0.3);font-size:0.65rem;letter-spacing:0.15em;z-index:2;animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:0.3}50%{opacity:0.7}}
+.hero-scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,rgba(247,243,236,0.5),transparent)}
+
+/* SECTIONS */
+.section{padding:5rem 1.25rem}
+.sec-dark{background:var(--ink);color:var(--parch)}
+.container{max-width:1100px;margin:0 auto}
+.sec-header{text-align:center;max-width:520px;margin:0 auto 3rem}
+.sec-eye{font-size:0.72rem;letter-spacing:0.32em;color:var(--moss);margin-bottom:0.85rem;font-weight:500}
+.sec-dark .sec-eye{color:var(--clay)}
+.sec-h2{font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:400;letter-spacing:0.06em;margin-bottom:0.85rem}
+.sec-sub{font-size:0.85rem;color:var(--ink2);line-height:1.85}
+.sec-dark .sec-sub{color:rgba(247,243,236,0.55)}
+
+/* CATEGORY TABS */
+.cat-tabs{display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center;margin-bottom:2.5rem}
+.ctab{padding:0.42rem 1rem;font-size:0.75rem;letter-spacing:0.06em;border:1.5px solid var(--fog);border-radius:2px;color:var(--ink2);background:transparent;cursor:pointer;transition:all 0.2s;font-family:inherit}
+.ctab:hover{border-color:var(--moss);color:var(--moss)}
+.ctab.active{background:var(--moss);border-color:var(--moss);color:#fff}
+
+/* CARDS GRID */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.25rem}
+
+/* FLIP CARD */
+.flip-card{height:300px;perspective:900px;cursor:pointer}
+.fci{position:relative;width:100%;height:100%;transition:transform 0.65s cubic-bezier(0.4,0.2,0.2,1);transform-style:preserve-3d}
+.flip-card.flipped .fci{transform:rotateY(180deg)}
+.fcf,.fcb{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:4px;overflow:hidden}
+.fcf{background:var(--parch);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1.75rem 1.5rem;border:1.5px solid var(--mist);transition:border-color 0.2s}
+.flip-card:hover .fcf{border-color:var(--clay)}
+.fc-cat{font-size:0.65rem;letter-spacing:0.22em;color:var(--clay);margin-bottom:1.1rem;font-weight:500}
+.fc-pain{font-family:'Noto Serif TC',serif;font-size:1.25rem;font-weight:400;color:var(--ink);line-height:1.5;margin-bottom:1.1rem;letter-spacing:0.04em}
+.fc-hint{font-size:0.68rem;color:var(--fog);letter-spacing:0.1em}
+.fc-hint::before,.fc-hint::after{content:'—';opacity:0.5;margin:0 0.3rem}
+.fcb{background:var(--moss);transform:rotateY(180deg);display:flex;flex-direction:column;color:#fff;padding:1.25rem}
+.fcb-img{width:100%;height:120px;border-radius:4px;display:flex;align-items:center;justify-content:center;margin-bottom:0.85rem;flex-shrink:0;overflow:hidden;position:relative}.fcb-img .card-visual{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.4rem;position:relative;overflow:hidden}.fcb-img .card-visual-emoji{font-size:3rem;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.3))}.fcb-img .card-visual-label{font-size:0.6rem;letter-spacing:0.2em;color:rgba(255,255,255,0.7);font-family:inherit}
+.cat-bg-sleep{background:linear-gradient(135deg,#2d3a2e 0%,#4a5c3a 60%,#6a7f56 100%)}
+.cat-bg-daily{background:linear-gradient(135deg,#3a3020 0%,#6b5230 60%,#9c7a45 100%)}
+.cat-bg-eyecare{background:linear-gradient(135deg,#1a2a3a 0%,#2e4a6b 60%,#4a7ca8 100%)}
+.cat-bg-voice{background:linear-gradient(135deg,#2a2020 0%,#5a3030 60%,#8b5050 100%)}
+.cat-bg-monthly{background:linear-gradient(135deg,#3a1a2a 0%,#6b3050 60%,#a05070 100%)}
+.cat-bg-bodysculpture{background:linear-gradient(135deg,#1a3a2a 0%,#2e6b4a 60%,#4aa070 100%)}
+.cat-bg-restore{background:linear-gradient(135deg,#2a3a20 0%,#4a6b30 60%,#6a9540 100%)}
+.cat-bg-prevent{background:linear-gradient(135deg,#20302a 0%,#305040 60%,#407055 100%)}
+.cat-bg-maternity{background:linear-gradient(135deg,#3a2a1a 0%,#6b4a2e 60%,#a07045 100%)}
+.cat-bg-children{background:linear-gradient(135deg,#1a2a3a 0%,#2a4a6a 60%,#3a6a8a 100%)}
+.cat-bg-strength{background:linear-gradient(135deg,#2a1a1a 0%,#5a2a2a 60%,#8a4040 100%)}
+.cat-bg-topicaluse{background:linear-gradient(135deg,#2a2a1a 0%,#4a4a2a 60%,#6a6a3a 100%)}
+
+.fcb-cat{font-size:0.6rem;letter-spacing:0.18em;color:rgba(255,255,255,0.6);margin-bottom:0.2rem}
+.fcb-name{font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:500;margin-bottom:0.4rem}
+.fcb-desc{font-size:0.72rem;line-height:1.65;color:rgba(255,255,255,0.82);flex:1;overflow:hidden;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical}
+.fcb-more{margin-top:0.6rem;padding:0.42rem;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:2px;font-size:0.72rem;color:#fff;cursor:pointer;transition:all 0.2s;letter-spacing:0.06em;width:100%;font-family:inherit}
+.fcb-more:hover{background:rgba(255,255,255,0.28)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(26,22,18,0.78);z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem;animation:fadeIn 0.2s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{background:var(--cream);border-radius:6px;max-width:500px;width:100%;max-height:92vh;overflow-y:auto;position:relative;animation:slideUp 0.3s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:0.9rem;right:0.9rem;background:rgba(255,255,255,0.2);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:0.9rem;color:#fff;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:1}
+.modal-close:hover{background:rgba(255,255,255,0.35)}
+.modal-hero{padding:2rem 1.75rem 1.5rem;color:#fff;position:relative}.modal-hero-emoji{font-size:3.5rem;margin-bottom:0.75rem;filter:drop-shadow(0 2px 12px rgba(0,0,0,0.4))}
+.modal-emoji{font-size:2.8rem;margin-bottom:0.75rem}.modal-img-wrap{overflow:hidden;margin-bottom:0}.modal-img-placeholder{width:100%;height:180px;display:flex;align-items:center;justify-content:center;font-size:4rem}.modal-img{width:100%;height:200px;overflow:hidden;margin-bottom:0}.modal-img img{width:100%;height:100%;object-fit:cover}.modal-img-placeholder{width:100%;height:200px;background:var(--moss);display:flex;align-items:center;justify-content:center;font-size:4rem}.modal-img-wrap{overflow:hidden;margin-bottom:0}
+.modal-cat{font-size:0.65rem;letter-spacing:0.2em;color:rgba(255,255,255,0.65);margin-bottom:0.3rem}
+.modal-name{font-family:'Noto Serif TC',serif;font-size:1.7rem;font-weight:400;letter-spacing:0.06em;margin-bottom:0.4rem}
+.modal-price{font-size:0.82rem;color:rgba(255,255,255,0.78);letter-spacing:0.05em}
+.modal-body{padding:1.75rem}
+.modal-stitle{font-size:0.68rem;letter-spacing:0.22em;color:var(--clay);margin-bottom:0.6rem;font-weight:500}
+.modal-pain{background:var(--parch);border-left:3px solid var(--clay);padding:0.85rem 1rem;border-radius:0 4px 4px 0;font-family:'Noto Serif TC',serif;font-size:0.98rem;color:var(--ink);margin-bottom:1.5rem;line-height:1.6}
+.modal-desc{font-size:0.88rem;line-height:1.9;color:var(--ink2);margin-bottom:1.75rem}
+.modal-cta{display:flex;align-items:center;justify-content:center;gap:0.4rem;width:100%;padding:0.9rem;background:var(--moss);color:#fff;border:none;border-radius:3px;font-size:0.88rem;letter-spacing:0.08em;cursor:pointer;transition:all 0.2s;text-decoration:none;font-family:inherit}
+.modal-cta:hover{background:var(--moss2);transform:translateY(-1px)}
+
+/* DIVINATION */
+.div-wrap{display:grid;grid-template-columns:1fr 260px;gap:2rem;max-width:880px;margin:0 auto;align-items:start}
+.div-card{background:rgba(255,255,255,0.04);border:1px solid rgba(247,243,236,0.12);border-radius:4px;padding:2.75rem 2rem;min-height:300px;display:flex;align-items:center;justify-content:center}
+.div-idle{text-align:center}
+.div-icon{font-size:2.5rem;margin-bottom:1rem;animation:rot 12s linear infinite;display:block}
+@keyframes rot{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.div-text{font-family:'Noto Serif TC',serif;font-size:1.05rem;color:var(--parch);margin-bottom:0.4rem;letter-spacing:0.04em}
+.div-sub2{font-size:0.75rem;color:rgba(247,243,236,0.4);letter-spacing:0.12em;margin-bottom:1.5rem}
+.btn-div{padding:0.82rem 2.2rem;background:var(--moss);color:#fff;border:none;border-radius:3px;font-size:0.9rem;letter-spacing:0.1em;cursor:pointer;transition:all 0.2s;font-family:inherit}
+.btn-div:hover{background:var(--moss2)}
+.btn-div:disabled{opacity:0.6;cursor:not-allowed}
+.div-result,.div-used{text-align:center;width:100%;animation:fadeUp 0.55s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.dr-icon{font-size:2rem;margin-bottom:0.75rem}
+.dr-date{font-size:0.7rem;letter-spacing:0.18em;color:var(--clay);margin-bottom:0.5rem}
+.dr-name{font-family:'Noto Serif TC',serif;font-size:1.65rem;font-weight:400;color:var(--parch);margin-bottom:0.55rem;letter-spacing:0.06em}
+.dr-desc{font-size:0.85rem;color:rgba(247,243,236,0.78);line-height:1.9;margin-bottom:0.5rem;max-width:380px;margin-left:auto;margin-right:auto}
+.dr-poem{font-family:'Noto Serif TC',serif;font-size:0.8rem;color:var(--clay);letter-spacing:0.1em;margin-bottom:1.5rem}
+.dr-acts{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
+.btn-goto{padding:0.62rem 1.5rem;background:var(--moss);color:#fff;border:none;border-radius:3px;font-size:0.82rem;letter-spacing:0.06em;cursor:pointer;transition:all 0.2s;font-family:inherit}
+.btn-goto:hover{background:var(--moss2)}
+.du-title{font-family:'Noto Serif TC',serif;font-size:1.2rem;color:var(--parch);margin-bottom:0.3rem}
+.du-sub{font-size:0.75rem;color:var(--clay);letter-spacing:0.12em;margin-bottom:1rem}
+.div-info{display:flex;flex-direction:column;gap:1rem}
+.dii{display:flex;align-items:flex-start;gap:0.75rem;padding:1rem 1.1rem;background:rgba(255,255,255,0.04);border:1px solid rgba(247,243,236,0.1);border-radius:4px}
+.dii-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px}
+.dii-label{font-size:0.65rem;letter-spacing:0.15em;color:rgba(247,243,236,0.4);margin-bottom:0.2rem}
+.dii-val{font-size:0.88rem;color:var(--parch)}
+
+/* BLIND BOX */
+.bb-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;max-width:800px;margin:0 auto;align-items:center}
+.bb-left{display:flex;flex-direction:column;align-items:center;gap:1.5rem}
+.bb-box{width:140px;height:140px;position:relative}
+.bb-lid{position:absolute;top:0;left:0;right:0;height:46px;z-index:2;transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1);transform-origin:bottom center}
+.bb-lid-top{width:100%;height:36px;background:var(--moss);border-radius:4px 4px 0 0}
+.bb-ribbon{position:absolute;top:0;left:50%;transform:translateX(-50%);width:16px;height:36px;background:var(--clay);border-radius:2px}
+.bb-body{position:absolute;bottom:0;left:0;right:0;height:100px;background:var(--moss2);border-radius:0 0 4px 4px;display:flex;align-items:center;justify-content:center}
+.bb-q{font-size:2.5rem;color:rgba(255,255,255,0.3);font-family:'Noto Serif TC',serif;transition:all 0.3s}
+.bb-box.opening .bb-lid,.bb-box.opened .bb-lid{transform:rotateX(-130deg) translateY(-8px)}
+.bb-btn{padding:0.78rem 2rem;background:var(--moss);color:#fff;border:none;border-radius:3px;font-size:0.9rem;letter-spacing:0.1em;cursor:pointer;transition:all 0.2s;font-family:inherit}
+.bb-btn:hover{background:var(--moss2)}
+.bb-btn:disabled{opacity:0.6;cursor:not-allowed}
+.bb-hint{font-size:0.74rem;color:var(--fog);letter-spacing:0.07em;text-align:center;max-width:220px}
+.bb-result{animation:fadeUp 0.4s ease}
+.bbr-date{font-size:0.7rem;letter-spacing:0.18em;color:var(--clay);margin-bottom:0.4rem}
+.bbr-title{font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:400;letter-spacing:0.06em;margin-bottom:1.25rem}
+.bb-items{display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem}
+.bbi{display:flex;align-items:flex-start;gap:0.75rem;padding:1rem;border-radius:4px;background:var(--parch);border-left:3px solid transparent;animation:slideIn 0.4s ease both}
+@keyframes slideIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+.bbi-tea{border-color:var(--moss)}
+.bbi-ex{border-color:var(--clay);animation-delay:0.08s}
+.bbi-ac{border-color:var(--sienna);animation-delay:0.16s}
+.bbi-icon{font-size:1.3rem;flex-shrink:0}
+.bbi-label{font-size:0.65rem;letter-spacing:0.18em;color:var(--fog);margin-bottom:0.2rem}
+.bbi-val{font-family:'Noto Serif TC',serif;font-size:0.95rem;font-weight:500;color:var(--ink)}
+.bbi-desc{font-size:0.72rem;color:var(--ink2);line-height:1.6;margin-top:0.2rem}
+.bb-acts{display:flex;gap:0.75rem;flex-wrap:wrap}
+.bb-btn2{padding:0.62rem 1.25rem;background:var(--moss);color:#fff;border:none;border-radius:3px;font-size:0.8rem;letter-spacing:0.06em;cursor:pointer;transition:all 0.2s;font-family:inherit}
+.bb-btn2:hover{background:var(--moss2)}
+.bb-btn3{padding:0.62rem 1.25rem;background:transparent;color:var(--moss);border:1.5px solid var(--moss);border-radius:3px;font-size:0.8rem;cursor:pointer;transition:all 0.2s;letter-spacing:0.06em;font-family:inherit}
+.bb-btn3:hover{background:var(--moss);color:#fff}
+
+/* FOOTER */
+.footer{background:var(--ink);color:rgba(247,243,236,0.55);padding:3rem 1.25rem 0}
+.footer-inner{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:2.5rem;max-width:1000px;margin:0 auto;padding-bottom:2.5rem;border-bottom:1px solid rgba(247,243,236,0.08)}
+.fl-cn{font-family:'Noto Serif TC',serif;font-size:1.15rem;color:var(--parch);margin-bottom:0.15rem}
+.fl-en{font-size:0.6rem;letter-spacing:0.3em;color:var(--clay);margin-bottom:0.75rem}
+.fl-tag{font-size:0.75rem;line-height:1.85;color:rgba(247,243,236,0.35)}
+.fi p{font-size:0.75rem;line-height:1.95}
+.fl a{display:block;font-size:0.75rem;margin-bottom:0.6rem;color:rgba(247,243,236,0.5);transition:color 0.2s;text-decoration:none}
+.fl a:hover{color:var(--parch)}
+.footer-bottom{text-align:center;padding:1.25rem;font-size:0.68rem;color:rgba(247,243,236,0.22);letter-spacing:0.05em}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .div-wrap{grid-template-columns:1fr}
+  .div-info{display:grid;grid-template-columns:repeat(3,1fr)}
+  .bb-wrap{grid-template-columns:1fr;gap:2rem;max-width:460px}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  .footer-inner{grid-template-columns:1fr}
+  .section{padding:3.5rem 1rem}
+  .cards-grid{grid-template-columns:repeat(2,1fr);gap:0.75rem}
+  .flip-card{height:260px}
+  .div-card{padding:2rem 1.25rem}
+  .div-info{grid-template-columns:1fr}
+}
+@media(max-width:400px){
+  .cards-grid{grid-template-columns:1fr}
+  .hero-h1{font-size:2.2rem}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="logo-cn">合順本草</span>
+      <span class="logo-en">HSMED</span>
+    </a>
+    <div class="nav-links">
+      <button class="nav-link" onclick="scrollToId('products')">產品介紹</button>
+      <button class="nav-link" onclick="scrollToId('divination')">每日茶占卜</button>
+      <button class="nav-link" onclick="scrollToId('blindbox')">今日小任務</button>
+      <a href="https://www.hsmed.co/" target="_blank" class="nav-cta">官方商城 ↗</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="開啟選單">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <button class="nav-mobile-link" onclick="scrollToId('products');closeMobileNav()">產品介紹</button>
+    <button class="nav-mobile-link" onclick="scrollToId('divination');closeMobileNav()">每日茶占卜</button>
+    <button class="nav-mobile-link" onclick="scrollToId('blindbox');closeMobileNav()">今日小任務</button>
+    <button class="nav-mobile-cta" onclick="window.open('https://www.hsmed.co/','_blank')">官方商城 ↗</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eye">三代傳承漢方世家</p>
+    <h1 class="hero-h1">合和為本<br>一口良方</h1>
+    <p class="hero-sub">天然草本・桃園在地・專業配方・嚴格把關</p>
+    <div class="hero-btns">
+      <button class="hbtn hbtn-p" onclick="scrollToId('products')">探索產品</button>
+      <button class="hbtn hbtn-o" onclick="scrollToId('divination')">今日占卜</button>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>向下探索</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <div class="container">
+    <div class="sec-header">
+      <p class="sec-eye">產品介紹</p>
+      <h2 class="sec-h2">找到屬於你的漢方茶</h2>
+      <p class="sec-sub">點擊卡片翻開背面，再次點擊或按「查看完整介紹」開啟詳情視窗</p>
+    </div>
+    <div class="cat-tabs" id="catTabs"></div>
+    <div class="cards-grid" id="cardsGrid"></div>
+  </div>
+</section>
+
+<!-- DIVINATION -->
+<section class="section sec-dark" id="divination">
+  <div class="container">
+    <div class="sec-header">
+      <p class="sec-eye">每日茶占卜</p>
+      <h2 class="sec-h2">今日，草木為你問卦</h2>
+      <p class="sec-sub">結合天氣與節氣，為你推薦最適合今日的一杯茶</p>
+    </div>
+    <div class="div-wrap">
+      <div class="div-card">
+        <div class="div-idle" id="divIdle">
+          <span class="div-icon">☯</span>
+          <p class="div-text">點擊問卜，讓漢方指引你今日的草本之選</p>
+          <p class="div-sub2">一天一次，誠心以求</p>
+          <button class="btn-div" id="divBtn" onclick="doDivination()">開始占卜</button>
+        </div>
+        <div class="div-result hidden" id="divResult">
+          <div class="dr-icon">🍃</div>
+          <p class="dr-date" id="drDate"></p>
+          <h3 class="dr-name" id="drName"></h3>
+          <p class="dr-desc" id="drDesc"></p>
+          <p class="dr-poem" id="drPoem"></p>
+          <div class="dr-acts">
+            <button class="btn-goto" id="drGo">查看這款茶 →</button>
+          </div>
+        </div>
+        <div class="div-used hidden" id="divUsed">
+          <div class="dr-icon">🌿</div>
+          <p class="du-title">今日已占卜</p>
+          <p class="du-sub">你今天的草本緣份已定</p>
+          <h3 class="dr-name" id="duName"></h3>
+          <p class="dr-desc" id="duDesc"></p>
+          <div class="dr-acts">
+            <button class="btn-goto" id="duGo">查看這款茶 →</button>
+          </div>
+        </div>
+      </div>
+      <div class="div-info">
+        <div class="dii"><span class="dii-icon">🌦</span><div><p class="dii-label">今日天氣</p><p class="dii-val">台灣・雨</p></div></div>
+        <div class="dii"><span class="dii-icon">🕐</span><div><p class="dii-label">台灣時間</p><p class="dii-val" id="timeVal">—</p></div></div>
+        <div class="dii"><span class="dii-icon">🗓</span><div><p class="dii-label">節氣提示</p><p class="dii-val">芒種・梅雨時節</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLIND BOX -->
+<section class="section" id="blindbox">
+  <div class="container">
+    <div class="sec-header">
+      <p class="sec-eye">今日小任務</p>
+      <h2 class="sec-h2">打開你的漢方盲盒</h2>
+          </div>
+    <div class="bb-wrap">
+      <div class="bb-left">
+        <div class="bb-box" id="bbBox">
+          <div class="bb-lid"><div class="bb-lid-top"></div><div class="bb-ribbon"></div></div>
+          <div class="bb-body"><span class="bb-q" id="bbQ">?</span></div>
+        </div>
+        <button class="bb-btn" id="bbOpenBtn" onclick="openBox()">打開盲盒</button>
+        <p class="bb-hint" id="bbHint">今天可以無限次抽取</p>
+      </div>
+      <div class="bb-result hidden" id="bbResult">
+        <p class="bbr-date" id="bbrDate"></p>
+        <h3 class="bbr-title">今日小任務</h3>
+        <div class="bb-items">
+          <div class="bbi bbi-tea"><span class="bbi-icon">🍵</span><div><p class="bbi-label">今日茶飲</p><p class="bbi-val" id="bbrTea">—</p></div></div>
+          <div class="bbi bbi-ex"><span class="bbi-icon">🏃</span><div><p class="bbi-label">今日運動</p><p class="bbi-val" id="bbrEx">—</p></div></div>
+          <div class="bbi bbi-ac"><span class="bbi-icon">✦</span><div><p class="bbi-label">今日穴位</p><p class="bbi-val" id="bbrAcName">—</p><p class="bbi-desc" id="bbrAcDesc">—</p></div></div>
+        </div>
+        <div class="bb-acts">
+          <button class="bb-btn2" onclick="rerollBox()">再抽一次任務</button>
+          <button class="bb-btn3" id="bbGoBtn">了解今日茶款</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div><p class="fl-cn">合順本草</p><p class="fl-en">HSMED</p><p class="fl-tag">三代傳承漢方世家<br>桃園在地・天然草本</p></div>
+    <div class="fi"><p>統一編號 / 92669768　和順中藥房</p><p>新生總店 / 桃園市桃園區新生路66號</p><p>客服時間 / 09:00–18:00（平日）</p><p>電郵 / hs@hsmed.co</p></div>
+    <div class="fl">
+      <a href="https://www.hsmed.co/" target="_blank" rel="noopener">官方商城</a>
+      <a href="https://lin.ee/3dS5o4q" target="_blank" rel="noopener">LINE 諮詢</a>
+      <a href="https://www.instagram.com/hsmed.co/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61558128933139" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 合順本草 HSMED．本網站內容僅供參考，不構成任何醫療建議。</div>
+</footer>
+
+<script>
+// Core nav functions defined immediately so onclick handlers work
+function scrollToId(id){
+  var el=document.getElementById(id);
+  if(el){
+    var top=el.getBoundingClientRect().top+window.pageYOffset-70;
+    window.scrollTo({top:top,behavior:'smooth'});
+  }
+}
+function closeMobileNav(){
+  var m=document.getElementById('navMobile');
+  if(m)m.classList.remove('open');
+}
+function openLink(url){window.open(url,'_blank');}
+
+
+// Image rendering — pure DOM, zero inline-event-string issues
+// Product registry for post-render image injection
+var _PROD_REGISTRY = {};
+function regProd(p){ _PROD_REGISTRY[p.id] = p; }
+
+function cardImg(p){
+  regProd(p);
+  var cat = p.cat||'daily';
+  // Placeholder with data-pid — swapped to real img after render
+  if(p.img){
+    return '<div class="card-visual cat-bg-'+cat+'" data-pid="'+p.id+'" data-type="card">'
+      +'<span class="card-visual-emoji">'+p.emoji+'</span>'
+      +'</div>';
+  }
+  return '<div class="card-visual cat-bg-'+cat+'">'
+    +'<span class="card-visual-emoji">'+(p.emoji||'🍵')+'</span>'
+    +'</div>';
+}
+
+function modalImg(p){
+  regProd(p);
+  if(!p.img) return '<div class="modal-img-placeholder">'+(p.emoji||'🍵')+'</div>';
+  return '<div class="modal-img-wrap" data-pid="'+p.id+'" data-type="modal">'
+    +'<div class="modal-img-placeholder">'+(p.emoji||'🍵')+'</div>'
+    +'</div>';
+}
+
+// Called after innerHTML is set — replaces placeholders with real <img> elements
+function injectImages(container){
+  var nodes = (container||document).querySelectorAll('[data-pid]');
+  nodes.forEach(function(wrap){
+    var id   = wrap.getAttribute('data-pid');
+    var type = wrap.getAttribute('data-type');
+    var prod = _PROD_REGISTRY[id];
+    if(!prod || !prod.img) return;
+    var img  = document.createElement('img');
+    img.referrerPolicy = 'no-referrer';
+    img.alt = prod.name;
+    if(type === 'modal'){
+      img.style.cssText = 'width:100%;height:200px;object-fit:cover;display:block';
+    } else {
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:4px;position:absolute;top:0;left:0';
+    }
+    img.onload = function(){ 
+      wrap.innerHTML = ''; 
+      wrap.style.padding = '0';
+      wrap.style.position = type==='card'?'relative':'';
+      wrap.appendChild(img); 
+    };
+    img.onerror = function(){
+      // keep emoji placeholder, do nothing
+    };
+    img.src = prod.img; // set src last to trigger load
+  });
+}
+
+
+
+// ============================================================
+// 資料庫
+// ============================================================
+const PRODUCTS=[
+  {
+    id: 'chrysanthemum-and-goji-berry-tea',
+    cat: 'eyecare',
+    catLabel: '｜視｜明眸靈采',
+    emoji: '👁️',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dbcda537fb14000adb2897/800x.webp?source_format=jpg",
+    pain: '長時間看電腦手機，眼睛乾澀疲勞？',
+    name: '菊花枸杞茶',
+    desc: '專門針對長時間面對螢幕的日常保養族群。集結決明子與菊花帶來清爽氣息，搭配紅棗與枸杞調理每日好氣色，茶感清香微甘、溫和不燥。',
+    price: 'NT$180 ~ NT$290',
+    url: 'https://www.hsmed.co/zh-hant/products/chrysanthemum-and-goji-berry-tea'
+  },
+  {
+    id: 'bright-and-comfort-herbal-tea',
+    cat: 'eyecare',
+    catLabel: '｜視｜明眸靈采',
+    emoji: '👁️',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dbcda537fb14000adb2897/800x.webp?source_format=jpg",
+    pain: '3C用眼過度，雙眼容易紅熱不舒服？',
+    name: '清香愛眼茶',
+    desc: '專為 3C 重度使用者量身設計。利用甘草、決明子與紅棗在忙碌生活中補充元氣，深層潤澤保養，舒緩日常緊繃感並維持晶亮神采。',
+    price: 'NT$210 ~ NT$350',
+    url: 'https://www.hsmed.co/zh-hant/products/bright-and-comfort-herbal-tea'
+  },
+  {
+    id: 'imperial-vitality-herbal-tea',
+    cat: 'voice',
+    catLabel: '｜聲｜寶肺潤喉',
+    emoji: '🗣️',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dbc1e05713b0000a3bf4f8/800x.webp?source_format=jpg",
+    pain: '工作體力透支，想要養氣保養？',
+    name: '天皇四寶茶',
+    desc: '高品質的日常補養茶飲。嚴選花旗參、黨參、黃耆與麥門冬，溫和補足日常耗損的元氣，整體茶性清潤不燥熱，是維持穩定好狀態的長期保健首選。',
+    price: 'NT$270 ~ NT$450',
+    url: 'https://www.hsmed.co/zh-hant/products/imperial-vitality-herbal-tea'
+  },
+  {
+    id: 'soothing-throat-herbal-tea',
+    cat: 'voice',
+    catLabel: '｜聲｜寶肺潤喉',
+    emoji: '🗣️',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67db9405272bbe000cedc8d3/800x.webp?source_format=jpg",
+    pain: '長期說話用嗓，聲音沙啞喉嚨乾癢？',
+    name: '養聲潤喉茶',
+    desc: '專為老師、業務、主播等頻繁說話、過度用嗓者設計。以胖大海、羅漢果與麥門冬深層滋潤、維持清爽口氣，帶有薄荷的微涼感，入喉清爽順口。',
+    price: 'NT$270 ~ NT$450',
+    url: 'https://www.hsmed.co/zh-hant/products/soothing-throat-herbal-tea'
+  },
+  {
+    id: 'night-calm-herbal-tea',
+    cat: 'sleep',
+    catLabel: '｜寢｜陪你好睡',
+    emoji: '💤',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dbbc308fd5ba000d63a16e/800x.webp?source_format=jpg",
+    pain: '生活節奏快，入夜後心煩意亂難放鬆？',
+    name: '安神好眠飲',
+    desc: '專為快節奏、生活緊繃的現代日常設計。融合酸棗仁、夜交藤與百合安定思緒、舒緩累積的緊繃感，搭配陳皮、黃耆與龍眼肉，用草本的溫柔力量陪你安靜入眠。',
+    price: 'NT$270 ~ NT$450',
+    url: 'https://www.hsmed.co/zh-hant/products/night-calm-herbal-tea'
+  },
+  {
+    id: 'night-owl-herbal-tea',
+    cat: 'sleep',
+    catLabel: '｜寢｜陪你好睡',
+    emoji: '💤',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dbb86ebb4c93000d07f487/800x.webp?source_format=jpg",
+    pain: '作息不規律常常晚睡，隔天疲憊氣色差？',
+    name: '熬夜精靈茶',
+    desc: '專為現代夜貓族與作息不規律者設計的茶方。以山楂、決明子、金銀花與牛蒡幫助日常調整，搭配菊花與枸杞，讓你在晚睡的隔天依然找回平衡、維持好氣色。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/zh-hant/products/night-owl-herbal-tea'
+  },
+  {
+    id: 'soothing-ginger-herbal-tea',
+    cat: 'sleep',
+    catLabel: '｜寢｜陪你好睡',
+    emoji: '💤',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dcdeb5c19394000d0e3061/800x.webp?source_format=jpg",
+    pain: '待冷氣房太久，手腳冰冷循環差？',
+    name: '舒心暖薑茶',
+    desc: '專為在冷氣房久坐、日常循環不佳者打造。利用乾薑溫中散寒、全面提升身體的內在暖度，搭配紅棗、菊花、陳皮與甘草，在緊繃時協助身心重回平靜放鬆的狀態。',
+    price: 'NT$180 ~ NT$290',
+    url: 'https://www.hsmed.co/zh-hant/products/soothing-ginger-herbal-tea'
+  },
+  {
+    id: 'daily-vitality-herbal-teay',
+    cat: 'daily',
+    catLabel: '｜日｜日日好元',
+    emoji: '☀️',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67db8c0a84ffbc000e44965a/800x.webp?source_format=jpg",
+    pain: '每天都好累，提不起勁、精神易倦？',
+    name: '漢方元氣茶',
+    desc: '結合補氣與養陰概念的溫和茶飲。精選紅棗、黃耆、枸杞與滋補草本調配，口感清潤不燥，適合上班族與學生日常補充元氣、對抗疲勞感。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/zh-hant/products/daily-vitality-herbal-tea'
+  },
+  {
+    id: 'nourish-vitality-herbal-tea',
+    cat: 'daily',
+    catLabel: '｜日｜日日好元',
+    emoji: '☀️',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dd1ad1234a8c000b22fd44/800x.webp?source_format=jpg",
+    pain: '長期勞碌消耗快，身體常覺虛弱倦怠？',
+    name: '氣血精力湯',
+    desc: '專為長期勞累、體力透支族群設計的加強型日常滋補。高規格集結黃耆、當歸、丹參、黨參、枸杞與紅棗，全面補充體力、維持精神與精力循環平衡。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/zh-hant/products/nourish--vitality-herbal-tea'
+  },
+ {
+    id: 'andys-herbal-tea-plus',
+    cat: 'daily',
+    catLabel: '｜日｜日日好元',
+    emoji: '☀️',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67db84defa0c4f000e04cc37/800x.webp?source_format=jpg",
+    pain: '日常體力差、氣色黯淡沒有光澤？',
+    name: '加味安迪湯',
+    desc: '醇厚順口、溫潤甘甜的日常調養方。以黃耆、當歸、黑棗與枸杞溫和搭配，日常飲用能由內而外調理體質、提振提不起勁的精神。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/products/andys-herbal-tea-plus'
+  },
+  {
+    id: 'longan-red-date-herbal-tea',
+    cat: 'daily',
+    catLabel: '｜日｜日日好元',
+    emoji: '☀️',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67db8e1122ccad001186a062/800x.webp?source_format=jpg",
+    pain: '體質虛寒容易累，想要加強溫補？',
+    name: '桂圓紅棗茶',
+    desc: '自古以來深受喜愛的溫和滋補茶飲。嚴選龍眼肉、紅棗與枸杞溫和搭配，入口甘甜，是秋冬日常、體質寒涼以及女性經期前後氣血調養的黃金飲品。',
+    price: 'NT$180 ~ NT$290',
+    url: 'https://www.hsmed.co/products/longan-red-date-herbal-tea'
+  },
+  {
+    id: 'rose-vitality-herbal-tea',
+    cat: 'daily',
+    catLabel: '｜日｜日日好元',
+    emoji: '☀️',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dbe059f8ab33000f74188d/800x.webp?source_format=jpg",
+    pain: '忙碌高壓，情緒鬱悶、容易心煩氣躁？',
+    name: '玫瑰元氣茶',
+    desc: '專為工作忙碌、生活高壓的族群打造。以玫瑰行氣舒壓、調和好心情，搭配黃耆補氣提神，溫和補足忙碌耗損的體力，讓人日常維持好狀態。',
+    price: 'NT$150 ~ NT$250',
+    url: 'https://www.hsmed.co/products/rose-vitality-herbal-tea'
+  },
+  {
+    id: 'rhodiola-herbal-tea',
+    cat: 'daily',
+    catLabel: '｜日｜日日好元',
+    emoji: '☀️',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dd2d4b6500ef000ed8fe24/800x.webp?source_format=jpg",
+    pain: '健行登山容易累、體力消耗快？',
+    name: '紅景天茶',
+    desc: '專為長時間進行戶外活動、體能消耗大者設計的高適應力茶飲。集結紅景天、西洋參、黃耆、當歸、枸杞與甘草，深層補充元氣，穩定呼吸節奏並提升運動時的耐力。',
+    price: 'NT$300 ~ NT$490',
+    url: 'https://www.hsmed.co/products/rhodiola-herbal-tea'
+  },
+  {
+    id: 'nourishing-tea',
+    cat: 'daily',
+    catLabel: '｜日｜日日好元',
+    emoji: '☀️',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dbe0df9472bc000faa12e5/800x.webp?source_format=jpg",
+    pain: '不喜歡喝水、氣色差？',
+    name: '甘草玉竹茶',
+    desc: '追求極簡、高效保養的忙碌族內在補水首選。利用甘草、玉竹與紅棗養陰潤燥、生津止渴，採用細切藥材製成，沖泡時能快速釋放草本精華，維持穩定的好氣色。',
+    price: 'NT$120 ~ NT$200',
+    url: 'https://www.hsmed.co/products/nourishing-tea'
+  },
+   {
+    id: 'warm-balance-herbal-tea',
+    cat: 'monthly',
+    catLabel: '｜月｜月月呵護',
+    emoji: '🌙',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67f5e27f7a9970000aa3859b/800x.webp?source_format=jpg",
+    pain: '月事期間下腹冰冷，經後想要調理氣色？',
+    name: '溫宮月事茶',
+    desc: '專為女性建立日常防線的月事溫補首選。集結香附、白芍、熟地、當歸與紅棗調理經後虛弱與氣色差，搭配乾薑與玫瑰，深層舒緩經期的腹部冰冷不適。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/products/warm-balance-herbal-tea'
+  },
+  {
+    id: 'feminine-radiance-herbal-tea',
+    cat: 'monthly',
+    catLabel: '｜月｜月月呵護',
+    emoji: '🌙',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dbc7d212afdc000e64dc32/800x.webp?source_format=jpg",
+    pain: '生理期前後容易倦怠，想保養女性體態線條？',
+    name: '胸胸茶',
+    desc: '專為女性月事期間及日常保養設計的甜潤茶飲。以青木瓜搭配當歸、川芎、白芍與多種補氣草本，由內而外溫和調理，全面提升女性的體態輪廓與線條美感。',
+    price: 'NT$300 ~ NT$490',
+    url: 'https://www.hsmed.co/products/feminine-radiance-herbal-tea'
+  },
+  {
+    id: 'moisture-balance-herbal-tea',
+    cat: 'bodysculpture',
+    catLabel: '｜孅｜亮白纖姿',
+    emoji: '✨',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dbc434f96955000ead78db/800x.webp?source_format=jpg",
+    pain: '長期久坐控糖外食，感覺沉重、水腫？',
+    name: '輕濕茶/極．輕濕茶',
+    desc: '適合當代久坐久站的辦公族與外食族日常飲用。以黃耆、薏苡仁、茯苓、赤小豆與玉米鬚完美搭配，口感清爽順口，是日常想維持輕盈、擺脫沉重感的最佳選擇。',
+    price: 'NT$180 ~ NT$390',
+    url: 'https://www.hsmed.co/products/moisture-balance-herbal-tea'
+  },
+  {
+    id: 'light-fit-herbal-tea',
+    cat: 'bodysculpture',
+    catLabel: '｜孅｜亮白纖姿',
+    emoji: '✨',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dbe69ce993ea000e3d7835/800x.webp?source_format=jpg",
+    pain: '餐餐外食少運動，身材管理好難？',
+    name: '纖纖茶',
+    desc: '日常生活作息管理、輕鬆維持好體態的清爽好夥伴。集結荷葉、山楂、決明子、金銀花與車前子，清爽不苦澀，能在大餐後去油消積、加速體內循環。',
+    price: 'NT$150 ~ NT$250',
+    url: 'https://www.hsmed.co/products/light-fit-herbal-tea'
+  },
+  {
+    id: 'nourishing-beauty-herbal-tea',
+    cat: 'bodysculpture',
+    catLabel: '｜孅｜亮白纖姿',
+    emoji: '✨',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dbc5f601953d0011b93f11/800x.webp?source_format=jpg",
+    pain: '臉色偏黃、粗糙暗沉，換季時肌膚不穩定？',
+    name: '養顏美容茶',
+    desc: '日常保養注重「由內養出光澤感」的消費者首選。嚴選百合、玉竹、生地、紅棗與枸杞潤燥保濕、穩定膚質，改善暗沉與肌膚粗糙，幫助維持肌膚的彈性與水潤。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/products/nourishing-beauty-herbal-tea'
+  },
+  {
+    id: 'rose-radiance-herbal-tea',
+    cat: 'bodysculpture',
+    catLabel: '｜孅｜亮白纖姿',
+    emoji: '✨',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dbe0b7721199000d5a8d6b/800x.webp?source_format=jpg",
+    pain: '每天都很忙、常顯疲憊，氣色看起來暗淡？',
+    name: '玫瑰亮妍飲',
+    desc: '採用細切藥材快速釋放精華。淡雅花香讓日常飲茶成為一種享受。以玫瑰、白菊、紅棗與枸杞精心調和，深層促進面部循環、改善常顯疲憊的暗淡氣色，讓你由內而外散發光采。',
+    price: 'NT$210 ~ NT$350',
+    url: 'https://www.hsmed.co/products/rose-radiance-herbal-tea'
+  },
+  {
+    id: 'roselle-and-plum-herbal-tea',
+    cat: 'bodysculpture',
+    catLabel: '｜孅｜亮白纖姿',
+    emoji: '✨',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67db8faaff01ce0011aa8079/800x.webp?source_format=jpg",
+    pain: '夏天悶熱胃口差，餐後想找無咖啡因茶飲？',
+    name: '洛神烏梅湯',
+    desc: '不含咖啡因、無添加人工香料的夏季消暑人氣飲品。精選烏梅、洛神花、仙楂與陳皮，搭配琥珀冰糖，口感酸甜清爽、尾韻甘潤不鎖喉，生津止渴、退火開胃。',
+    price: 'NT$180 ~ NT$290',
+    url: 'https://www.hsmed.co/products/roselle-and-plum-herbal-tea'
+  },
+  {
+    id: 'metabolic-balance-herbal-tea',
+    cat: 'bodysculpture',
+    catLabel: '｜孅｜亮白纖姿',
+    emoji: '✨',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67e1247019072c00109e18cd/800x.webp?source_format=jpg",
+    pain: '飲食油膩、代謝壓力大？',
+    name: '三清三絳茶',
+    desc: '針對關注日常代謝、體質油膩負擔重者提供的溫和防護。集結杜仲葉、荷葉、桑葉、葛根、山楂與陳皮，去油解悶、清降體內虛火，茶感清香溫和且完全不苦澀。',
+    price: 'NT$180 ~ NT$290',
+    url: 'https://www.hsmed.co/products/metabolic-balance-herbal-tea'
+  },
+  {
+    id: 'black-bean-and-eucommia-herbal-tea',
+    cat: 'restore',
+    catLabel: '｜癒｜修護補給',
+    emoji: '🌿',
+    pain: '長時間久站久坐，常常腰膝酸軟體力易疲？',
+    name: '黑豆杜仲茶',
+    desc: '日常補腎滋陰、穩定筋骨體質的溫補選擇。融合黑豆、杜仲葉與當歸，搭配黃耆、紅棗與枸杞，改善因日常疲勞過度引發的腰膝酸軟與體力易疲。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/products/black-bean-and-eucommia-herbal-tea'
+  }, 
+  {
+    id: 'harmony-and-comfort-herbal-tea',
+    cat: 'restore',
+    catLabel: '｜癒｜修護補給',
+    emoji: '🌿',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67db9ae05fd33dcf1eef44b1/800x.webp?source_format=jpg",
+    pain: '工作壓力大，容易心煩氣躁、悶悶不樂？',
+    name: '如意舒肝茶',
+    desc: '有效舒緩日常緊張、維持舒暢好心情的氣味清雅茶方。集結柴胡、白芍、茯苓與白扁豆，搭配乾薑、黃耆與紅棗，調理因壓力引發的日常不適。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/products/harmony-and-comfort-herbal-tea'
+  },
+  {
+    id: 'good-appetite-herbal-tea',
+    cat: 'restore',
+    catLabel: '｜癒｜修護補給',
+    emoji: '🌿',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/6a058e17f78555605f9e7374/800x.webp?source_format=jpg",
+    pain: '外食應酬多飲食油膩，，常因工作緊張肚子脹悶？',
+    name: '餵餵好食茶',
+    desc: '外食族、應酬多、飲食油膩者的餐後清爽首選。嚴選山藥、茯苓、陳皮與茉莉花化膩解悶，搭配菊花、桂圓、紅棗與枸杞，溫和促進消化吸收、維持消化道機能健康。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/products/good-appetite-herbal-tea'
+  },
+  {
+    id: 'recovery-support-herbal-tea',
+    cat: 'restore',
+    catLabel: '｜癒｜修護補給',
+    emoji: '🌿',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dbcbc2b16b8d000d5db8d8/800x.webp?source_format=jpg",
+    pain: '動完手術或處於復原期，想要加強溫和調理？',
+    name: '蜈蚣草茶',
+    desc: '適合身體復原期、需要日常溫和調理的人群。以釘地蜈蚣、三七與薏苡仁排水去濕、舒緩局部沉重感，搭配黨參與黃耆深層滋補元氣，整體茶性清潤溫和、不顯過寒。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/products/recovery-support-herbal-tea'
+  },
+  {
+    id: 'seasonal-soothing-herbal-tea',
+    cat: 'prevent',
+    catLabel: '｜預｜防患未然',
+    emoji: '😷',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67db917ec16b9e369a08a097/800x.webp?source_format=jpg",
+    pain: '體質敏感敏感，換季交替或變天就特別不舒服？',
+    name: '換季舒敏茶',
+    desc: '面對季節交替、變天或環境劇烈變化時的溫和調節方。重包集結刺五加、黃耆、黨參、紅棗、枸杞與甘草，提神補氣、強化體質穩定度，穩定日常的精神與體力。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/products/seasonal-soothing-herbal-tea'
+  },
+  {
+    id: 'maternity-care-herbal-tea',
+    cat: 'maternity',
+    catLabel: '｜孕｜媽咪滋補',
+    emoji: '🤰',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67e11012f7784d000f93d039/800x.webp?source_format=jpg",
+    pain: '孕期容易疲倦，想要安定情緒、提升好眠？',
+    name: '好孕安心飲',
+    desc: '專為懷孕第 2 個月後至產前的孕媽咪調配，溫補不燥。融合黨參、黃耆、白芍、熟地、山藥與蓮子補氣養胎，搭配百合、紅棗與枸杞安定孕期情緒、提升睡眠品質。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/products/maternity-care-herbal-tea'
+  },
+  {
+    id: 'postnatal-nursing-tea',
+    cat: 'maternity',
+    catLabel: '｜孕｜媽咪滋補',
+    emoji: '🤰',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67e11a796f220d000ca09dd6/800x.webp?source_format=jpg",
+    pain: '產後想要通乳補奶，久抱毛孩寶寶腰膝酸軟？',
+    name: '產後哺乳茶',
+    desc: '產後媽咪的溫和好幫手，溫補而不油膩。以青木瓜、小茴香與檸檬草清爽舒壓、促進日常消化，融入黃耆、紅棗、枸杞與杜仲葉，調理產後體虛、改善抱小孩的腰膝酸軟。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/products/postnatal-nursing-tea-springsummer'
+  },
+  {
+    id: 'teen-wellness-for-boy-herbal-tea',
+    cat: 'children',
+    catLabel: '｜童｜學齡照護',
+    emoji: '✍️',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/69bd0b87142d69e2b0a0a81d/800x.webp?source_format=jpg",
+    pain: '青春期男孩面臨黃金轉骨期，想把握機會長高？',
+    name: '公子轉骨茶',
+    desc: '正值青春期、想把握機會長高的成長期男孩日常調養。以杜仲葉搭配黃耆、黨參、山藥、紅棗與枸杞，天然甘甜調和、口感甘潤不苦澀，有效促進食慾與營養吸收。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/products/teen-wellness-for-boy-herbal-tea'
+  },
+  {
+    id: 'teen-wellness-herbal-tea',
+    cat: 'children',
+    catLabel: '｜童｜學齡照護',
+    emoji: '✍️',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/69bd0af5af5456d86d414d60/800x.webp?source_format=jpg",
+    pain: '女孩正面臨初潮前後，需要調理生理機能？',
+    name: '千金轉骨茶',
+    desc: '正值青春期長高、初潮前後需要調理生理機能的青春期少女方。結合白芍、山藥、杜仲葉、黃耆、紅棗與枸杞深層調養，健脾益胃、補足氣血，陪伴女孩順暢度過成長期。',
+    price: 'NT$240 ~ NT$390',
+    url: 'https://www.hsmed.co/products/teen-wellness-herbal-tea'
+  },
+  {
+    id: 'gastrodia-mind-wellness-tea',
+    cat: 'children',
+    catLabel: '｜童｜學齡照護',
+    emoji: '✍️',
+    img: "https://www.hsmed.co/products/gastrodia-mind-wellness-tea",
+    pain: '課業繁重、高壓辦公，需要長時間高效用腦？',
+    name: '天麻益智茶',
+    desc: '課業繁重需要高效用腦的學生考生，以及高壓辦公的商務人士日常首選。調和天麻、川芎、西洋參、麥門冬、黃耆、紅棗與枸杞，通絡舒壓、降下體內虛火，讓頭腦保持清明。',
+    price: 'NT$300 ~ NT$490',
+    url: 'https://www.hsmed.co/products/gastrodia-mind-wellness-tea'
+  },
+  {
+    id: 'maca-herbal-tea',
+    cat: 'strength',
+    catLabel: '｜壯｜昂首飛揚',
+    emoji: '🏋️',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/67dcd99ae3458d000d3eb44d/800x.webp?source_format=jpg",
+    pain: '長期疲倦、精神低迷，想要恢復體力精力？',
+    name: '馬卡茶',
+    desc: '針對男性深層調養、提振日常元氣的精力之源。以馬卡、何首烏、黃精與淮山強化體能表現，疊加人參鬚、黃耆、黨參與枸杞大補耗損元氣，是男性日常元氣補養的頂級選擇。',
+    price: 'NT$300 ~ NT$490',
+    url: 'https://www.hsmed.co/products/maca-herbal-tea'
+  },
+  {
+    id: 'chinese-herb-bathing-pack',
+    cat: 'topicaluse',
+    catLabel: '外用養護',
+    emoji: '🛁',
+    pain: '換季搔癢紅疹，肌膚不安定、易敏感？',
+    name: '順膚浴',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/692e9e396c314c000dfd0711/800x.webp?source_format=jpg",
+    desc: '專為日常泡澡、擦澡或局部洗浴設計的漢方沐浴包。集結金銀花、黃柏、白鮮皮、蛇床子、地膚子、荊芥與防風，溫和安撫肌膚、緩解換季搔癢，讓肌膚重回安穩細緻。',
+    price: 'NT$150',
+    url: 'https://www.hsmed.co/products/chinese-herb-bathing-pack'
+  },
+  {
+    id: 'chinese-herb-foot-soak-bundle',
+    cat: 'topicaluse',
+    catLabel: '外用養護',
+    emoji: '🦶',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/692e9b8ffd6cc4000cb3c0db/800x.webp?source_format=jpg",
+    pain: '工作忙碌一整天，下肢沉重酸痛難以放鬆？',
+    name: '養生足浴包【原味｜掃除沉悶】',
+    desc: '掃除沉悶、告別久坐負擔的日常放鬆首選。集結香茅葉、大風草、青皮、雙面刺、埔薑根、澤蘭、艾葉、蒲公英與板藍根，泡腳時釋放草本精華，快速溫通、活絡下肢。',
+    price: 'NT$150',
+    url: 'https://www.hsmed.co/products/chinese-herb-foot-soak-bundle'
+  },
+  {
+    id: 'chinese-herb-rose-foot-soak-bundle',
+    cat: 'topicaluse',
+    catLabel: '外用養護',
+    emoji: '🦶',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/692e9bace14441001051bba9/800x.webp?source_format=jpg",
+    pain: '經常待冷氣房，想要溫潤呵護、放鬆好氣色？',
+    name: '養生足浴包【玫瑰｜透出紅潤】',
+    desc: '溫潤呵護，透出優雅好狀態。在原味大風草、艾葉與澤蘭的溫熱基底上，奢華揉入天然玫瑰花瓣，泡腳時香氣優雅放鬆，深層促進全身微循環與每日好氣色。',
+    price: 'NT$180',
+    url: 'https://www.hsmed.co/products/chinese-herb-rose-foot-soak-bundle'
+  },
+  {
+    id: 'chinese-herb-lavender-foot-soak-bundle',
+    cat: 'topicaluse',
+    catLabel: '外用養護',
+    emoji: '🦶',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/692e9bd68f00200012732039/800x.webp?source_format=jpg",
+    pain: '壓力過大睡眠品質差，睡前渴望深度放鬆？',
+    name: '養生足浴包【薰衣草｜深會入夢】',
+    desc: '大腦斷網，進入深層待機。在傳統大風草、艾葉與埔薑根的溫通足浴配方中，完美結合薰衣草精華，睡前泡腳能高效放鬆緊繃神經、釋放生活壓力、安心入夢。',
+    price: 'NT$180',
+    url: 'https://www.hsmed.co/products/chinese-herb-lavender-foot-soak-bundle'
+  },
+  {
+    id: 'mosquito-repellent',
+    cat: 'topicaluse',
+    catLabel: '外用養護',
+    emoji: '🦟',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/6a28ec9127f7068f1c5872e4/800x.webp?source_format=jpg",
+    pain: '夏天戶外與居家蚊蟲多，不想使用化學防蚊？',
+    name: '漢方驅蚊包 30g/60g',
+    desc: '天然無化學添加、溫和安心的環境防護隨身小物。集結香茅、艾葉、土荊芥、公丁香、白芷與香葉，散發濃郁草本揮發油，去除空間濕濁悶熱，維持空氣清淨與環境防禦。',
+    price: 'NT$60 ~ NT$200',
+    url: 'https://www.hsmed.co/categories/mosquito-repellent'
+  },
+  {
+    id: 'pet-mosquito-pack',
+    cat: 'topicaluse',
+    catLabel: '外用養護',
+    emoji: '🦟',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/69dcaad4d0a9446a54e3687d/800x.webp?source_format=jpg",
+    pain: '家中有毛孩，擔心環境蚊蟲叮咬及空間異味？',
+    name: '寵物用驅蚊包',
+    desc: '全配方對犬貓友善無化學添加。嚴選貓薄荷與迷迭香建立植物安心防禦，集結白芷與紫蘇葉有效干擾蚊蟲嗅覺、阻絕叮咬 [，並借助藿香與金銀花芳香化濕、去除空間異味。',
+    price: 'NT$200',
+    url: 'https://www.hsmed.co/products/pet-mosquito-repellent-bag'
+  },
+  {
+    id: 'herbal-sleep-wellness-sachet',
+    cat: 'topicaluse',
+    catLabel: '外用養護',
+    emoji: '😴',
+    img: "https://shoplineimg.com/659b67f8c2815b0061a5f135/69e8888d67b2f338052671ad/800x.webp?source_format=jpg",
+    pain: '腦子停不下來，睡前焦慮難以深層入睡？',
+    name: '安神好眠香包',
+    desc: '清理睡前混亂思緒、營造舒適睡眠環境的天然薰香小物。融合薰衣草與夜交藤放鬆緊繃神經、安撫虛煩，搭配玫瑰與陳皮的花果香理氣解鬱，並借助石菖蒲與藿香清心開竅、芳香化濕，放鬆大腦進入夢鄉。',
+    price: 'NT$280',
+    url: 'https://www.hsmed.co/products/herbal-sleep-wellness-sachet'
+  },
+];
+
+const DIV_DATA={
+  // ｜寢｜好睡
+  'night-calm-herbal-tea':{name:'安神好眠飲',msgs:{rainy:['雨天最適合早點進被窩。今日草木推薦安神好眠飲，讓你在雨聲中放鬆身心，好好入眠。','下雨天的夜晚格外靜謐，安神好眠飲以溫和草本，幫助你放鬆今日的疲憊。'],sunny:['陽光充沛的一天，身心消耗較大。今日占卜建議你以安神好眠飲，為今晚的睡眠做好準備。'],cloudy:['陰天氣候讓心情容易低落。安神好眠飲的溫和草本，是今日為你準備的舒緩之選。']},poems:{rainy:['雨打芭蕉聲，草本伴安眠','淅瀝雨聲中，夜深好入眠'],sunny:['白日奔忙後，夜來好安眠'],cloudy:['雲霧繞山中，靜心好入眠']}},
+  'night-owl-herbal-tea':{name:'熬夜精靈茶',msgs:{rainy:['陰雨天更容易讓人昏昏欲睡，熬夜族今日更要靠熬夜精靈茶找回精神。','雨天容易讓人提不起勁，今日草木推薦熬夜精靈茶，幫你重找日常平衡。'],sunny:['晴天再多時間也難補回熬夜損耗。熬夜精靈茶的清新草本，是今日調整作息的好幫手。'],cloudy:['陰沉的天色讓作息更不規律，今日草木選了熬夜精靈茶，幫你找回身體的日常節奏。']},poems:{rainy:['夜雨聲聲響，草本護作息'],sunny:['晨光透窗來，草本調時差'],cloudy:['雲遮月難見，草本護精神']}},
+  'soothing-ginger-herbal-tea':{name:'舒心暖薑茶',msgs:{rainy:['濕冷天氣，手腳冰冷特別明顯。今日草木推薦舒心暖薑茶，用老薑的溫熱從內暖起。','雨天待在冷氣房，循環更差了。舒心暖薑茶是今日驅走寒意的最佳選擇。'],sunny:['晴天也別忽視身體的寒性。舒心暖薑茶的暖薑配方，日日為你維持舒適體感。'],cloudy:['陰天氣溫低迷，身體容易手腳涼。今日草木為你選了舒心暖薑茶，暖心暖身。']},poems:{rainy:['寒雨驅不走，薑茶暖心頭'],sunny:['陽暖薑更香，從內感溫暖'],cloudy:['陰寒入骨深，薑茶化寒意']}},
+  // ｜日｜日常
+  'daily-vitality-herbal-teay':{name:'漢方元氣茶',msgs:{rainy:['雨天讓人懶洋洋提不起勁。今日草木為你選了漢方元氣茶，以溫補草本幫你找回一整天的好狀態。','梅雨時節身體沉重，漢方元氣茶的草本暖意，是今日最貼心的活力補給。'],sunny:['好天氣，好元氣！今日草木推薦漢方元氣茶，以天然草本陪你活力滿滿。'],cloudy:['陰天容易讓人提不起精神。漢方元氣茶的溫補草本，是今日為你準備的活力之選。']},poems:{rainy:['細雨霏霏中，元氣自心生'],sunny:['旭日東昇時，草本添元氣'],cloudy:['陰雲散去時，元氣自然來']}},
+  'nourish-vitality-herbal-tea':{name:'氣血精力湯',msgs:{rainy:['雨天氣壓低，體力容易透支。今日草木推薦氣血精力湯，用黃耆、當歸深層補元氣。','梅雨悶熱，身體更需要溫和滋補。氣血精力湯是今日最適合的體力補充。'],sunny:['好天氣活動量大，消耗體力不少。氣血精力湯今日為你深層補充精力與氣血。'],cloudy:['陰天讓身體少了活力。今日占卜推薦氣血精力湯，以珍貴草本守護你的每日元氣。']},poems:{rainy:['雨日氣壓低，草本補元氣'],sunny:['陽光照大地，草本添精氣'],cloudy:['雲霧蒙山峰，草本補氣血']}},
+  'andys-herbal-tea-plus':{name:'加味安迪湯',msgs:{rainy:['陰雨天，氣色容易黯淡。今日草木推薦加味安迪湯，從內在溫和調理，讓氣色重回亮麗。','雨天身體耗損更大，加味安迪湯的黃耆與當歸，是今日最溫潤的日常補養。'],sunny:['晴天好時光，也是補氣的最佳時機。加味安迪湯的甘甜配方，日日好氣色。'],cloudy:['天色灰暗也要氣色好！今日草木推薦加味安迪湯，由內而外調理體質、提振精神。']},poems:{rainy:['雨潤黑棗香，草本暖氣色'],sunny:['晴日補氣來，黃耆護元神'],cloudy:['天陰不失色，草本添光彩']}},
+  'longan-red-date-herbal-tea':{name:'桂圓紅棗茶',msgs:{rainy:['陰雨天最適合一杯溫熱的桂圓紅棗茶。今日草木推薦這款甘甜配方，暖胃暖心。','雨天體質偏寒，桂圓紅棗的溫補之力，是今日最貼心的日常選擇。'],sunny:['晴天也要補氣色！桂圓紅棗茶的自古配方，日日溫和調理，維持好氣色。'],cloudy:['陰天更要暖身。今日草木為你推薦桂圓紅棗茶，以溫和草本陪伴你的每一天。']},poems:{rainy:['雨夜棗香暖，桂圓護心田'],sunny:['晴日棗色紅，草本暖體魂'],cloudy:['陰雲擋不住，棗香暖如春']}},
+  'rose-vitality-herbal-tea':{name:'玫瑰元氣茶',msgs:{rainy:['下雨天心情容易鬱悶，玫瑰元氣茶的花香與黃耆，是今日舒壓提神的最佳選擇。','雨天壓力山大，今日草木推薦玫瑰元氣茶，舒壓又補氣，雙效陪你一天。'],sunny:['晴天配上玫瑰元氣茶，讓你以最好的狀態迎接美好的一天！'],cloudy:['陰天容易心煩氣躁，今日草木為你選了玫瑰元氣茶，調和情緒、補足元氣。']},poems:{rainy:['玫瑰雨中香，草本舒心情'],sunny:['晴天花更艷，草本添元神'],cloudy:['玫瑰不畏陰，草本護好情']}},
+  'rhodiola-herbal-tea':{name:'紅景天茶',msgs:{rainy:['雨天體能消耗加快，今日草木推薦紅景天茶，深層補充元氣，穩定呼吸節奏。','陰雨天活動受限，但紅景天茶的高適應力配方，讓你隨時隨地維持好體能。'],sunny:['晴天適合戶外活動！紅景天茶是今日最適合運動族群的能量補給選擇。'],cloudy:['天氣多變，體力容易忽高忽低。今日草木推薦紅景天茶，穩定你全天的元氣輸出。']},poems:{rainy:['山霧不礙行，紅景添元氣'],sunny:['晴天登高遠，草本護體能'],cloudy:['雲中見山嶺，草本補持久']}},
+  'nourishing-tea':{name:'甘草玉竹茶',msgs:{rainy:['雨天空氣濕重，今日草木推薦甘草玉竹茶，養陰潤燥，讓你內在水分充足。','陰雨天容易忘記補水，甘草玉竹茶的清甜滋潤，是今日最好的日常保濕選擇。'],sunny:['晴天乾燥，特別需要補充內在水分。甘草玉竹茶的清甜配方，日日好氣色。'],cloudy:['陰天氣色容易暗沉，今日草木推薦甘草玉竹茶，從內在補水，維持穩定好氣色。']},poems:{rainy:['雨潤甘草香，玉竹護膚光'],sunny:['晴日需補水，草本生津來'],cloudy:['陰天補水急，玉竹潤澤身']}},
+  // ｜月｜呵護
+  'warm-balance-herbal-tea':{name:'溫宮月事茶',msgs:{rainy:['陰雨天寒意重，月事更需要溫暖呵護。今日草木推薦溫宮月事茶，深層舒緩腹部不適。','雨天特別容易感到腹部冰冷，溫宮月事茶以香附、白芍溫和調理，是今日最溫柔的選擇。'],sunny:['晴天好時光，也是保養月事健康的最佳時機。溫宮月事茶日日陪伴你。'],cloudy:['陰天氣溫低，月事保養更重要。今日草木為你選了溫宮月事茶，全面溫補調理。']},poems:{rainy:['寒雨不入懷，草本溫宮暖'],sunny:['春日護芳心，月事日日佳'],cloudy:['陰天添寒意，草本護月事']}},
+  'feminine-radiance-herbal-tea':{name:'胸胸茶',msgs:{rainy:['下雨天也要好好照顧自己。今日草木推薦胸胸茶，以天然食材搭配草本，呵護女性的每一天。','陰雨天，給自己一杯胸胸茶，木瓜與當歸的溫和滋養，是今日最甜潤的關愛。'],sunny:['陽光好日子，也是好好照顧自己的時機。胸胸茶的天然草本配方，今日為你溫柔呵護。'],cloudy:['陰天也要好好愛自己。今日草木推薦胸胸茶，以木瓜、葛根的溫和配方，陪你每一天。']},poems:{rainy:['春雨滋萬物，草本護芳心'],sunny:['晴日好時光，草本暖芳心'],cloudy:['柔雲輕撫天，草本護芳心']}},
+  // ｜孅｜美顏
+  'moisture-balance-herbal-tea':{name:'輕濕茶',msgs:{rainy:['雨天濕氣最盛，體內容易積濕。今日草木為你選了一杯輕濕茶，以薏仁、赤小豆的清爽，陪你度過潮濕的一天。','梅雨時節，潮濕難耐。輕濕茶的清爽草本配方，是今日最貼心的日常選擇。'],sunny:['晴天陽氣旺，但夏日體內仍易積濕。今日占卜推薦輕濕茶，清爽配方，日日好維持。'],cloudy:['陰天氣壓低，身體容易沉重。輕濕茶是今日草木的推薦，清爽無負擔。']},poems:{rainy:['細雨潤萬物，草本護輕盈','濕氣隨雨至，一杯茶化解'],sunny:['晴空萬里闊，草本保輕盈'],cloudy:['雲遮日色暗，茶香解煩悶']}},
+  'light-fit-herbal-tea':{name:'纖纖茶',msgs:{rainy:['雨天少動，腸胃負擔更重。今日草木推薦纖纖茶，以荷葉、山楂清爽去油，維持日常輕盈。','陰雨天最適合用纖纖茶重整腸胃。決明子與荷葉的清爽力量，是今日最好的日常管理。'],sunny:['晴天多動更要好好維持體態。纖纖茶的清爽不苦澀配方，日日陪你輕鬆好好管理。'],cloudy:['陰天容易代謝緩慢，今日草木推薦纖纖茶，以車前子、決明子促進日常循環。']},poems:{rainy:['雨天解油膩，草本護輕盈'],sunny:['晴日多活動，草本助循環'],cloudy:['天陰代謝緩，草本輕身行']}},
+  'nourishing-beauty-herbal-tea':{name:'養顏美容茶',msgs:{rainy:['陰雨天膚況特別不穩定，今日草木推薦養顏美容茶，以百合玉竹潤燥保濕，穩定膚質。','雨天肌膚容易暗沉，養顏美容茶的生地、紅棗配方，是今日最好的由內養出光澤選擇。'],sunny:['晴天日照強，肌膚保養更重要。養顏美容茶的天然保濕配方，日日維持水潤好膚質。'],cloudy:['陰天氣色容易黯淡，今日草木推薦養顏美容茶，由內養出好氣色，讓光澤重現。']},poems:{rainy:['雨潤百合香，草本養嫩膚'],sunny:['晴日護膚忙，草本潤容光'],cloudy:['陰天也光彩，草本養顏來']}},
+  'rose-radiance-herbal-tea':{name:'玫瑰亮妍飲',msgs:{rainy:['下雨天也要好好照顧自己。今日草木推薦玫瑰亮妍飲，玫瑰花的芬芳讓陰雨天也有好氣色。','雨中玫瑰更香，今日就讓玫瑰亮妍飲的淡雅花香，深層改善你的暗淡氣色。'],sunny:['晴天就是最好的美顏日！玫瑰亮妍飲的淡雅花香，陪你在陽光下散發自然好氣色。'],cloudy:['陰天也要好好愛自己。玫瑰亮妍飲讓每一天都是好氣色的開始。']},poems:{rainy:['雨中玫瑰香，妍顏自然來'],sunny:['晴日花盛開，美顏由內至'],cloudy:['雲遮不住香，玫瑰妍顏在']}},
+  'roselle-and-plum-herbal-tea':{name:'洛神烏梅湯',msgs:{rainy:['雨天也要消暑退火，洛神烏梅湯的酸甜清爽，是今日最清新的夏日選擇。','下雨悶熱，洛神烏梅湯的清爽尾韻，生津止渴、退火開胃，今日就選它。'],sunny:['晴天高溫，最需要洛神烏梅湯的酸甜清涼！今日草木推薦這款消暑人氣飲品。'],cloudy:['陰天悶熱難消，洛神烏梅湯以烏梅、洛神花的酸甜力量，清爽開胃，是今日最清涼選擇。']},poems:{rainy:['雨中酸甜涼，烏梅消暑熱'],sunny:['豔陽烏梅香，清涼一整天'],cloudy:['陰悶洛神紅，清甜退火行']}},
+  'metabolic-balance-herbal-tea':{name:'三清三絳茶',msgs:{rainy:['陰雨天代謝容易變慢，今日草木推薦三清三絳茶，以杜仲葉、荷葉清降虛火、去油解悶。','雨天飲食油膩感更重，三清三絳茶的溫和配方，是今日清降體內負擔的最佳選擇。'],sunny:['晴天活動量大更容易積油。三清三絳茶的清香溫和配方，日日維持體內清爽平衡。'],cloudy:['陰天氣壓低，體內虛火容易上升。今日草木推薦三清三絳茶，清和降火、去油解悶。']},poems:{rainy:['雨降清涼至，草本降虛火'],sunny:['晴日清代謝，草本護健康'],cloudy:['陰天清降忙，草本護平衡']}},
+  // ｜癒｜修護
+  'black-bean-and-eucommia-herbal-tea':{name:'黑豆杜仲茶',msgs:{rainy:['陰雨天腰膝酸軟更明顯，今日草木推薦黑豆杜仲茶，補腎滋陰、穩定筋骨體質。','雨天更容易感到體力疲乏，黑豆杜仲茶的溫補配方，是今日最好的腰腎保養選擇。'],sunny:['晴天活動多，腰腎更要保養好。黑豆杜仲茶的補腎配方，日日護你的筋骨核心。'],cloudy:['陰天容易腰膝無力，今日草木為你選了黑豆杜仲茶，改善因勞累引發的下肢疲勞。']},poems:{rainy:['雨天腰膝軟，黑豆護筋骨'],sunny:['晴日強筋骨，杜仲護腰腎'],cloudy:['陰天補根本，草本固筋骨']}},
+  'harmony-and-comfort-herbal-tea':{name:'如意舒肝茶',msgs:{rainy:['雨天讓人心情容易鬱悶。今日草木推薦如意舒肝茶，以柴胡、玫瑰等清雅草本，幫助你維持舒暢好心情。','陰雨天情緒最需要疏導，如意舒肝茶的清雅花香，是今日最貼心的心情調節。'],sunny:['晴天好時光，維持好心情。今日占卜推薦如意舒肝茶，讓清雅草本陪你日日舒暢。'],cloudy:['陰天情緒起伏，今日草木特別為你選了如意舒肝茶，以溫和草本幫助你找回平靜。']},poems:{rainy:['雨後見青山，草本舒心懷'],sunny:['春風吹花開，心情自舒暢'],cloudy:['雲開見日月，舒肝心自寬']}},
+  'good-appetite-herbal-tea':{name:'餵餵好食茶',msgs:{rainy:['雨天容易腸胃脹悶，今日草木推薦餵餵好食茶，以茯苓、陳皮溫和促進消化，維持好食慾。','陰雨天胃口差，餵餵好食茶的茉莉花清香，是今日最好的餐後消化好選擇。'],sunny:['晴天應酬多，消化壓力大！餵餵好食茶的消食配方，日日陪你輕鬆維持腸胃健康。'],cloudy:['陰天腸胃容易怠惰，今日草木推薦餵餵好食茶，以山藥、茯苓溫和保護消化機能。']},poems:{rainy:['雨天胃口沉，草本開食路'],sunny:['晴日多應酬，草本護腸胃'],cloudy:['陰天食慾低，草本喚胃氣']}},
+  'recovery-support-herbal-tea':{name:'蜈蚣草茶',msgs:{rainy:['陰雨天身體更需要溫和調理，今日草木推薦蜈蚣草茶，排水去濕、溫和舒緩，護你好狀態。','雨天復原期特別難熬，蜈蚣草茶的黨參、黃耆深層滋補，是今日最貼心的修護選擇。'],sunny:['晴天修復更快！蜈蚣草茶的溫和清潤配方，每天補充元氣，加速你的全面修護。'],cloudy:['陰天修護節奏慢，今日草木推薦蜈蚣草茶，以三七、薏苡仁的清潤力量，陪你溫和調理。']},poems:{rainy:['雨天補元氣，草本護修復'],sunny:['晴日復元快，草本添精力'],cloudy:['陰天慢調理，草本護氣血']}},
+  // ｜預｜防患未然
+  'seasonal-soothing-herbal-tea':{name:'換季舒敏茶',msgs:{rainy:['換季陰雨，體質敏感者特別需要換季舒敏茶。刺五加、黃耆的穩定力量，今日守護你。','陰雨天讓敏感體質更不舒服，換季舒敏茶的溫和調節配方，是今日最好的防護選擇。'],sunny:['晴天氣候乾燥，換季敏感同樣存在！換季舒敏茶的補氣配方，日日守護你的體質穩定度。'],cloudy:['陰天氣候多變，體質容易失衡，今日草木推薦換季舒敏茶，穩定精神與體力。']},poems:{rainy:['換季多風雨，草本護體穩'],sunny:['晴日防敏感，草本添免疫'],cloudy:['陰晴不定日，草本護體質']}},
+  // ｜孕｜媽咪滋補
+  'maternity-care-herbal-tea':{name:'好孕安心飲',msgs:{rainy:['陰雨天孕媽咪特別需要安定。今日草木推薦好孕安心飲，以百合、黨參安定情緒、提升睡眠品質。','雨天孕期疲憊感更重，好孕安心飲的溫補不燥配方，是今日最溫柔的孕期呵護。'],sunny:['晴天好日子，孕媽咪也要好好滋補。好孕安心飲日日補氣養胎，安定孕期身心。'],cloudy:['陰天情緒容易波動，今日草木特別為孕媽咪推薦好孕安心飲，以山藥、蓮子安心護胎。']},poems:{rainy:['雨中護胎心，草本安孕期'],sunny:['晴日補養足，草本護好孕'],cloudy:['陰天多安靜，草本安孕心']}},
+  'postnatal-nursing-tea':{name:'產後哺乳茶',msgs:{rainy:['陰雨天產後媽咪特別需要溫補。今日草木推薦產後哺乳茶，以黃耆、紅棗調理產後體虛。','雨天腰膝酸軟，產後哺乳茶的杜仲葉與枸杞，是今日最溫暖的媽咪補養選擇。'],sunny:['晴天好心情也需要好補養。產後哺乳茶的清爽溫補配方，日日陪伴媽咪好好恢復。'],cloudy:['陰天身體少了活力，今日草木推薦產後哺乳茶，全面調理產後虛弱、補氣固本。']},poems:{rainy:['雨後補元氣，草本護媽咪'],sunny:['晴日補奶來，草本助哺乳'],cloudy:['陰天補根本，草本護產後']}},
+  // ｜童｜學齡照護
+  'teen-wellness-for-boy-herbal-tea':{name:'公子轉骨茶',msgs:{rainy:['陰雨天正是轉骨的好時機。今日草木推薦公子轉骨茶，以黃耆、杜仲葉助長高好基礎。','雨天窩在家也要補！公子轉骨茶的甘甜配方，日日促進青春期男孩的成長吸收。'],sunny:['晴天戶外活動多，轉骨效果更好！公子轉骨茶今日陪伴成長期男孩把握黃金期。'],cloudy:['陰天也要抓緊轉骨黃金期，今日草木推薦公子轉骨茶，天然甘甜、不苦澀，好入口。']},poems:{rainy:['雨天補長高，草本護成長'],sunny:['晴日活力足，草本助轉骨'],cloudy:['陰天補根基，草本護未來']}},
+  'teen-wellness-herbal-tea':{name:'千金轉骨茶',msgs:{rainy:['陰雨天女孩的成長期更要好好照顧。今日草木推薦千金轉骨茶，以白芍、山藥深層調養。','雨天窩在家，正是用千金轉骨茶調養生理機能的最好時機，貼心陪伴女孩成長。'],sunny:['晴天活動多，千金轉骨茶的補氣血配方，日日幫助青春期少女順暢度過成長期。'],cloudy:['陰天氣候讓成長期女孩更敏感，今日草木推薦千金轉骨茶，以杜仲葉溫和護身。']},poems:{rainy:['雨天護千金，草本伴成長'],sunny:['晴日身更高，草本護青春'],cloudy:['陰天補氣血，草本護少女']}},
+  'gastrodia-mind-wellness-tea':{name:'天麻益智茶',msgs:{rainy:['陰雨天大腦容易昏沉，今日草木推薦天麻益智茶，以天麻、西洋參清明頭腦，維持高效思維。','雨天專注力下降，天麻益智茶的通絡舒壓配方，是今日最好的益腦補氣選擇。'],sunny:['晴天思維更清晰！天麻益智茶今日陪伴你維持高效用腦狀態，考試工作都從容。'],cloudy:['陰天大腦運轉慢，今日草木推薦天麻益智茶，以川芎、麥門冬降下虛火，讓頭腦清明。']},poems:{rainy:['雨天腦昏沉，天麻明心智'],sunny:['晴日腦清明，草本添智慧'],cloudy:['陰天補腦力，草本護思維']}},
+  // ｜壯｜元氣
+  'maca-herbal-tea':{name:'馬卡茶',msgs:{rainy:['陰雨天精力最容易低迷，今日草木推薦馬卡茶，以馬卡、黃精深層補充男性活力。','雨天疲憊感倍增，馬卡茶的何首烏與人參鬚配方，是今日最強的元氣補充選擇。'],sunny:['晴天正是展現活力的最好時機！馬卡茶的頂級補養配方，今日讓你精力充沛。'],cloudy:['陰天精神低迷，今日草木推薦馬卡茶，以馬卡、淮山強化體能，展現好狀態。']},poems:{rainy:['雨天補元氣，馬卡護男力'],sunny:['晴日精力充，草本添雄風'],cloudy:['陰天補根本，馬卡護活力']}},
+};
+
+const WEATHER_MAP={
+  rainy:['moisture-balance-herbal-tea','night-calm-herbal-tea','harmony-and-comfort-herbal-tea'],
+  sunny:['daily-vitality-herbal-teay','rose-radiance-herbal-tea','maca-herbal-tea'],
+  cloudy:['harmony-and-comfort-herbal-tea','nourishing-beauty-herbal-tea','metabolic-balance-herbal-tea'],
+  default:['moisture-balance-herbal-tea','daily-vitality-herbal-teay','night-calm-herbal-tea']
+};
+
+const EXERCISES=[
+  {name:'晨間慢跑 30 分鐘',desc:'以輕鬆的步伐慢跑，感受身體逐漸甦醒，是啟動美好一天的最佳方式。'},
+  {name:'快走健步 45 分鐘',desc:'大步快走，擺動雙臂，輕鬆無壓力的有氧運動，適合各年齡層。'},
+  {name:'瑜伽伸展 30 分鐘',desc:'透過各種體位的延展，放鬆緊繃的肌肉，調整呼吸，使身心得到充分舒展。'},
+  {name:'核心訓練 20 分鐘',desc:'透過棒式、捲腹等動作加強核心肌群，提升身體穩定性與姿勢體態。'},
+  {name:'太極拳 30 分鐘',desc:'動靜兼備、剛柔並濟，透過緩慢的動作協調氣息，是老少皆宜的傳統運動。'},
+  {name:'跳繩有氧 20 分鐘',desc:'簡單道具，高效有氧，提升心肺功能，活化全身。'},
+  {name:'騎單車 60 分鐘',desc:'享受戶外騎行的樂趣，呼吸新鮮空氣，鍛鍊下肢肌群。'},
+  {name:'游泳 45 分鐘',desc:'全身性的低衝擊有氧運動，在水中感受輕盈，鍛鍊全身肌群且對關節友好。'},
+  {name:'八段錦 20 分鐘',desc:'中國傳統導引功法，八個動作全面舒展肢體，調和氣血，適合早晨練習。'},
+  {name:'爬山健行 90 分鐘',desc:'接觸自然、挑戰體力的好方式，強健腿部肌群，同時讓心靈得到放鬆。'},
+  {name:'居家深蹲 100 下',desc:'不需器材，原地訓練腿部與臀部肌群，提升基礎代謝，打造健康下半身。'},
+  {name:'皮拉提斯 40 分鐘',desc:'著重核心、呼吸與身體排列的訓練，改善體態、增強柔韌度與肌力。'},
+  {name:'舞蹈律動 30 分鐘',desc:'隨著音樂擺動身體，有趣又有效的有氧運動，讓你在歡樂中消耗能量。'},
+  {name:'戶外散步 60 分鐘',desc:'踏青漫步，感受自然療癒的力量，簡單輕鬆，任何時間都能進行。'},
+  {name:'呼吸冥想 15 分鐘',desc:'專注呼吸，靜心冥想，有助於舒緩壓力、清理思緒，找回內在平靜。'},
+  {name:'肩頸舒壓伸展 15 分鐘',desc:'針對長時間久坐設計，透過簡單的頸部與肩胛骨拉伸，迅速緩解上半身緊繃。'},
+  {name:'辦公室椅上瑜伽 15 分鐘',desc:'利用椅子進行溫和的扭轉與伸展，不需換裝也能在工作空檔活動筋骨、提神醒腦。'},
+  {name:'超慢跑 40 分鐘',desc:'近年最流行的低強度有氧，以穩定頻率原地小跑步，不傷膝蓋且能高效燃脂。'},
+  {name:'靠牆深蹲保持 3 分鐘',desc:'靜態的下肢肌力訓練，背部緊貼牆壁下蹲，能有效強化股四頭肌，保護膝關節。'},
+  {name:'原地踏步高抬腿 15 分鐘',desc:'在室內即可進行的高效有氧，盡量將膝蓋抬至與髖部同高，鍛鍊核心與下肢穩定。'},
+  {name:'波比跳挑戰 30 下',desc:'高強度的全身性燃脂動作，結合深蹲與跳躍，可在短時間內大幅提升心跳率。'},
+  {name:'貓牛式脊椎放鬆 10 分鐘',desc:'經典的伸展動作，隨著呼吸拱背與塌腰，能溫和地放鬆整條脊椎與背部肌肉。'},
+  {name:'活力開合跳 150 下',desc:'經典的全身有氧訓練，可分組完成，有效活化全身關節、提升心肺耐力。'},
+  {name:'睡前靜心拉伸 20 分鐘',desc:'以地板動作為主的溫和拉伸，專注於髖部與腿後側放鬆，安定神經、幫助入眠。'},
+  {name:'五禽戲養生功 20 分鐘',desc:'模仿動物姿態的傳統導引法，全身性地舒展肢體與關節，趣味與運動兼具。'},
+  {name:'標準伏地挺身 50 下',desc:'鍛鍊胸肌、肩膀與三頭肌的經典自重訓練，可依個人能力調整為跪姿進行。'},
+  {name:'瑜伽下犬式停留 5 分鐘',desc:'拉伸整條身體後側鏈（背部、臀部、小腿），能促進全身循環、消除腿部水腫。'},
+  {name:'金雞獨立左右各 3 分鐘',desc:'雙眼微閉進行單腳站立平衡，挑戰專注力與身體微肌肉的控制能力。'},
+  {name:'赤腳草地漫步 20 分鐘',desc:'在安全的草地或泥土地上赤腳走路，放鬆緊繃的足底筋膜，感受大自然的療癒。'},
+  {name:'擴胸順氣運動 15 分鐘',desc:'雙臂由胸前向兩側大弧度打開，配合深呼吸，有助於舒緩胸悶、調整不良體態。'},
+  {name:'徒手划船拉背 20 分鐘',desc:'雙手模擬划船動作，專注於背部肌群的夾緊與收縮，改善因久坐導致的駝背。'},
+  {name:'滾筒全身筋膜放鬆 20 分鐘',desc:'利用按摩滾筒針對大腿、小腿及背部進行滾動按壓，深層放鬆運動後的緊繃肌肉。'},
+  {name:'階梯踏板訓練 20 分鐘',desc:'利用家中的階梯或小踏板進行上下交換踏步，鍛鍊心肺並雕塑臀腿線條。'},
+  {name:'瑜伽束角式放鬆 15 分鐘',desc:'雙腳腳底板對貼，隨呼吸放鬆鼠溪部與骨盆底肌群，特別適合舒緩久坐下半身的不適。'},
+  {name:'徒手居家橋式 60 下',desc:'平躺於地面，利用臀部力量將骨盆抬起，專注鍛鍊臀大肌與大腿後側，穩定下背。'},
+  {name:'開展胸廓拉伸 10 分鐘',desc:'利用雙手在背後互扣並向下延伸，拉開緊繃的胸大肌，釋放上班累積的緊繃感。'},
+  {name:'深層腹式呼吸 15 分鐘',desc:'平躺或端坐，將氣吸入腹部使腹部隆起，再緩慢吐出，有效活化副交感神經、安定身心。'},
+  {name:'原地側步移動 20 分鐘',desc:'左右來回側向跨步移動，鍛鍊平時少用到的側向肌群，提升腳踝與膝蓋的穩定度。'},
+  {name:'手肘碰膝仰臥起坐 40 下',desc:'雙手抱頭，利用腹部核心力量起身，以手肘交替觸碰對側膝蓋，加強側腹線條。'},
+  {name:'原地輕快小跳躍 10 分鐘',desc:'放鬆雙肩與雙腳，在原地進行輕柔的微跳躍，像彈簧一樣，能快速活化全身循環、振奮精神。'},
+  {name:'晨間慢跑 20 分鐘',desc:'溫和的晨間跑步，讓新鮮空氣喚醒各個器官，為身體注入整天滿滿的活力。'},
+  {name:'快走健步 30 分鐘',desc:'維持中等速度的快走，擺動雙臂，是維持心肺健康最無負擔的日常任務。'},
+  {name:'瑜伽伸展 15 分鐘',desc:'高效率的快速拉伸，針對全身大肌群進行溫和延展，在短時間內舒緩肌肉緊繃。'},
+  {name:'核心訓練 15 分鐘',desc:'專注於腹部與下背部的核心刺激，雖然時間短，但只要動作精準同樣能有效提升穩定性。'},
+  {name:'太極拳 20 分鐘',desc:'跟著傳統呼吸節奏進行緩慢推掌與轉身，幫助氣血順暢運行，沉澱繁雜心緒。'},
+  {name:'跳繩有氧 15 分鐘',desc:'中等強度的間歇跳繩，高效燃脂並訓練手腳協調度，是性價比極高的居家有氧。'},
+  {name:'騎單車 45 分鐘',desc:'踩上單車進行中距離的騎行，沿途欣賞風景，同時鍛鍊大腿與小腿的肌肉耐力。'},
+  {name:'游泳 30 分鐘',desc:'在水中進行流暢的划水與踢腿，利用水的阻力溫和鍛鍊全身，同時舒緩關節壓力。'},
+  {name:'八段錦 15 分鐘',desc:'精簡版的傳統八段錦功法，反覆練習重點招式，調和臟腑，特別適合久坐後的休養。'},
+  {name:'爬山健行 60 分鐘',desc:'尋找附近的小丘陵或步道健行，拾級而上，訓練心肺功能的同時也能沉浸在芬多精中。'},
+  {name:'居家深蹲 60 下',desc:'分組進行的徒手深蹲，強化臀部與大腿力量，有效促進下半身氣血循環與代謝。'},
+  {name:'皮拉提斯 30 分鐘',desc:'透過精準的微小肌肉控制，拉長身體線條，著重於脊椎的排列與核心肌群的鍛鍊。'},
+  {name:'舞蹈律動 20 分鐘',desc:'挑選節奏輕快的音樂自由擺動，釋放日常緊繃的情緒，讓身體在快樂中流汗。'},
+  {name:'戶外散步 45 分鐘',desc:'利用午餐或傍晚空檔在戶外慢步，放鬆平常過度用眼的雙目，讓大腦重新開機。'},
+  {name:'呼吸冥想 10 分鐘',desc:'短時間的靜坐專注於一吸一呼之間，快速平息焦慮感，找回當下的核心力量。'},
+  {name:'肩頸舒壓伸展 20 分鐘',desc:'加長版的上半身放鬆，深層拉伸斜方肌與肩胛提肌，徹底告別僵硬的石頭肩。'},
+  {name:'辦公室椅上瑜伽 10 分鐘',desc:'專為高壓上班族設計的椅上扭轉動作，在小空間內就能完成脊椎舒壓與提神。'},
+  {name:'超慢跑 30 分鐘',desc:'以極其輕鬆的步伐原地跟隨節奏踏步跑步，是建立長期運動習慣的最佳起點。'},
+  {name:'靠牆深蹲保持 2 分鐘',desc:'高效的無移動肌力訓練，專注於大腿前側的緊繃感，對於保護膝蓋有顯著幫助。'},
+  {name:'原地踏步高抬腿 10 分鐘',desc:'高頻率的室內踏步，搭配規律的呼吸，能快速提升核心體溫、活化微循環。'},
+  {name:'波比跳挑戰 20 下',desc:'爆發力十足的全身性訓練，分段完成可有效激活全身大肌群，挑戰意志力。'},
+  {name:'貓牛式脊椎放鬆 15 分鐘',desc:'加長版的脊椎波動練習，讓每一節脊椎都得到充分的滋養與舒展，緩解下背酸痛。'},
+  {name:'活力開合跳 100 下',desc:'快速完成的居家有氧，透過流暢的跳躍動作激活全身淋巴循環與末梢血管。'},
+  {name:'睡前靜心拉伸 15 分鐘',desc:'溫和的夜間地板伸展，將意念放在呼吸與身體的放鬆上，為高品質的睡眠鋪路。'},
+  {name:'五禽戲養生功 15 分鐘',desc:'傳統中醫導引功法，動作徐緩且意念專一，能溫和調養身體，達到動中求靜的效果。'},
+  {name:'標準伏地挺身 30 下',desc:'鍛鍊上半身推力的必備動作，可分為三組完成，有效雕塑胸部、肩膀與手臂線條。'},
+  {name:'瑜伽下犬式停留 3 分鐘',desc:'專注於將臀部推向最高點，延伸背部與雙腿後側，是重塑身體核心循環的經典姿勢。'},
+  {name:'金雞獨立左右各 2 分鐘',desc:'閉上雙眼挑戰單腳平衡，訓練大腦對身體末梢的控制，有助於沉澱心神、引血下行。'},
+  {name:'赤腳草地漫步 15 分鐘',desc:'雙腳直接接觸大地的草皮，釋放身體累積的緊繃靜電，順便進行天然的足底按摩。'},
+  {name:'擴胸順氣運動 10 分鐘',desc:'配合均勻深呼吸進行開胸動作，舒緩因為長時間駝背造成的胸悶與氣順不暢。'},
+  {name:'徒手划船拉背 15 分鐘',desc:'雙臂向後夾緊，主動感受背部肌肉的收縮，是改善辦公族駝背圓肩的黃金動作。'},
+  {name:'滾筒全身筋膜放鬆 15 分鐘',desc:'使用按摩滾筒針對局部痛點進行緩慢滾壓，釋放肌肉組織的慢性緊繃與酸痛感。'},
+  {name:'階梯踏板訓練 15 分鐘',desc:'在家利用小階梯進行節奏分明的上下跨步，對雕塑臀大肌與強化大腿很有幫助。'},
+  {name:'瑜伽束角式放鬆 10 分鐘',desc:'溫和的盆腔與骨盆底肌伸展，隨呼吸將膝蓋沉向地面，有效緩解久坐產生的下身瘀滯。'},
+  {name:'徒手居家橋式 40 下',desc:'平躺抬臀，專注於臀部肌肉的頂峰收縮，能有效強化骨盆與支撐下背部肌群。'},
+  {name:'開展胸廓拉伸 15 分鐘',desc:'藉由門框或雙手背扣進行大面積的胸部拉伸，讓呼吸更深、更順暢。'},
+  {name:'深層腹式呼吸 10 分鐘',desc:'坐姿或臥姿進行，讓氣流深達小腹，是調理自律神經、舒緩高壓生活的天然良方。'},
+  {name:'原地側步移動 15 分鐘',desc:'左右流暢地橫向側步，能活化平時被忽略的臀中肌，提升行走時的關節穩定度。'},
+  {name:'手肘碰膝仰臥起坐 30 下',desc:'溫和的核心腹腹肌動作，專注於斜腹肌的收縮，打造健康的腹部支撐結構。'},
+  {name:'原地輕快小跳躍 15 分鐘',desc:'保持全身關節放鬆的上下微幅彈跳，能快速帶動全身的微循環與熱量消耗。'},
+  {name:'晨間慢跑 45 分鐘',desc:'進階版的晨間跑步，延長有氧燃脂時間，建立強健的心肺耐力，全面活化代謝。'},
+  {name:'快走健步 60 分鐘',desc:'長距離的耐力快走，維持穩定心率，在不知不覺中消耗卡路里、維持身材。'},
+  {name:'瑜伽伸展 45 分鐘',desc:'深度瑜伽拉伸課程，全面針對僵硬的下半身與髖關節進行開展，重獲身體柔韌度。'},
+  {name:'核心訓練 30 分鐘',desc:'完整的核心套餐，包含平板支撐、側平板與各種捲腹，打造鐵壁般的腹部支撐。'},
+  {name:'太極拳 45 分鐘',desc:'全套傳統太極步法與掌法練習，以意領氣，全身關節在徐緩中得到完美的活動。'},
+  {name:'跳繩有氧 30 分鐘',desc:'高難度的長有氧跳繩，極大化心肺功能的鍛鍊，挑戰自我的體能極限。'},
+  {name:'騎單車 90 分鐘',desc:'長途遠足騎行，鍛鍊耐力的絕佳選擇，全面強化雙腿爆發力與全身核心穩定。'},
+  {name:'游泳 60 分鐘',desc:'長距離流暢游泳，讓全身肌肉在無重力狀態下均勻發力，有效增強肺活量。'},
+  {name:'八段錦 30 分鐘',desc:'完整全套八段錦重覆練習，將每一個招式做到位，深度調理身體的氣血平衡。'},
+  {name:'爬山健行 120 分鐘',desc:'具有挑戰性的登山路線，克服地形起伏，能深度鍛鍊大腿、臀部肌群與意志力。'},
+  {name:'居家深蹲 120 下',desc:'高容量的深蹲任務，可分多組完成，深度激活全身最大的肌群，拉高全天代謝率。'},
+  {name:'皮拉提斯 50 分鐘',desc:'高階體態與線條雕塑，透過持續的抗阻與延伸動作，打造修長、緊實的肌肉結構。'},
+  {name:'舞蹈律動 40 分鐘',desc:'長篇幅的熱舞派對，消耗大量熱量，在音符中盡情釋放所有壓力與疲憊。'},
+  {name:'戶外散步 90 分鐘',desc:'在綠意盎然的公園中悠閒長散步，徹底清空大腦的疲勞，給身心放一個假。'},
+  {name:'呼吸冥想 20 分鐘',desc:'深度的靜心練習，透過均勻的吐納與內觀，幫助身體回歸最本質的平靜狀態。'},
+  {name:'肩頸舒壓伸展 30 分鐘',desc:'極致的上半身放鬆，搭配輕柔的自我揉按，深度釋放每一絲累積的肌肉勞損。'},
+  {name:'辦公室椅上瑜伽 20 分鐘',desc:'深度午休椅上拉伸，舒緩久坐對腰椎、胸椎造成的壓迫，讓下午的工作充滿乾勁。'},
+  {name:'超慢跑 50 分鐘',desc:'長時數超慢跑，進入舒適的有氧心率區間，是溫和燃脂、維持好體態的秘密武器。'},
+  {name:'靠牆深蹲保持 4 分鐘',desc:'極具考驗的靜態耐力深蹲，深度鍛鍊大腿前側與核心力量，強健下肢。'},
+  {name:'原地踏步高抬腿 20 分鐘',desc:'不間斷的高抬腿練習，極致鍛鍊髖屈肌與核心，在家也能完成汗流浹背的有氧。'},
+  {name:'波比跳挑戰 40 下',desc:'極高強度的間歇波比跳，快速撕裂脂肪，刺激肌肉生長與心肺爆發力。'},
+  {name:'貓牛式脊椎放鬆 20 分鐘',desc:'慢節奏的背部伸展，配合悠長呼氣，讓背部肌肉與筋膜獲得深層的舒緩與釋放。'},
+  {name:'活力開合跳 200 下',desc:'大容量的有氧開合跳，挑戰小腿與肩膀的耐力，極速帶動全身血液循環。'},
+  {name:'睡前靜心拉伸 30 分鐘',desc:'完整的睡前儀式伸展，全方位放鬆緊繃的身體，讓大腦釋放褪黑激素、安心入睡。'},
+  {name:'五禽戲養生功 30 分鐘',desc:'深入體會五種動物的神韻與動作，內調五臟、外練筋骨，達到養生最高境界。'},
+  {name:'標準伏地挺身 60 下',desc:'高容量上半身推力訓練，強化胸大肌與核心肌群的連動，展現健康體態。'},
+  {name:'瑜伽下犬式停留 8 分鐘',desc:'進階版下犬式靜態保持，深度拉長背部與大腿後側，幫助調整體態。'},
+  {name:'金雞獨立左右各 4 分鐘',desc:'極致平衡考驗，專注於腳底與大腦的對話，能有效安定躁動的神經系統。'},
+  {name:'赤腳草地漫步 30 分鐘',desc:'長時間與大地的親密接觸，徹底放鬆足底肌肉，釋放疲勞、補充內在能量。'},
+  {name:'擴胸順氣運動 20 分鐘',desc:'大幅度的胸腔擴展練習，幫助吸入更多氧氣，改善經常性的小吸氣與胸悶感。'},
+  {name:'徒手划船拉背 30 分鐘',desc:'大容量的背部肌肉激活，高次數的收縮能有效記憶正確體態，改善含胸。'},
+  {name:'滾筒全身筋膜放鬆 30 分鐘',desc:'全方位的泡沫滾筒全身滾壓，從頭到腳梳理打結的筋膜，重獲靈活身體。'},
+  {name:'階梯踏板訓練 30 分鐘',desc:'高效率的踏板操，搭配雙臂擺動，是雕塑完美下半身曲線的高回報運動。'},
+  {name:'瑜伽束角式放鬆 20 分鐘',desc:'深度盆腔開展，藉由地心引力與長呼吸，徹底放鬆骨盆周圍的緊繃和壓力。'},
+  {name:'徒手居家橋式 80 下',desc:'大容量的臀部塑形任務，打造結實翹臀，同時提供腰椎更穩固的保護。'},
+  {name:'開展胸廓拉伸 20 分鐘',desc:'全方位的胸部與肩膀拉伸，改善因長期看電腦造成的肩膀前傾。'},
+  {name:'深層腹式呼吸 20 分鐘',desc:'深度的吐納練習，讓思緒徹底安靜下來，調理內臟氣機，給身體充飽電。'},
+  {name:'原地側步移動 30 分鐘',desc:'進階的橫向腳步訓練，加入微蹲動作，增強臀部側面與膝關節的抗受力。'},
+  {name:'手肘碰膝仰臥起坐 50 下',desc:'挑戰腹腹部肌群耐力，有節奏地扭轉身體，有效緊緻腰部側邊線條。'},
+  {name:'原地輕快小跳躍 20 分鐘',desc:'不間斷的放鬆彈跳，震動全身微血管，是提升新代謝、拍出身體廢物的妙方。'},
+  {name:'活力慢跑 25 分鐘',desc:'以穩定的中速慢跑，維持流暢的呼吸，享受身體流汗時的輕盈與暢快。'},
+  {name:'快速步行 35 分鐘',desc:'加強步伐速度與手臂擺動的快走，讓心跳維持在最佳燃脂區間。'},
+  {name:'溫和瑜伽拉伸 25 分鐘',desc:'針對大腿後側與下背部的溫和瑜伽體位法，幫助舒緩全身的慢性疲勞。'},
+  {name:'核心強化 25 分鐘',desc:'結合棒式保持與動態捲腹，精準鍛鍊腹部深層肌肉，重塑健康腰身。'},
+  {name:'養生太極 25 分鐘',desc:'練習太極拳的基本雲手與步法，鬆沉落胯，讓身體在徐緩中找到平衡感。'},
+  {name:'間歇跳繩 25 分鐘',desc:'採用跳繩 2 分鐘、休息 1 分鐘的間歇模式，在短時間內最大化熱量消耗。'},
+  {name:'戶外單車 50 分鐘',desc:'騎車前往附近的公園或河濱步道，雙腳均衡發力，鍛鍊心肺與腿部力量。'},
+  {name:'水中慢步有氧 40 分鐘',desc:'在游泳池中利用水的巨大阻力進行前行與後退走，對關節零負擔的高效訓練。'},
+  {name:'中醫八段錦 25 分鐘',desc:'著重於「調理脾胃須單舉」等經典動作，幫助疏通脾胃經絡、促進消化。'},
+  {name:'森林健行 75 分鐘',desc:'走進林蔭茂密的步道，大口呼吸負離子，鍛鍊腿部肌肉，同時放鬆身心。'},
+  {name:'徒手深蹲 80 下',desc:'分四組完成的深蹲練習，專注在蹲下時膝蓋與腳尖的方向一致，強健下身。'},
+  {name:'體態皮拉提斯 35 分鐘',desc:'專注於微肌肉的精確控制，拉長身體肌肉線條，改善日常的不良姿勢。'},
+  {name:'流行舞蹈律動 25 分鐘',desc:'跟著時下流行音樂的節奏自由擺動身體，好玩、暴汗且毫無運動壓力。'},
+  {name:'公園漫步 50 分鐘',desc:'在綠樹成蔭的公園裡放慢腳步散步，放鬆心情，吸入滿滿的自然能量。'},
+  {name:'靜坐呼吸 12 分鐘',desc:'找一個安靜的角落坐下，專注於吸氣時腹部隆起、呼氣時腹部下陷。'},
+  {name:'頸部肌肉放鬆 12 分鐘',desc:'針對長時間低頭看手機的脖子，進行四個方向的溫和拉伸，解除酸痛。'},
+  {name:'椅子舒壓拉伸 12 分鐘',desc:'坐在辦公椅上進行胸廓開展與雙腿前伸，快速帶走累積數小時的僵硬感。'},
+  {name:'節奏超慢跑 35 分鐘',desc:'配合每分鐘 180 步的節奏原地超慢跑，輕鬆無負擔，是最好的日常有氧。'},
+  {name:'靜態牆蹲 2.5 分鐘',desc:'背部貼牆、膝蓋成 90 度的靜態蹲，能快速感覺到大腿發熱，高效強健膝關節。'},
+  {name:'高抬腿原地走 12 分鐘',desc:'有節奏地將大腿抬高至水平位置的原地走，有效激活核心與下肢肌肉。'},
+  {name:'波比跳 25 下',desc:'不追求速度，專注在每一個深蹲、伏地挺身到跳躍的動作完整度，全身燃脂。'},
+  {name:'溫和貓牛式 12 分鐘',desc:'隨著呼吸頻率，柔軟地活動整條脊椎，是釋放下背部壓力的不二法門。'},
+  {name:'居家開合跳 120 下',desc:'簡單、直接的居家有氧，分三組進行，快速提升全天的新陳代謝率。'},
+  {name:'放鬆冥想拉伸 18 分鐘',desc:'結合輕音樂與地板伸展動作，放鬆神經系統，適合在緊繃的一天結束後進行。'},
+  {name:'傳統五禽戲 12 分鐘',desc:'重點練習虎戲與鹿戲，舒展雙臂與腰椎，調和氣血，活絡全身關節。'},
+  {name:'跪姿伏地挺身 40 下',desc:'對初學者友好的上半身訓練，降低難度但同樣能精準鍛鍊胸肌與手臂。'},
+  {name:'下犬式伸展 4 分鐘',desc:'在下犬式中交替踩踏左右腳跟，深度拉伸小腿肚與後腳筋，消除腿部水腫。'},
+  {name:'平衡平衡獨立 2.5 分鐘',desc:'單腳站立並嘗試閉上眼睛，感受腳掌細微肌肉的調整，有助於平息思緒。'},
+  {name:'赤腳足底放鬆 12 分鐘',desc:'在鋪有按摩墊或乾淨地板上赤腳行走，刺激足底反射區，促進全身循環。'},
+  {name:'開胸理氣運動 12 分鐘',desc:'雙手合十向前推，再大幅度向後展，搭配深吸深吐，迅速緩解胸悶不適。'},
+  {name:'徒手背肌激活 12 分鐘',desc:'趴在墊子上進行超人式挺身，激活平時忽略的後背肌群，改善圓肩體態。'},
+  {name:'全面筋膜滾動 12 分鐘',desc:'利用滾筒快速滾動大腿外側與上背部，解除因為久坐帶來的慢性肌肉緊繃。'},
+  {name:'踏步機有氧 25 分鐘',desc:'在踏步機上有節奏地上下踩踏，能有效緊實臀部線條，同時鍛鍊耐力。'},
+  {name:'骨盆放鬆束角式 12 分鐘',desc:'盤腿坐姿，雙腳板對貼，身體微向前傾，隨呼吸釋放骨盆底的緊繃感。'},
+  {name:'居家抬臀橋式 50 下',desc:'基礎的平躺橋式，專注於夾緊臀部、骨盆擺正，是強健下背部的黃金動作。'},
+  {name:'胸前大伸展 12 分鐘',desc:'雙手在背後十指交扣，肩膀向後繞，向下延伸雙手，徹底打開緊繃的胸部。'},
+  {name:'養生腹式吐納 12 分鐘',desc:'採用吸氣 4 秒、屏息 2 秒、吐氣 6 秒的節奏，能迅速活化自律神經系統。'},
+  {name:'橫向移動側步 12 分鐘',desc:'在房間內左右來回側步走，加入微微下蹲，強化膝蓋周邊肌肉的穩定性。'},
+  {name:'側腹扭轉捲腹 35 下',desc:'平躺於墊上，雙腿屈膝，利用腹內外斜肌帶動身體側轉，緊緻腰部線條。'},
+  {name:'原地微幅彈跳 12 分鐘',desc:'雙腳不離開地面、僅腳跟抬起的微幅彈跳，放鬆全身，能極高效率促進淋巴回流。'},
+  {name:'晨曦慢跑 35 分鐘',desc:'迎著晨光，以均勻的步伐跑步，讓微汗帶走體內的沉重感，啟動好心情。'},
+  {name:'健康快走 50 分鐘',desc:'維持擺臂挺胸的正確快走姿勢，是燃燒脂肪且不易累積肌肉疲勞的好選擇。'},
+  {name:'全身瑜伽拉伸 35 分鐘',desc:'從頭到腳的流暢瑜伽拉伸，放鬆每一處僵硬肌群，找回身體久違的靈活度。'},
+  {name:'核心全方位 20 分鐘',desc:'平板支撐與俄羅斯扭轉的完美組合，全方位雕塑腹部肌肉，提升支撐力。'},
+  {name:'傳統太極拳 35 分鐘',desc:'專注於太極的「鬆」與「沉」，透過圓活流暢的動作，調和全身經絡與氣血。'},
+  {name:'有氧跳繩 22 分鐘',desc:'維持中等頻率的持續跳繩，高效鍛鍊心肺功能，是居家最省時的高效運動。'},
+  {name:'單車漫遊 70 分鐘',desc:'以舒適的速度騎單車，放鬆心情，同時進行中等強度的下肢有氧鍛鍊。'},
+  {name:'全身游泳訓練 50 分鐘',desc:'蛙式與自由式交替進行，利用水的浮力拉長全身線條，強健胸肺功能。'},
+  {name:'經典八段錦 22 分鐘',desc:'全套功法練習，特別加強「雙手托天理三焦」動作，全方位舒展上中下三焦。'},
+  {name:'郊山步道健行 80 分鐘',desc:'踏上階梯與泥土路交錯的步道，親近自然，強健膝關節與核心平衡力。'},
+  {name:'居家深蹲 90 下',desc:'分五組完成，蹲下時吸氣、起身時呼氣，強化下肢肌肉，增加核心基礎代謝。'},
+  {name:'核心皮拉提斯 45 分鐘',desc:'結合呼吸與精準肢體動作，深層刺激腹橫肌，打造優美緊實的體態線條。'},
+  {name:'開心舞蹈有氧 35 分鐘',desc:'不記舞步，純粹跟著音樂節奏釋放熱量，讓多巴胺帶走工作上所有的煩惱。'},
+  {name:'林蔭散步 70 分鐘',desc:'放慢生活步調，在有樹蔭的街道或公園漫步，幫助大腦徹底從壓力中釋放。'},
+  {name:'靜心冥想 18 分鐘',desc:'透過引導呼吸，將注意力帶回當下的身體感受，有效舒緩緊繃的神經。'},
+  {name:'斜方肌伸展 18 分鐘',desc:'單手過頭輕拉頭部向側邊延伸，深度放鬆僵硬的肩頸肌肉，告別電腦肩。'},
+  {name:'椅上扭轉舒壓 15 分鐘',desc:'利用座椅椅背進行身體的左右扭轉，溫和活動胸椎與腰椎，釋放久坐壓力。'},
+  {name:'溫和超慢跑 45 分鐘',desc:'不喘不累的超慢跑，一邊聽音樂一邊進行，是維持心血管健康的最佳日常。'},
+  {name:'靠牆深蹲 3.5 分鐘',desc:'靜態力量訓練，專注於股四頭肌的發力，鍛鍊耐力的同時不對膝蓋造成衝擊。'},
+  {name:'高抬腿原地踏步 18 分鐘',desc:'雙臂隨之大幅擺動的高抬腿，能有效刺激下腹部肌肉，活化全身氣血。'},
+  {name:'間歇波比跳 35 下',desc:'每做 5 下休息 30 秒，以間歇方式完成，維持高心率，達成極致的全身燃脂。'},
+  {name:'波動貓牛式 18 分鐘',desc:'如流水般流暢的脊椎波動伸展，能有效解除整天累積的背部慢性肌肉酸痛。'},
+  {name:'有氧開合跳 180 下',desc:'分多組進行的高次數開合跳，能快速活化全身微血管，提升冬季四肢溫度。'},
+  {name:'睡前伸展 25 分鐘',desc:'以躺姿為主的溫和拉伸，放鬆髖關節與大腿內側，讓副交感神經取得主導權。'},
+  {name:'華佗五禽戲 18 分鐘',desc:'重點練習鳥戲與熊戲，鍛鍊平衡感與腰部力量，是一項溫和的養生有氧運動。'},
+  {name:'跪姿伏地挺身 60 下',desc:'高次數的跪姿伏地挺身，專注於胸肌的內收與發力，循序漸進打造核心力量。'},
+  {name:'下犬式深層拉伸 6 分鐘',desc:'保持呼吸，在下犬式中感受整條脊椎與腿後側的延伸，有助於舒緩背部僵硬。'},
+  {name:'閉眼單腳站立 3 分鐘',desc:'不藉助視覺的平衡訓練，強迫足底與核心微肌肉發力，有助於平息雜念。'},
+  {name:'赤腳漫步 25 分鐘',desc:'脫下束縛的鞋襪在安全地面行走，重新激活腳掌的感官，帶來深度的放鬆感。'},
+  {name:'寬胸理氣運動 18 分鐘',desc:'配合悠長的呼吸進行雙臂的擴展與內收，能快速改善胸口沉重、氣不順的現象。'},
+  {name:'超人式背肌激活 15 分鐘',desc:'趴姿下同時抬起手腳，專注於後背肌群的收縮，是重塑優美站姿的必練動作。'},
+  {name:'全身筋膜滾筒放鬆 25 分鐘',desc:'利用滾筒由下而上放鬆小腿、大腿與背部，改善久坐導致的下半身瘀滯。'},
+  {name:'室內踏板訓練 25 分鐘',desc:'利用家中高度合適的階梯反覆上下踏步，有效緊緻臀腿線條並增強耐力。'},
+  {name:'束角式骨盆放鬆 18 分鐘',desc:'雙腳底對貼並盡量靠近身體，隨呼氣將大腿向下沉，滋養盆腔，放鬆下身。'},
+  {name:'徒手美臀橋式 70 下',desc:'平躺抬臀至身體呈一直線，頂峰停留 2 秒，能有效強化臀肌、減輕腰部負擔。'},
+  {name:'肩膀後扣拉伸 18 分鐘',desc:'雙手在背後交扣並盡量遠離身體，拉開胸前大肌群，消除長期看螢幕的含胸體態。'},
+  {name:'吐納養生腹式呼吸 15 分鐘',desc:'專注於緩慢而深長的腹式吐納，調和臟腑氣機，是放鬆心情、舒壓的極佳方式。'},
+  {name:'動態側步微蹲 18 分鐘',desc:'左右大跨步橫移並加入微蹲動作，鍛鍊下肢側面穩定度，保護膝蓋關節。'},
+  {name:'仰臥交叉觸腳踝 45 下',desc:'平躺屈膝，上背微離地，左右交替用手觸碰腳踝，精準鍛鍊側腹，緊緻腰身。'},
+  {name:'全身淋巴放鬆彈跳 18 分鐘',desc:'腳尖不離地的全身輕微抖動與彈跳，放鬆全身肌肉，促進全身微循環與代謝。'},
+  {name:'晨起舒緩慢跑 25 分鐘',desc:'不追求速度，以近乎散步的輕鬆感慢跑，呼吸早晨的新鮮空氣，喚醒全身細胞。'},
+  {name:'輕快健走 40 分鐘',desc:'比平時散步稍快的步伐步行，雙手自然擺動，能有效活化下肢循環、維持體力。'},
+  {name:'床上有氧伸展 20 分鐘',desc:'利用早晨醒來或睡前的時間在床上進行溫和的四肢拉伸，喚醒身體的柔韌性。'},
+  {name:'核心基礎訓練 18 分鐘',desc:'以棒式保持與死蟲式交替進行，溫和不傷腰椎，是建立強健核心的入門首選。'},
+  {name:'傳統八段錦精練 18 分鐘',desc:'精選八段錦中的前四式反覆練習，著重在呼吸與動作的綿密配合，梳理氣血。'},
+  {name:'室內有氧跳繩 18 分鐘',desc:'有節奏地進行輕快跳繩，能快速提升全天燃脂效率，活化全身肌肉群。'},
+  {name:'輕鬆騎單車 40 分鐘',desc:'以慢速騎單車悠遊，專注於膝關節的流暢活動，是一項低衝擊的下肢有氧。'},
+  {name:'溫和划水游泳 35 分鐘',desc:'在水中進行放鬆的蛙式划水，利用水的阻力溫和按摩全身，緩解肌肉僵硬。'},
+  {name:'經絡拍打養生功 15 分鐘',desc:'利用雙手空拳循序拍打全身各主要部位，疏通經絡、活絡氣血，促進日常代謝。'},
+  {name:'休閒步道散步 65 分鐘',desc:'選擇一條平緩的步道悠閒散步，釋放平常累積的壓力，讓心情回歸平靜。'},
+  {name:'徒手安全深蹲 70 下',desc:'注意重心在腳後跟，膝蓋不內扣的標準深蹲，能有效結實臀部、強化雙腿。'},
+  {name:'基礎皮拉提斯 25 分鐘',desc:'專注於腹部核心的微控制，透過流暢動作拉長身型，改善日常久坐體態。'},
+  {name:'歡樂節奏律動 22 分鐘',desc:'隨著歡快的音樂自由跳躍扭腰，不拘泥於完美動作，只要流汗就能達到舒壓。'},
+  {name:'黃昏漫步 45 分鐘',desc:'在傍晚微風中慢速散步，放下整天工作的疲憊，讓緊繃的心靈得到撫慰。'},
+  {name:'沉靜坐姿冥想 12 分鐘',desc:'端坐於椅上或墊上，關閉外界雜音，專注於一吸一呼，找回靈魂的平靜。'},
+  {name:'辦公室肩頸自救 12 分鐘',desc:'利用簡單的頭部重力拉伸斜方肌，配合肩膀向後繞圈，快速解除酸痛。'},
+  {name:'久坐椅上拉伸 12 分鐘',desc:'雙手過頭十指交扣向上延伸，搭配左右側彎，快速釋放久坐帶來的側腰緊繃。'},
+  {name:'高頻率超慢跑 30 分鐘',desc:'維持輕快的小步伐原地超慢跑，不累不喘，是打造易瘦體質的最佳有氧運動。'},
+  {name:'原地靠牆蹲 2 分鐘',desc:'背部死貼牆壁、大腿與地面平行的靜態蹲，能極速訓練大腿耐力、強健膝蓋。'},
+  {name:'核心高抬腿踏步 12 分鐘',desc:'雙手叉腰，有節奏地交替將大腿抬至水平，能有效刺激下腹核心，增強體能。'},
+  {name:'初階波比跳 20 下',desc:'不加入俯地挺身的簡化版波比跳，降低門檻，但依然具備優秀的全身燃脂效果。'},
+  {name:'流暢貓牛式 12 分鐘',desc:'吸氣抬頭塌腰、呼氣低頭拱背，一動一靜間讓脊椎重獲水分與彈性，緩解酸痛。'},
+  {name:'居家輕鬆開合跳 100 下',desc:'無需任何器材，在客廳即可完成的經典有氧，快速振奮精神、啟動全身代謝。'},
+  {name:'睡前低拉伸 15 分鐘',desc:'在床上進行的溫和抱膝觀天與側轉伸展，放鬆下背，為深度睡眠做好準備。'},
+  {name:'古法養生功法 12 分鐘',desc:'透過緩慢的吐納與肢體推拉，舒展經絡、調和五臟，是老少皆宜的溫和運動。'},
+  {name:'進階跪姿伏地挺身 35 下',desc:'專注於下壓時胸部貼近地面，起身時核心收緊，高效鍛鍊上半身正面線條。'},
+  {name:'下犬式小腿拉伸 4 分鐘',desc:'在下犬式中上下交替踩踏腳跟，深層拉展緊繃的小腿三頭肌，預防水腫。'},
+  {name:'單腳站立平衡 2.5 分鐘',desc:'雙手張開平衡，單腳站立並嘗試閉眼，鍛鍊腳踝穩定度並沉澱大腦思緒。'},
+  {name:'足底反射行走 12 分鐘',desc:'赤腳在微粗糙的踏墊上緩慢行走，透過足底受壓刺激全身血液循環。'},
+  {name:'寬胸開展理氣 12 分鐘',desc:'雙臂隨深呼吸大幅度向兩側平展，胸口主動向前推，迅速帶走胸悶與心煩。'},
+  {name:'後背超人式挺身 12 分鐘',desc:'平趴於地，利用背部肌肉將上半身微微抬起，能有效對抗長期看手機的駝背。'},
+  {name:'局部筋膜放鬆 12 分鐘',desc:'利用網球或滾筒針對臀部與肩胛骨四周進行定點按壓，釋放深層慢性疲勞。'},
+  {name:'上下階梯有氧 22 分鐘',desc:'利用家中一階樓梯進行流暢的規律上下步，能有效燃燒熱量並強健下肢。'},
+  {name:'坐姿束角式 12 分鐘',desc:'雙腳底板相貼，雙手握住腳尖，身體緩緩前傾，隨呼吸釋放盆腔周圍壓力。'},
+  {name:'基礎抬臀橋式 45 下',desc:'平躺抬高臀部至大腿與身體呈直線，有效激活臀大肌，改善久坐導致的臀部失憶。'},
+  {name:'肩膀後展拉伸 12 分鐘',desc:'雙手在背後交扣、肩膀往後夾，向下延伸雙臂，深度開展緊繃的胸前肌群。'},
+  {name:'調神腹式呼吸 12 分鐘',desc:'呼氣時間為吸氣時間的兩倍，深度活化副交感神經，是舒緩緊張日常的良方。'},
+  {name:'橫向側步微蹲 12 分鐘',desc:'雙腳平行進行左右來回橫移跨步，強化膝關節兩側的穩定度，預防運動損傷。'},
+  {name:'仰臥側腹扭轉 30 下',desc:'利用腰側肌肉帶動雙腿在空中左右擺動，能有效按摩腹部，並精緻側腰線條。'},
+  {name:'原地放鬆抖動 12 分鐘',desc:'全身放鬆，在原地進行微幅的腳跟彈跳與雙手抖動，能快速疏通全身淤滯氣血。'},
+  {name:'元氣慢跑 35 分鐘',desc:'維持舒適、可以一邊說話的步伐跑步，享受汗水滑落的快感，提升全天基礎代謝。'},
+  {name:'中速健走 55 分鐘',desc:'步伐加大、雙臂大幅擺動的中速健走，不傷關節，是極佳的全身有氧日常任務。'},
+  {name:'全方位瑜伽拉伸 30 分鐘',desc:'流暢組合多個瑜伽伸展動作，全方位放鬆緊繃的肌肉與關節，重獲輕盈身軀。'},
+  {name:'核心強化組合 22 分鐘',desc:'將棒式保持、側棒式與死蟲式結合，全面強化核心肌群，提供腰椎完美支撐。'},
+  {name:'傳統太極套路 30 分鐘',desc:'徐緩地練習傳統太極的核心招式，以心行氣、以氣運身，達到深度調養之效。'},
+  {name:'高效跳繩 20 分鐘',desc:'維持穩定的節奏跳繩，高效刺激全身肌肉，短時間內達成高效率的熱量消耗。'},
+  {name:'戶外單車騎行 65 分鐘',desc:'沿著單車道進行中長距離的騎行，鍛鍊雙腿耐力，同時大口呼吸自然新鮮空氣。'},
+  {name:'放鬆划水游泳 45 分鐘',desc:'在水中進行全身拉伸式的流暢游泳，利用水阻均勻鍛鍊全身肌肉，消除身心緊繃。'},
+  {name:'養生八段錦 20 分鐘',desc:'全套功法精準練習，配合細長的呼吸，調和體內氣血循環，疏通全身經絡。'},
+  {name:'自然步道健行 70 分鐘',desc:'選擇一條林蔭步道進行健行，拾級而上，強健雙腿肌肉，同時沉澱紛雜的心神。'},
+  {name:'居家深蹲挑戰 85 下',desc:'分多組完成，專注於蹲下時大腿與地面平行，起立時臀部收緊，高效雕塑下半身。'},
+  {name:'流暢皮拉提斯 35 分鐘',desc:'注重每一個動作的精準度與呼吸的配合，拉長身體肌肉線條，改善不良體態。'},
+  {name:'解壓流行舞 25 分鐘',desc:'跟隨動感音樂的節奏自由舞動身體，不求動作完美，只求盡情流汗放鬆身心。'},
+  {name:'舒心散步 50 分鐘',desc:'在公園或安靜的街道上悠閒慢步，徹底放空思緒，讓心靈重獲平靜力量。'},
+  {name:'安神坐姿冥想 15 分鐘',desc:'閉上雙眼端坐，將所有注意力集中在呼吸的起伏上，有效緩解一整天的焦慮。'},
+  {name:'肩頸自救伸展 15 分鐘',desc:'針對低頭族設計的肩頸拉伸，配合肩膀的緩慢繞圈，深層釋放斜方肌的僵硬感。'},
+  {name:'久坐椅子瑜伽 15 分鐘',desc:'坐在辦公椅上進行脊椎的左右扭轉與雙手向上延伸，快速趕走身體的慢性疲勞。'},
+  {name:'有氧超慢跑 40 分鐘',desc:'以每分鐘 180 步的輕快高頻率原地超慢跑，不喘不累，是維持好體態的黃金日常。'},
+  {name:'耐力靠牆蹲 3 分鐘',desc:'背部緊貼牆壁、下肢發力的靜態耐力蹲，能高效強化股四頭肌，有力保護膝關節。'},
+  {name:'動態高抬腿踏步 15 分鐘',desc:'挺胸收腹，有節奏地交替高抬大腿至水平，深度激活下腹核心，增強體能耐力。'},
+  {name:'全身波比跳 25 下',desc:'包含深蹲、撐地、起立與跳躍的完整波比跳，是挑戰心肺、高效燃脂的絕佳選擇。'},
+  {name:'脊椎舒緩貓牛式 15 分鐘',desc:'流暢地波動整條脊椎，配合深沉呼氣拱背，能深層釋放腰背部累積的酸痛感。'},
+  {name:'高效開合跳 140 下',desc:'無需任何道具，分組進行的高效率開合跳，能快速活化全身末梢血管與代謝。'},
+  {name:'睡前靜心拉伸 20 分鐘',desc:'以地板躺姿為主的溫和拉伸，放鬆僵硬的下半身，活化副交感神經，幫助入眠。'},
+  {name:'傳統養生導引 15 分鐘',desc:'結合徐緩的肢體動作與悠長呼吸，調和臟腑氣血，達到動中求靜的全身養生效果。'},
+  {name:'跪姿伏地挺身 45 下',desc:'專注於下壓時手肘不外張，核心收緊，是鍛鍊胸大肌與手臂正面線條的經典動作。'},
+  {name:'下犬式雙腿拉伸 5 分鐘',desc:'在經典下犬式中徐緩交替踩踏雙腳跟，深層展延小腿肚與後腳筋，預防水腫。'},
+  {name:'閉眼金雞獨立 3 分鐘',desc:'雙眼微閉進行單腳站立平衡，強迫足底微肌肉發力，有助於平息雜念、引血下行。'},
+  {name:'足底感官漫步 15 分鐘',desc:'脫下鞋襪在乾淨的地板或草地上赤腳漫步，刺激腳掌反射區，促進全身微循環。'},
+  {name:'寬胸開展運動 15 分鐘',desc:'雙臂隨深長呼吸大幅向後擴展，主動開展胸腔，能迅速改善胸悶、舒緩焦躁情緒。'},
+  {name:'背肌挺身激活 15 分鐘',desc:'趴姿下利用上背力量將上半身微微抬起，頂峰停留，能有效修正看手機累積的駝背。'},
+  {name:'全身筋膜定點放鬆 15 分鐘',desc:'利用網球或滾筒針對肩胛骨四周與大腿外側進行緩慢按壓，解開僵硬的筋膜打結。'},
+  {name:'規律階梯踏步 25 分鐘',desc:'利用家中小階梯進行節奏分明的上下交換跨步，對雕塑臀部與強化雙腿非常有效。'},
+  {name:'坐姿骨盆束角式 15 分鐘',desc:'雙腳底板對貼，隨徐緩呼氣將上半身緩緩前傾，深度放鬆盆腔，釋放下半身壓力。'},
+  {name:'美臀抬臀橋式 55 下',desc:'平躺屈膝，利用臀部力量將骨盆抬起至身體呈一直線，強化下背，改善臀部無力。'},
+  {name:'胸廓開展拉伸 15 分鐘',desc:'雙手在背後十指交扣，肩膀後夾並向下延伸雙臂，深度拉開緊繃的胸部與肩膀。'},
+  {name:'養生腹式吐納 15 分鐘',desc:'專注於悠長的腹式呼吸，吸氣腹部隆起、呼氣腹部內收，有效調理內臟氣機、安神。'},
+  {name:'平行側步移動 15 分鐘',desc:'雙腳平行進行左右來回橫移跨步，加入微微下蹲，強化膝蓋周圍肌肉的穩定性。'},
+  {name:'側腹扭轉捲腹 35 下',desc:'平躺屈膝，利用腹內外斜肌帶動上身左右交替扭轉，精準緊緻側腰、雕塑線條。'},
+  {name:'全身氣血放鬆彈跳 15 分鐘',desc:'全身放鬆，在原地進行腳跟不離地的微幅彈跳，震動全身肌肉，疏通全身瘀滯。'},
+  {name:'晨起舒活慢跑 30 分鐘',desc:'以輕鬆、不氣喘的步伐跑步，呼吸早晨的新鮮空氣，為身體注入整天滿滿的元氣。'},
+  {name:'健康有氧快走 45 分鐘',desc:'維持挺胸收腹、步伐加大的正確快走姿勢，維持最佳有氧心率，燃脂且不傷關節。'},
+  {name:'舒壓全伸展 25 分鐘',desc:'從頭到腳的流暢拉伸，特別針對久坐僵硬的髖關節與腰部，重獲靈活與輕盈身軀。'},
+  {name:'核心全方位鍛鍊 20 分鐘',desc:'結合棒式保持與死蟲式交替，全方位刺激腹部深層核心，提供腰椎最穩固的支撐。'},
+  {name:'太極雲手精練 25 分鐘',desc:'專注太極拳中的「雲手」步法與掌法，鬆沉落胯、以意領氣，深度調理經絡氣血。'},
+  {name:'居家有氧跳繩 20 分鐘',desc:'維持規律頻率的居家跳繩，高效鍛鍊心肺功能，是短時間消耗卡路里的黃金動作。'},
+  {name:'單車自然漫遊 55 分鐘',desc:'以舒適的速度騎單車悠遊，放鬆心情，同時進行低衝擊、對關節友好的下肢有氧。'},
+  {name:'溫和流暢游泳 40 分鐘',desc:'在水中進行放鬆的蛙式或自由式，利用水的阻力溫和按摩全身肌肉，釋放深層疲勞。'},
+  {name:'傳統八段錦全套 20 分鐘',desc:'全套功法精準練習，動作徐緩、意念專一，能溫和調養身體，達到動中求靜之效。'},
+  {name:'林蔭步道散步 60 分鐘',desc:'選擇綠意盎然的步道慢速步行，大口呼吸新鮮氧氣，放鬆雙目、徹底清空大腦壓力。'},
+  {name:'徒手美臀深蹲 75 下',desc:'注意重心在腳後跟、膝蓋不內扣的標準深蹲，分組完成，有效強化臀腿、建立好線條。'},
+  {name:'流暢身型皮拉提斯 30 分鐘',desc:'著重核心、呼吸與脊椎排列的精準控制，改善辦公族日常含胸駝背的不良體態。'},
+  {name:'開心熱量律動 22 分鐘',desc:'跟隨歡快的音樂自由擺動四肢，不記複雜舞步，旨在流汗釋放平日累積的生活壓力。'},
+  {name:'清晨清空散步 45 分鐘',desc:'清晨空腹進行的慢速散步，放慢生活節奏，一邊走一邊放鬆雙肩，找回內在平靜。'},
+  {name:'沉靜靜坐吐納 12 分鐘',desc:'端坐於墊上，閉上雙眼，採用細長均勻的呼吸節奏，幫助混亂思緒快速沉澱下來。'},
+  {name:'斜方肌自救拉伸 12 分鐘',desc:'單手過頭輕拉頭部向側邊延伸，深度放鬆硬邦邦的肩頸肌肉，告別電腦與手機肩。'},
+  {name:'椅上扭轉胸廓瑜伽 12 分鐘',desc:'坐在辦公椅上利用椅背進行身體的左右旋轉，溫和活動胸椎，釋放長期久坐的壓迫感。'},
+  {name:'居家高效超慢跑 35 分鐘',desc:'配合音樂節奏原地輕鬆小跑步，不累不喘，是打造易瘦體質、維持健康最簡單的運動。'},
+  {name:'原地靠牆靜態蹲 2.5 分鐘',desc:'高效的下肢無移動力量訓練，專注於股四頭肌的緊繃發熱感，對強健膝關節極有幫助。'},
+  {name:'核心高抬腿有氧 12 分鐘',desc:'挺胸收腹，交替將膝蓋抬高至髖部水平，能快速提升核心體溫、活化微循環。'},
+  {name:'初階燃脂波比跳 20 下',desc:'簡化版的波比跳，降低手部負擔，但依然能深度刺激全身肌肉，達到高效爆汗效果。'},
+  {name:'流暢脊椎貓牛式 12 分鐘',desc:'隨著吸氣塌腰抬頭、呼氣拱背低頭，溫和按摩整條脊椎與背部肌肉，緩解酸痛感。'},
+  {name:'客廳活力開合跳 110 下',desc:'無需任何器材，在原地即可快速完成的經典有氧，有效活化全身淋巴與末梢循環。'},
+  {name:'睡前抱膝低伸展 15 分鐘',desc:'在床上進行的溫和抱膝觀天與側轉伸展，放鬆僵硬髖部，為今晚的深度睡眠鋪路。'},
+  {name:'傳統氣血導引功 12 分鐘',desc:'動作綿密流暢，著重於動作與細長呼吸的配合，能溫和舒展全身經絡、調和氣血。'},
+  {name:'進階上半身伏地挺身 35 下',desc:'專注於下壓時身體呈一直線，核心收緊，分組完成，有效訓練胸大肌與手臂力量。'},
+  {name:'下犬式後側鏈拉伸 4 分鐘',desc:'在下犬式中微微屈膝並交替踩踏腳跟，深度延展小腿與雙腿後側肌肉，消除水腫。'},
+  {name:'金雞獨立平衡考驗 2.5 分鐘',desc:'微閉雙眼挑戰單腳站立平衡，訓練大腦對身體末梢肌肉的控制，有助於平息雜念。'},
+  {name:'赤腳泥土漫步 15 分鐘',desc:'脫下鞋襪在安全的草地或泥土地上慢行，釋放身體累積的緊繃，順便按摩腳底。'},
+  {name:'寬胸順氣理氣操 12 分鐘',desc:'雙臂隨深呼吸大幅度向前伸、向兩側平展，胸口主動挺出，迅速改善胸悶不暢。'},
+  {name:'趴姿超人式背肌挺身 12 分鐘',desc:'平趴於地，利用背部肌肉將上半身微微抬起，頂峰停留，能有效對抗看手機的駝背。'},
+  {name:'滾筒臀背筋膜放鬆 12 分鐘',desc:'利用滾筒或按摩球針對臀部肌群與肩胛骨四周進行滾壓，釋放慢性肌肉緊繃。'},
+  {name:'原地階梯上下有氧 22 分鐘',desc:'利用家中小階梯進行流暢的規律上下步，能有效燃燒熱量並雕塑臀腿線條。'},
+  {name:'坐姿束角骨盆放鬆 12 分鐘',desc:'雙腳底相貼，隨呼氣將膝蓋自然沉向地面，上半身緩緩前傾，釋放久坐產生的瘀滯。'},
+  {name:'美臀抬臀橋式 50 下',desc:'平躺抬臀至大腿與身體呈直線，頂峰停留2秒，有效激活臀肌，減輕下背負擔。'},
+  {name:'肩膀後扣擴胸拉伸 12 分鐘',desc:'雙手在背後十指交扣，肩膀向後夾，向下延伸雙手，深度打開緊繃的胸部與肩膀。'},
+  {name:'靜心腹式呼吸吐納 12 分鐘',desc:'坐姿或臥姿進行，讓氣流深達小腹，是調理自律神經、舒緩高壓生活的天然良方。'},
+  {name:'橫向側步微蹲訓練 12 分鐘',desc:'左右大跨步橫移並加入微蹲動作，鍛鍊下肢側面穩定度，對保護膝蓋很有幫助。'},
+  {name:'仰臥交叉觸踝捲腹 30 下',desc:'平躺屈膝、上背微離地，左右交替用手觸碰腳踝，精準鍛鍊側腹，緊緻腰身線條。'},
+  {name:'全身微幅放鬆彈跳 12 分鐘',desc:'全身放鬆，在原地進行腳跟不離地、僅微幅上下的彈跳，能快速帶動全身微循環。'},
+  {name:'輕活有氧慢跑 30 分鐘',desc:'維持舒適、可一邊微笑的步伐慢跑，享受流汗時的輕盈感，活化全身基礎代謝。'},
+  {name:'戶外休閒健走 50 分鐘',desc:'步伐加大、雙臂自然大幅擺動的快走，維持穩定心率，是性價比極高且不傷膝的有氧。'},
+  {name:'流暢流動瑜伽伸展 30 分鐘',desc:'將多個溫和的瑜伽伸展動作流暢組合，全方位舒緩全身慢性酸痛，重獲靈活關節。'},
+  {name:'核心三合一強化 22 分鐘',desc:'將平板支撐、側平板與死蟲式結合，全方位激活腹部核心，給予腰椎最強支撐力。'},
+  {name:'太極雲手步法精練 25 分鐘',desc:'專注太極拳中的「雲手」動作，鬆沉落胯、以意領氣，深度調理全身經絡氣血。'},
+  {name:'原地間歇有氧跳繩 20 分鐘',desc:'採用跳繩 2 分鐘、休息 1 分鐘的間歇模式，在短時間內最大化熱量燃燒、強健心肺。'},
+  {name:'河濱單車耐力騎行 60 分鐘',desc:'沿著單車道進行中距離的均速騎行，鍛鍊雙腿大肌群力量，同時放鬆日常緊繃心情。'},
+  {name:'水中阻力漫步 swimming 45 分鐘',desc:'在游泳池中利用水的巨大阻力進行前行與後退走，對關節零負擔的全身流暢訓練。'},
+  {name:'中醫傳統八段錦全套 20 分鐘',desc:'全套功法精準練習，特別加強「調理脾胃須單舉」動作，疏通經絡、促進日常消化。'},
+  {name:'綠意森林步道健行 70 分鐘',desc:'走進林蔭茂密的步道慢速步行，大口呼吸空氣中的負離子，強健腿部、放鬆雙眼。'},
+  {name:'徒手安全居家深蹲 80 下',desc:'注意重心在腳後跟、起立時臀部主動夾緊的標準深蹲，分四組完成，高效鍛鍊下半身。'},
+  {name:'微控制體態皮拉提斯 35 分鐘',desc:'專注於深層微小肌肉的精確控制與延伸，拉長整體肌肉線條，修飾因久坐導致的體態。'},
+  {name:'自由多巴胺熱舞律動 25 分鐘',desc:'跟隨動感音樂的節奏隨心所欲地擺動身體，讓多巴胺帶走工作與生活上所有的煩惱。'},
+  {name:'傍晚放空漫步有氧 50 分鐘',desc:'在傍晚微風中慢速散步，放下整天工作的疲憊與緊繃，讓大腦神經徹底放鬆下來。'},
+  {name:'專注均勻靜坐呼吸 12 分鐘',desc:'找一個安靜的角落坐下，專注於吸氣時腹部隆起、呼氣時腹部下陷，安定自律神經。'},
+  {name:'斜方肌深層舒壓伸展 12 分鐘',desc:'利用簡單的頭部重力拉伸斜方肌，配合雙肩膀向後繞圈，快速解除因久坐產生的酸痛。'},
+  {name:'椅子胸廓開展椅上瑜伽 12 分鐘',desc:'坐在辦公椅上利用椅背進行脊椎的左右扭轉與雙手向上延伸，快速趕走身體慢性疲勞。'},
+  {name:'每分鐘180步穩定超慢跑 35 分鐘',desc:'配合節奏原地輕鬆小跑步，不喘不累且對關節極度友好，是最好堅持的日常有氧。'},
+  {name:'股四頭肌靠牆靜態蹲 2 分鐘',desc:'背部死貼牆壁、大腿與地面平行的靜態耐力蹲，能極速訓練大腿耐力、強健膝蓋關節。'},
+  {name:'動態下腹高抬腿踏步 12 分鐘',desc:'雙手叉腰，有節奏地交替將大腿抬至水平，能有效刺激下腹核心，增強體能耐力。'},
+  {name:'初階無俯地挺身波比跳 20 下',desc:'簡化版的波比跳，降低手部負擔，但依然具備優秀的全身燃脂與激活代謝效果。'},
+  {name:'波動脊椎流暢貓牛式 12 分鐘',desc:'吸氣抬頭塌腰、呼氣低頭拱背，一動一靜間讓脊椎重獲水分與彈性，緩解下背酸痛。'},
+  {name:'客廳原地高效開合跳 100 下',desc:'無需任何器材，在原地即可快速完成的經典有氧，有效活化全身淋巴與末梢循環。'},
+  {name:'睡前低位髖部放鬆伸展 15 分鐘',desc:'在床上進行的溫和抱膝觀天與側轉伸展，放鬆僵硬髖部，為今晚的深度睡眠鋪路。'},
+  {name:'古法經絡養生導引功 12 分鐘',desc:'透過緩慢的吐納與肢體推拉，舒展經絡、調和五臟，是老少皆宜的溫和養生運動。'},
+  {name:'進階上半身跪姿伏地挺身 35 下',desc:'專注於下壓時胸部貼近地面，起身時核心收緊，高效鍛鍊上半身正面與核心線條。'},
+  {name:'下犬式小腿三頭肌拉伸 4 分鐘',desc:'在下犬式中上下交替踩踏腳跟，深層拉展緊繃的小腿三頭肌，預防下肢水腫。'},
+  {name:'單腳站立閉眼平衡考驗 2.5 分鐘',desc:'雙手張開平衡，單腳站立並嘗試閉眼，鍛鍊腳踝穩定度並沉澱大腦紛雜思緒。'},
+  {name:'足底反射刺激赤腳行走 12 分鐘',desc:'赤腳在安全的乾淨地面或微粗糙的踏墊上緩慢行走，刺激足底、促進全身循環。'},
+  {name:'寬胸理氣深呼吸開展操 12 分鐘',desc:'雙臂隨深呼吸大幅度向前伸、向兩側平展，胸口主動挺出，迅速改善胸悶不暢。'},
+  {name:'趴姿超人式背部肌群激活 12 分鐘',desc:'平趴於地，利用背部肌肉將上半身微微抬起，頂峰停留，能有效對抗看手機的駝背。'},
+  {name:'局部筋膜定點泡沫滾筒放鬆 12 分鐘',desc:'利用網球或滾筒針對臀部肌群與肩胛骨四周進行滾壓，釋放深層慢性疲勞。'},
+  {name:'原地小階梯規律上下有氧 22 分鐘',desc:'利用家中小階梯進行節奏分明的上下交換跨步，對雕塑臀大肌與強化大腿很有幫助。'},
+  {name:'坐姿束角骨盆盆腔放鬆 12 分鐘',desc:'雙腳底相貼，隨呼氣將膝蓋自然沉向地面，上半身緩緩前傾，釋放久坐產生的瘀滯。'},
+  {name:'基礎美臀抬臀居家橋式 45 下',desc:'平躺抬高臀部至大腿與身體呈直線，頂峰停留2秒，有效激活臀肌，改善久坐無力。'},
+  {name:'肩膀後展十指交扣拉伸 12 分鐘',desc:'雙手在背後十指交扣，肩膀向後夾，向下延伸雙手，深度打開緊繃的胸部與肩膀。'},
+  {name:'養生調神均勻腹式呼吸 12 分鐘',desc:'坐姿或臥姿進行，讓氣流深達小腹，是調理自律神經、舒緩高壓生活的天然良方。'},
+  {name:'平行跨步橫向側步微蹲 12 分鐘',desc:'雙腳平行進行左右來回橫移跨步，強化膝關節兩側的穩定度，預防運動損傷。'},
+  {name:'仰臥側腹扭轉雙腿擺動 30 下',desc:'利用腰側肌肉帶動雙腿在空中左右擺動，能有效按摩腹部，並精緻側腰線條。'},
+  {name:'全身微幅氣血放鬆彈跳 12 分鐘',desc:'全身放鬆，在原地進行腳跟不離地、僅微幅上下的彈跳，能快速帶動全身微循環。'},
+  {name:'輕快有氧元氣慢跑 35 分鐘',desc:'維持舒適、可一邊微笑的步伐慢跑，享受流汗時的輕盈感，活化全身基礎代謝。'},
+  {name:'戶外擺臂快走有氧 50 分鐘',desc:'步伐加大、雙臂自然大幅擺動的快走，維持穩定心率，是性價比極高且不傷膝的有氧。'},
+  {name:'流暢流動溫和瑜伽伸展 30 分鐘',desc:'將多個溫和的瑜伽伸展動作流暢組合，全方位舒緩全身慢性酸痛，重獲靈活關節。'},
+  {name:'核心三合一全面強化 22 分鐘',desc:'將平板支撐、側平板與死蟲式結合，全方位激活腹部核心，給予腰椎最強支撐力。'},
+  {name:'太極雲手鬆沉步法精練 25 分鐘',desc:'專注太極拳中的「雲手」動作，鬆沉落胯、以意領氣，深度調理全身經絡氣血。'},
+  {name:'原地間歇高效有氧跳繩 20 分鐘',desc:'採用跳繩 2 分鐘、休息 1 分鐘的間歇模式，在短時間內最大化熱量燃燒、強健心肺。'},
+  {name:'均速耐力單車騎行 60 分鐘',desc:'沿著單車道進行中距離的均速騎行，鍛鍊雙腿大肌群力量，同時放鬆日常緊繃心情。'},
+  {name:'水中零負擔阻力漫步 45 分鐘',desc:'在游泳池中利用水的巨大阻力進行前行與後退走，對關節零負擔的全身流暢訓練。'},
+  {name:'中醫傳統八段錦精準練習 20 分鐘',desc:'全套功法精準練習，特別加強「調理脾胃須單舉」動作，疏通經絡、促進日常消化。'},
+  {name:'放鬆雙眼林蔭步道健行 70 分鐘',desc:'走進林蔭茂密的步道慢速步行，大口呼吸空氣中的負離子，強健腿部、放鬆雙眼。'},
+  {name:'晨起元氣有氧慢跑 30 分鐘',desc:'以輕鬆、不氣喘的步伐跑步，呼吸早晨的新鮮空氣，為身體注入整天滿滿的元氣。'},
+  {name:'挺胸收腹有氧快走 45 分鐘',desc:'維持挺胸收腹、步伐加大的正確快走姿勢，維持最佳有氧心率，燃脂且不傷關節。'},
+  {name:'全身關節舒壓全伸展 25 分鐘',desc:'從頭到腳的流暢拉伸，特別針對久坐僵硬的髖關節與腰部，重獲靈活與輕盈身軀。'},
+  {name:'深層核心全方位鍛鍊 20 分鐘',desc:'結合棒式保持與死蟲式交替，全方位刺激腹部深層核心，提供腰椎最穩固的支撐。'},
+  {name:'傳統太極雲手步法精練 25 分鐘',desc:'專注太極拳中的「雲手」步法與掌法，鬆沉落胯、以意領氣，深度調理經絡氣血。'},
+  {name:'高效燃脂居家有氧跳繩 20 分鐘',desc:'維持規律頻率的居家跳繩，高效鍛鍊心肺功能，是短時間消耗卡路里的黃金動作。'},
+  {name:'低衝擊單車自然漫遊 55 分鐘',desc:'以舒適的速度騎單車悠遊，放鬆心情，同時進行低衝擊、對關節友好的下肢有氧。'},
+  {name:'全身拉伸溫和流暢游泳 40 分鐘',desc:'在水中進行放鬆的蛙式或自由式，利用水的阻力溫和按摩全身肌肉，釋放深層疲勞。'},
+  {name:'動中求靜傳統八段錦全套 20 分鐘',desc:'全套功法精準練習，動作徐緩、意念專一，能溫和調養身體，達到動中求靜之效。'},
+  {name:'放鬆大腦林蔭步道散步 60 分鐘',desc:'選擇綠意盎然的步道慢速步行，大口呼吸新鮮氧氣，放鬆雙目、徹底清空大腦壓力。'},
+  {name:'標準居家美臀深蹲 75 下',desc:'注意重心在腳後跟、膝蓋不內扣的標準深蹲，分組完成，有效強化臀腿、建立好線條。'},
+  {name:'微肌肉控制皮拉提斯 30 分鐘',desc:'著重核心、呼吸與脊椎排列的精準控制，改善辦公族日常含胸駝背的不良體態。'},
+  {name:'隨心所欲開心熱量律動 22 分鐘',desc:'跟隨歡快的音樂自由擺動四肢，不記複雜舞步，旨在流汗釋放平日累積的生活壓力。'},
+  {name:'清晨放鬆清空散步 45 分鐘',desc:'清晨空腹進行的慢速散步，放慢生活節奏，一邊走一邊放鬆雙肩，找回內在平靜。'},
+  {name:'安神沉靜靜坐吐納 12 分鐘',desc:'端坐於墊上，閉上雙眼，採用細長均勻的呼吸節奏，幫助混亂思緒快速沉澱下來。'},
+  {name:'低頭族斜方肌自救拉伸 12 分鐘',desc:'單手過頭輕拉頭部向側邊延伸，深度放鬆硬邦邦的肩頸肌肉，告別電腦與手機肩。'},
+  {name:'椅上扭轉溫和活動瑜伽 12 分鐘',desc:'坐在辦公椅上利用椅背進行身體的左右旋轉，溫和活動胸椎，釋放長期久坐的壓迫感。'},
+  {name:'不喘不累高效超慢跑 35 分鐘',desc:'配合音樂節奏原地輕鬆小跑步，不累不喘，是打造易瘦體質、維持健康最簡單的運動。'},
+  {name:'強健膝蓋靠牆靜態蹲 2.5 分鐘',desc:'高效的下肢無移動力量訓練，專注於股四頭肌的緊繃發熱感，對強健膝關節極有幫助。'},
+  {name:'活化循環高抬腿有氧 12 分鐘',desc:'挺胸收腹，交替將膝蓋抬高至髖部水平，能快速提升核心體溫、活化微循環。'},
+  {name:'爆發力初階燃脂波比跳 20 下',desc:'簡化版的波比跳，降低手部負擔，但依然能深度刺激全身肌肉，達到高效爆汗效果。'},
+  {name:'溫和按摩流暢脊椎貓牛式 12 分鐘',desc:'隨著吸氣塌腰抬頭、呼氣拱背低頭，溫和按摩整條脊椎與背部肌肉，緩解酸痛感。'},
+  {name:'淋巴活化客廳活力開合跳 110 下',desc:'無需任何器材，在原地即可快速完成的經典有氧，有效活化全身淋巴與末梢循環。'},
+  {name:'放鬆髖部睡前抱膝低伸展 15 分鐘',desc:'在床上進行的溫和抱膝觀天與側轉伸展，放鬆僵硬髖部，為今晚的深度睡眠鋪路。'},
+  {name:'綿密流暢傳統氣血導引功 12 分鐘',desc:'動作綿密流暢，著重於動作與細長呼吸的配合，能溫和舒展全身經絡、調和氣血。'},
+  {name:'分組完成進階跪姿伏地挺身 35 下',desc:'專注於下壓時身體呈一直線，核心收緊，分組完成，有效訓練胸大肌與手臂力量。'},
+  {name:'下肢消腫下犬式拉伸 4 分鐘',desc:'在下犬式中微微屈膝並交替踩踏腳跟，深度延展小腿與雙腿後側肌肉，消除水腫。'},
+  {name:'足底核心金雞獨立平衡 2.5 分鐘',desc:'微閉雙眼挑戰單腳站立平衡，訓練大腦對身體末梢肌肉的控制，有助於平息雜念。'},
+  {name:'天然按摩赤腳泥土漫步 15 分鐘',desc:'脫下鞋襪在安全的草地或泥土地上慢行，釋放身體累積的緊繃，順便按摩腳底。'},
+  {name:'改善胸悶寬胸順氣理氣操 12 分鐘',desc:'雙臂隨深呼吸大幅度向前伸、向兩側平展，胸口主動挺出，迅速改善胸悶不暢。'},
+  {name:'修正體態超人式背肌挺身 12 分鐘',desc:'平趴於地，利用背部肌肉將上半身微微抬起，頂峰停留，能有效對抗看手機的駝背。'},
+  {name:'深層釋放滾筒臀背筋膜放鬆 12 分鐘',desc:'利用滾筒或按摩球針對臀部肌群與肩胛骨四周進行滾壓，釋放慢性肌肉緊繃。'},
+  {name:'階梯上下原地規律有氧 22 分鐘',desc:'利用家中小階梯進行節奏分明的上下交換跨步，能有效燃燒熱量並雕塑臀腿線條。'},
+  {name:'久坐釋放坐姿束角骨盆放鬆 12 分鐘',desc:'雙腳底相貼，隨呼氣將膝蓋自然沉向地面，上半身緩緩前傾，釋放久坐產生的瘀滯。'},
+  {name:'夾緊臀部美臀抬臀橋式 50 下',desc:'平躺抬臀至大腿與身體呈直線，頂峰停留2秒，有效激活臀肌，減輕下背負擔。'},
+  {name:'深度開展肩膀後扣擴胸拉伸 12 分鐘',desc:'雙手在背後十指交扣，肩膀向後夾，向下延伸雙手，深度打開緊繃的胸部與肩膀。'},
+  {name:'調理神經靜心腹式呼吸吐納 12 分鐘',desc:'坐姿或臥姿進行，讓氣流深達小腹，是調理自律神經、舒緩高壓生活的天然良方。'},
+  {name:'保護關節橫向側步微蹲訓練 12 分鐘',desc:'左右大跨步橫移並加入微蹲動作，鍛鍊下肢側面穩定度，對保護膝蓋很有幫助。'},
+  {name:'緊緻腰身仰臥交叉觸踝捲腹 30 下',desc:'平躺屈膝、上背微離地，左右交替用手觸碰腳踝，精準鍛鍊側腹，緊緻腰身線條。'},
+  {name:'微血管活化全身放鬆彈跳 12 分鐘',desc:'全身放鬆，在原地進行腳跟不離地、僅微幅上下的彈跳，能快速帶動全身微循環。'},
+  {name:'微笑有氧輕活慢跑 30 分鐘',desc:'維持舒適、可一邊微笑的步伐慢跑，享受流汗時的輕盈感，活化全身基礎代謝。'},
+  {name:'穩定心率戶外休閒健走 50 分鐘',desc:'步伐加大、雙臂自然大幅擺動的快走，維持穩定心率，是性價比極高且不傷膝的有氧。'},
+  {name:'舒緩慢性酸痛流暢流動瑜伽 30 分鐘',desc:'將多個溫和的瑜伽伸展動作流暢組合，全方位舒緩全身慢性酸痛，重獲靈活關節。'},
+  {name:'腰椎強效支撐核心強化 22 分鐘',desc:'將平板支撐、側平板與死蟲式結合，全方位激活腹部核心，給予腰椎最強支撐力。'},
+  {name:'以意領氣太極雲手步法精練 25 分鐘',desc:'專注太極拳中的「雲手」動作，鬆沉落胯、以意領氣，深度調理全身經絡氣血。'},
+  {name:'間歇心肺原地有氧跳繩 20 分鐘',desc:'採用跳繩 2 分鐘、休息 1 分鐘的間歇模式，在短時間內最大化熱量燃燒、強健心肺。'},
+  {name:'均速有氧河濱單車耐力騎行 60 分鐘',desc:'沿著單車道進行中距離的均速騎行，鍛鍊雙腿大肌群力量，同時放鬆日常緊繃心情。'},
+  {name:'水阻零負擔水中阻力漫步 45 分鐘',desc:'在游泳池中利用水的巨大阻力進行前行與後退走，對關節零負擔的全身流暢訓練。'},
+  {name:'疏通經絡中醫傳統八段錦全套 20 分鐘',desc:'全套功法精準練習，特別加強「調理脾胃須單舉」動作，疏通經絡、促進日常消化。'},
+  {name:'大口吸負離子森林步道健行 70 分鐘',desc:'走進林蔭茂密的步道慢速步行，大口呼吸空氣中的負離子，強健腿部、放鬆雙眼。'},
+  {name:'極致有氧晨間慢跑 50 分鐘',desc:'長距離、低心率的耐力跑步，深度激活脂肪分解系統，徹底排除身體宿濕。'},
+  {name:'全日燃脂快走健步 70 分鐘',desc:'維持大跨步與高頻率的擺臂快走，打造不易疲勞的強健體魄，全天候提升熱量燃燒。'},
+  {name:'全身拉伸深度瑜伽 50 分鐘',desc:'完整的一小時全身瑜伽，針對髖部與脊椎進行深層開展，重塑靈活柔韌的身體線條。'},
+  {name:'核心爆發力綜合訓練 35 分鐘',desc:'高難度的核心進階套餐，全方位收緊腹部各處肌肉，提供身體最堅固的內在支撐。'},
+  {name:'傳統太極全套招式 50 分鐘',desc:'完整打完一套傳統太極拳，動靜合一，藉由圓弧流暢的動作徹底疏通全身上下經絡。'},
+  {name:'高強度有氧跳繩 35 分鐘',desc:'挑戰心肺極限的長時數跳繩，分組高頻衝刺，大幅度拉高自體基礎代謝率。'},
+  {name:'公路單車長途騎行 100 分鐘',desc:'進行跨區域的長途騎單車，大幅強化下肢爆發力與核心耐力，享受風速與汗水。'},
+  {name:'耐力均速長距離游泳 70 分鐘',desc:'不間斷地流暢游泳，利用水的阻力溫和重塑完美全身肌群，大幅增加肺活量。'},
+  {name:'全套八段錦深度調息 35 分鐘',desc:'放慢速度、將動作做到極致的全套八段錦，以息領動，深度調和體內氣血。'},
+  {name:'全地形挑戰爬山健行 150 分鐘',desc:'攀登起伏較大的登山步道，全面刺激雙腿深層微肌肉，親近自然、洗滌心靈疲憊。'},
+  {name:'大容量居家安全深蹲 140 下',desc:'分為六組的高強度深蹲任務，最大化刺激臀大肌與大腿前側，建立高效燃脂體質。'},
+  {name:'高階線條體態皮拉提斯 55 分鐘',desc:'透過持續的自重抗阻動作，深度雕塑腹部與腰側線條，重獲優雅筆挺的站姿。'},
+  {name:'暴汗解壓舞蹈律動 45 分鐘',desc:'高時數的熱舞有氧，隨著動感節奏釋放所有汗水與卡路里，徹底踢走生活負能量。'},
+  {name:'深度療癒戶外長途散步 100 分鐘',desc:'放慢一切步調，在自然美景中進行漫長步行，深度放鬆大腦，給心靈補足元氣。'},
+  {name:'深層修復靜心冥想 25 分鐘',desc:'全方位的內觀與呼吸調息，將大腦從高壓運轉中抽離，幫助各器官回歸平衡。'},
+  {name:'肩頸僵硬極致舒壓伸展 35 分鐘',desc:'針對石化肩頸進行全方位的深層手動牽引拉伸，徹底瓦解每一處氣血淤滯與酸痛。'},
+  {name:'久坐自救辦公室椅上瑜伽 25 分鐘',desc:'全套午休椅上舒壓動作，深度開展僵硬胸椎與腰肌，全面告別上班引起的腰酸。'},
+  {name:'長時數均速燃脂超慢跑 60 分鐘',desc:'一小時的節奏超慢跑，進入最完美的有氧心率，不酸不痛地達成極致局部燃脂。'},
+  {name:'下肢肌肉考驗靠牆深蹲 5 分鐘',desc:'極具考驗的靜態牆蹲，專注於股四頭肌的頂峰灼熱感，深度強健下肢、保護髕骨。'},
+  {name:'核心爆發高抬腿原地跑 25 分鐘',desc:'高頻率、不間斷的原地高抬腿跑步，高效刺激核心與髖屈肌，打造超強心肺。'},
+  {name:'脂肪終結者波比跳挑戰 45 下',desc:'極高強度的全身爆發力波比跳，榨乾身體每一絲贅肉，極速活化全身細胞代謝。'},
+  {name:'深層修復貓牛式脊椎放鬆 22 分鐘',desc:'極慢節奏的脊椎波動，讓每一節僵硬的胸椎與腰椎充分得到伸展，消除慢性酸痛。'},
+  {name:'高燃脂活力開合跳 220 下',desc:'大容量的有氧跳躍，高效衝刺全身血液循環，短時間內達成全身大流汗。'},
+  {name:'全方位睡前靜心修復拉伸 35 分鐘',desc:'完整的夜間儀式伸展，全方位放鬆髖關節與雙腿，讓大腦安心進入高階深眠。'},
+  {name:'內調五臟傳統五禽戲 35 分鐘',desc:'深入體會五種動物的姿態與神韻，以意領動，由內而外溫和調理全體五臟氣血。'},
+  {name:'上半身力量標準伏地挺身 70 下',desc:'高容量推力訓練，強化胸大肌與上肢核心的穩定連動，塑造健康的上半身站姿。'},
+  {name:'筋膜拉長瑜伽下犬式停留 10 分鐘',desc:'進階版長時間下犬式保持，深度拉長背部筋膜與腿後側，優雅調整全身重心。'},
+  {name:'引血下行閉眼金雞獨立 5 分鐘',desc:'極致平衡修煉，閉眼專注於足底與大腦的微小對話，能有效平息內心所有焦慮。'},
+  {name:'徹底放鬆赤腳草地漫步 35 分鐘',desc:'長時間與大地的親密連結，釋放日常累積的疲勞靜電，給予足底天然的按摩。'},
+  {name:'大幅度擴胸順氣理氣運動 22 分鐘',desc:'大幅度的胸腔擴展與內收吐納，幫助吸入更多氧氣，改善經常性的小吸氣。'},
+  {name:'高次數徒手背肌挺身激活 30 分鐘',desc:'高次數的超人式挺身，強化後背肌群，重新建立身體正確記憶，徹底消滅含胸。'},
+  {name:'全方位泡沫滾筒筋膜放鬆 35 分鐘',desc:'全方位的滾筒全身梳理，深層解開打結的筋膜與僵硬肌肉，重獲靈活身體。'},
+  {name:'高效美腿階梯踏板訓練 35 分鐘',desc:'高效率的跨步階梯操，配合雙臂大幅擺動，是雕塑完美臀腿線條的黃金運動。'},
+  {name:'深度放鬆瑜伽束角式保持 25 分鐘',desc:'利用地心引力與綿密長呼吸，深度釋放骨盆底與盆腔周圍累積的慢性壓迫。'},
+  {name:'大容量臀部塑形居家橋式 90 下',desc:'高次數的臀部頂峰收縮，打造緊實翹臀，同時為腰椎提供最完美的保護屏障。'},
+  {name:'圓肩駝背修正肩膀後展拉伸 22 分鐘',desc:'全方位的肩膀與胸部拉伸，拉開緊繃的胸大肌，徹底修正看電腦造成的圓肩。'},
+  {name:'自律神經調理腹式呼吸 25 分鐘',desc:'深度的吐納練習，讓思緒徹底安靜下來，調理內臟氣機，給身體充飽電量。'},
+  {name:'進階動態側步橫移微蹲 35 分鐘',desc:'進階橫向腳步訓練，加入深度微蹲，強效增強臀中肌與膝關節的抗受力。'},
+  {name:'側腹雕塑手肘碰膝仰臥起坐 60 下',desc:'挑戰腹部肌群耐力極限，有節奏地扭轉身體，有效緊緻側腰、雕塑腰部曲線。'},
+  {name:'全身淋巴活化輕快小跳躍 25 分鐘',desc:'不間斷的腳跟微彈跳，震動全身微血管，是提升新陳代謝、拍出老廢物質的妙方。'},
+  {name:'晨曦有氧慢跑 40 分鐘',desc:'迎著晨光，以均勻的步伐跑步，讓微汗帶走體內的沉重感，啟動好心情。'},
+  {name:'健康擺臂快走 55 分鐘',desc:'維持擺臂挺胸的正確快走姿勢，是燃燒脂肪且不易累積肌肉疲勞的好選擇。'},
+  {name:'全身瑜伽流暢拉伸 40 分鐘',desc:'從頭到腳的流暢瑜伽拉伸，放鬆每一處僵硬肌群，找回身體久違的靈活度。'},
+  {name:'核心全方位刺激 25 分鐘',desc:'平板支撐與俄羅斯扭轉的完美組合，全方位雕塑腹部肌肉，提升支撐力。'},
+  {name:'傳統太極氣血調和 40 分鐘',desc:'專注於太極的「鬆」與「沉」，透過圓活流暢的動作，調和全身經絡與氣血。'},
+  {name:'有氧規律跳繩 25 分鐘',desc:'維持中等頻率的持續跳繩，高效鍛鍊心肺功能，是居家最省時的高效運動。'},
+  {name:'單車輕鬆漫遊 75 分鐘',desc:'以舒適的速度騎單車，放鬆心情，同時進行中等強度的下肢有氧鍛鍊。'},
+  {name:'全方位划水游泳 55 分鐘',desc:'蛙式與自由式交替進行，利用水的浮力拉長全身線條，強健胸肺功能。'},
+  {name:'經典八段錦精準練習 25 分鐘',desc:'全套功法練習，特別加強「雙手托天理三焦」動作，全方位舒展上中下三焦。'},
+  {name:'郊山步道舒心健行 85 分鐘',desc:'踏上階梯與泥土路交錯的步道，親近自然，強健膝關節與核心平衡力。'}
+];
+
+const ACUPOINTS=[
+  {name:'中府穴',emoji:'🧘',loc:'胸前外側上方，鎖骨外端下方凹陷再往下約一指寬處',benefit:'宣肺理氣、緩解胸悶，伏案工作後開胸順氣必按。'},
+  {name:'雲門穴',emoji:'🧘',loc:'鎖骨外側端下方的三角凹陷正中央',benefit:'調理氣喘、胸痛，舒緩上班久坐造成的圓肩緊繃。'},
+  {name:'天府穴',emoji:'💪',loc:'手臂內側，腋下前橫紋頭往下約四指寬的大手臂處',benefit:'調理咳嗽、鼻塞，對於緩解上臂肌肉酸痛有正面幫助。'},
+  {name:'俠白穴',emoji:'💪',loc:'手臂內側，腋下前橫紋頭往下約五指寬的大手臂處',benefit:'寬胸理氣、調和氣血，適合日常舒緩心煩、胸痛。'},
+  {name:'尺澤穴',emoji:'💪',loc:'手肘微彎時，肘關節內側橫紋上，大拇指側的凹陷處',benefit:'清肺瀉火、保養咽喉，經常說話、喉嚨乾燥者的保健點。'},
+  {name:'孔最穴',emoji:'💪',loc:'前臂內側大拇指這條線上，手腕橫紋往上約九指寬處',benefit:'肺經郄穴，具備優秀清熱潤肺效果，適合身體易覺燥熱者。'},
+  {name:'列缺穴',emoji:'🤲',loc:'兩手虎口交叉，食指尖所指的骨頭側面小凹陷處',benefit:'古稱「頭項尋列缺」，能快速放鬆後頸與頭部根部緊繃。'},
+  {name:'經渠穴',emoji:'🤲',loc:'手腕內側大拇指根部橫紋往上約一拇指寬，摸得到動脈跳動處',benefit:'調解氣喘、咳嗽，日常輕按能疏通經絡、順暢呼吸。'},
+  {name:'太淵穴',emoji:'🤲',loc:'手腕掌側橫紋上，大拇指根部下方的凹陷骨縫處',benefit:'肺經原穴兼百脈之會，日常保養能補氣養肺、提振精力。'},
+  {name:'魚際穴',emoji:'🤲',loc:'手掌大魚際（大拇指根部下方，手掌肉最肥厚處的骨頭邊緣）',benefit:'雙手魚際互擦發熱，能緩解因天氣變化造成的喉嚨不適。'},
+  {name:'少商穴',emoji:'🤲',loc:'大拇指指甲外側邊緣（靠食指側），距離指甲角約小不點處',benefit:'肺經井穴，清熱利咽、開竅醒神，排除上半身昏沉。'},
+  {name:'商陽穴',emoji:'🤲',loc:'食指指甲外側邊緣（靠大拇指側），距離指甲角约小不點處',benefit:'大腸經起點，瀉熱消腫、理氣通腑，提振日常消化活力。'},
+  {name:'二間穴',emoji:'🤲',loc:'微握拳，食指內側（靠大拇指側），食指根部關節前方的凹陷處',benefit:'清胃瀉火，有助於舒緩日常因上火引起的牙痛與喉嚨緊繃。'},
+  {name:'三間穴',emoji:'🤲',loc:'微握拳，食指內側（靠大拇指側），食指根部關節後方的凹陷處',benefit:'調理咽喉腫痛，亦可放遜因頻繁使用滑鼠造成的食指酸痛。'},
+  {name:'合谷穴',emoji:'🤲',loc:'手背虎口處，大拇指與食指合攏時肌肉最高突起處',benefit:'面口合谷收。緩解頭痛、舒緩臉部緊繃，是最常用保健穴。'},
+  {name:'陽溪穴',emoji:'🤲',loc:'大拇指向上翹起時，手腕背面大拇指根部兩條筋之間的凹陷處',benefit:'清熱通絡，可舒緩長期打字、抱小孩引起的「媽媽手」酸痛。'},
+  {name:'偏歷穴',emoji:'💪',loc:'前臂背面大拇指這條線上，手腕背橫紋往上約四指寬處',benefit:'大腸經絡穴，利水消腫，幫助維持全身多餘水分代謝機能。'},
+  {name:'溫溜穴',emoji:'💪',loc:'前臂背面大拇指這條線上，手腕背橫紋往上約六指寬處',benefit:'清熱理氣，能緩解前臂緊繃，在身體突然感到寒冷時可溫敷。'},
+  {name:'下廉穴',emoji:'💪',loc:'前臂外側，手肘外橫紋端往下約五指寬，骨頭邊緣處',benefit:'調和腸胃、通經活絡，舒緩前臂與手肘周圍的肌肉勞損。'},
+  {name:'上廉穴',emoji:'💪',loc:'前臂外側，手肘外橫紋端往下約四指寬，骨頭邊緣處',benefit:'調理腹痛、腸鳴，能活化手臂微循環，告別肌肉沉重感。'},
+  {name:'手三里',emoji:'💪',loc:'手肘彎曲時，肘橫紋外側端往下約三指寬處（橫放三指）',benefit:'強健手臂肌肉，也是久坐電腦前、頻繁滑手機的必按舒壓點。'},
+  {name:'曲池穴',emoji:'💪',loc:'手肘完全彎曲時，肘橫紋外側盡頭的凹陷處',benefit:'清熱解表、調節身體機能，久坐電腦前後可按壓放鬆。'},
+  {name:'肘髎穴',emoji:'💪',loc:'手肘微彎，肘尖骨頭上方約一指寬的凹陷邊緣處',benefit:'專門放鬆手肘關節，對於經常提重物、網球肘有極佳緩解。'},
+  {name:'手五里',emoji:'💪',loc:'大手臂外側，手肘外橫紋端往上約四指寬處',benefit:'舒筋活絡，能放鬆上臂外側的慢性肌肉緊繃，消除疲勞。'},
+  {name:'臂臑穴',emoji:'💪',loc:'大手臂外側，手肘外橫紋端往上約九指寬，三角肌下端邊緣',benefit:'清熱明目、調理上臂痛，是重塑手臂線條經常揉按的穴位。'},
+  {name:'肩髎穴',emoji:'🧖',loc:'肩膀外側，當手臂平舉時，肩膀骨頭前側出現的凹陷處',benefit:'疏散風熱、通利關節，能改善上班族常見的五十肩與圓肩酸痛。'},
+  {name:'巨骨穴',emoji:'🧖',loc:'肩膀上方，鎖骨外側端與肩胛骨交接處的凹陷縫隙中',benefit:'通絡化痰、緩解肩背沉重感，對於經常聳肩的人有很好放鬆。'},
+  {name:'天鼎穴',emoji:'🧖',loc:'脖子側面，喉結水平線往下約一指半，肌肉後緣處',benefit:'理氣化痰、清咽利喉，適合日常講話過多導致的嗓音沉重。'},
+  {name:'扶突穴',emoji:'🧖',loc:'脖子側面，與喉結平齊，胸鎖乳突肌的前後邊緣之間',benefit:'理氣順氣、調理咽喉，在長時間低頭後輕按可幫助頸部放鬆。'},
+  {name:'口禾髎',emoji:'👃',loc:'人中穴（鼻唇溝正中）左右旁開約半指寬，鼻翼外緣直下處',benefit:'通利鼻竅、維持呼吸道順暢，在環境空氣不佳時按壓保健。'},
+  {name:'迎香穴',emoji:'👃',loc:'鼻翼兩側外緣，法令紋橫紋中的凹陷處',benefit:'通利鼻竅，改善環境變化引起不適，維持呼吸清爽。'},
+  {name:'承泣穴',emoji:'👀',loc:'正視前方時，眼球正下方，眼眶骨下緣的正中央凹陷處',benefit:'散風清熱、保養眼周，能緩解長時間看3C螢幕的雙眼乾澀。'},
+  {name:'四白穴',emoji:'👀',loc:'正視前方時，瞳孔直下方，眼眶骨下緣往下約一指寬的凹陷處',benefit:'護眼名穴，有助提升眼周氣血循環，淡化黑眼圈與疲勞感。'},
+  {name:'巨髎穴',emoji:'👀',loc:'正視前方時，瞳孔直下，與鼻翼下緣平齊的交叉點處',benefit:'舒緩臉部緊繃肌肉，維持氣色紅潤，是面部保養常備穴。'},
+  {name:'地倉穴',emoji:'👄',loc:'嘴角外側旁開約半指寬處的凹陷中',benefit:'醒腦通絡、調理面部線條，說話或咀嚼過多後可輕按放鬆。'},
+  {name:'大迎穴',emoji:'👄',loc:'下巴骨邊緣，咬緊牙關時臉頰肌肉前緣的凹陷處',benefit:'放鬆因壓力、焦慮引發的緊咬牙關，緩解下頜骨肌肉僵硬。'},
+  {name:'頰車穴',emoji:'👄',loc:'下巴角前上方約一橫指，咬緊牙關時臉頰肉隆起最高處',benefit:'放鬆咬合肌、修飾臉部線條，睡前按壓能緩解日間緊繃。'},
+  {name:'下關穴',emoji:'耳',loc:'耳屏（耳前方突起）前方，顴骨下緣凹陷處，張口時會隆起',benefit:'通關利竅，對於咬合時耳前關節酸痛有極佳舒緩效果。'},
+  {name:'頭維穴',emoji:'💆',loc:'額頭兩側額角，髮際線拐角往上約半指寬處',benefit:'緩解因壓力、高壓思考帶來的偏頭部沉重與前額緊繃。'},
+  {name:'人迎穴',emoji:'🧖',loc:'喉結旁開約兩指寬處，摸得到頸部大動脈跳動處',benefit:'理氣降逆，輕柔按壓有助日常放鬆心情、舒緩急躁情緒。'},
+  {name:'水突穴',emoji:'🧖',loc:'脖子前方，人迎穴與鎖骨上窩連線的正中央邊緣處',benefit:'利咽順氣，有助舒緩頸部前側因為長期低頭所承受的拉力。'},
+  {name:'氣舍穴',emoji:'🧖',loc:'脖子根部，鎖骨內側端上緣的凹陷骨縫處',benefit:'緩解頸部緊繃、理氣寬胸，適合因焦慮引發的呼吸短促。'},
+  {name:'缺盆穴',emoji:'🧖',loc:'肩膀根部，鎖骨上方凹陷窩的正中央（平瞳孔直上）',benefit:'宣肺利氣，是全身經絡匯聚樞紐，日常熱敷能暢通上半身氣血。'},
+  {name:'氣戶穴',emoji:'🧘',loc:'胸口上方，鎖骨下緣的正中央凹陷處（平瞳孔直下）',benefit:'理氣寬胸，能改善長期伏案造成的胸廓內收與呼吸憋悶。'},
+  {name:'庫房穴',emoji:'🧘',loc:'前胸第一肋骨間隙，平瞳孔直下的線路上',benefit:'理氣順氣、保養胸腔，隨深呼吸輕輕揉按可增加肺活量。'},
+  {name:'屋翳穴',emoji:'🧘',loc:'前胸第二肋骨間隙，平瞳孔直下的線路上',benefit:'止咳平喘、寬胸通絡，是維持女性胸部健康循環的核心穴位。'},
+  {name:'膺窗穴',emoji:'🧘',loc:'前胸第三肋骨間隙，平瞳孔直下的線路上',benefit:'理氣活血，適合舒緩因情緒波動引發的乳房周圍肌肉緊繃。'},
+  {name:'乳中穴',emoji:'🧘',loc:'乳頭正中央處（平第四肋骨間隙）',benefit:'正規經穴定位點，不宜針灸與深壓，日常保持清潔即可。'},
+  {name:'乳根穴',emoji:'🧘',loc:'乳頭正下方，乳房基底部骨縫處（平第五肋骨間隙）',benefit:'通乳化瘀，能宣通胸部局部經絡，適合搭配草本排濕產品溫敷。'},
+  {name:'不容穴',emoji:'🤰',loc:'上腹部，胸口劍突下端往下約一掌寬，旁開約三指寬處',benefit:'和胃降逆，有助於緩解因吃太多、消化不良引起的胃部飽脹。'},
+  {name:'承滿穴',emoji:'🤰',loc:'上腹部，不容穴往下約一拇指寬處（旁開中線三指寬）',benefit:'和胃理氣，適合在早晨空腹時輕揉，啟動全天消化機能。'},
+  {name:'梁門穴',emoji:'🤰',loc:'上腹部，肚臍往上約一掌寬，旁開約三指寬處（平中脘穴外側）',benefit:'胃病保健要穴，能有效緩解突發性胃痛、悶脹與飲食不適。'},
+  {name:'關門穴',emoji:'🤰',loc:'上腹部，肚臍往上約四指寬，旁開約三指寬處',benefit:'健脾利濕、調理腸鳴，幫助腹部多餘廢水順暢隨日常代謝。'},
+  {name:'太乙穴',emoji:'🤰',loc:'上腹部，肚臍往上約三指寬，旁開約三指寬處',benefit:'和胃消滯、安神定志，對於舒緩「壓力型腸胃不適」很有效。'},
+  {name:'滑肉門',emoji:'🤰',loc:'上腹部，肚臍往上約一指寬，旁開約三指寬處',benefit:'化痰消滯，能緊緻腹部線條，是日常摩腹保養的黃金著力點。'},
+  {name:'天樞穴',emoji:'🤰',loc:'肚臍左右各旁開約三指寬處（平行肚臍）',benefit:'大腸募穴，雙向調節腸胃蠕動，日常摩腹能維持平坦小腹。'},
+  {name:'外陵穴',emoji:'🤰',loc:'下腹部，肚臍往下約一指寬，旁開約三指寬處',benefit:'理氣止痛，調理下腹部因受涼引發的突發性痙攣或悶痛。'},
+  {name:'大巨穴',emoji:'🤰',loc:'下腹部，肚臍往下約三指寬，旁開約三指寬處',benefit:'通腑降濁，有助於排除體內宿便，幫助維持下腹部輕盈度。'},
+  {name:'水道穴',emoji:'🤰',loc:'下腹部，肚臍往下約四指寬，旁開約三指寬處',benefit:'利水消腫，主要保養泌尿系統，也是女性消除骨盆瘀滯的常備穴。'},
+  {name:'歸來穴',emoji:'🤰',loc:'下腹部，肚臍往下約一掌寬，旁開約三指寬處',benefit:'活血化瘀、溫經散寒，女性生理期日常調養、改善怕冷的黃金點。'},
+  {name:'氣衝穴',emoji:'🤰',loc:'恥骨外側旁開約三指寬，大腿根部鼠溪部動脈跳動處',benefit:'調和氣血、理氣通經，能打通骨盆腔至下肢的氣血「開關」。'},
+  {name:'髀關穴',emoji:'🦵',loc:'大腿根部前側，當大腿微屈時，兩條大腿肌肉交界凹陷處',benefit:'健脾祛濕、強捷下肢，能舒緩長時間行走、爬山後的大腿酸痛。'},
+  {name:'伏兔穴',emoji:'🦵',loc:'大腿前側肌肉肥厚處，髕骨（膝蓋骨）外上緣往上約一掌寬處',benefit:'散寒化濕、強健腰膝，對於改善大腿前側水腫有很好的幫助。'},
+  {name:'陰市穴',emoji:'🦵',loc:'大腿前側，髕骨（膝蓋骨）外上緣往上約四指寬處',benefit:'溫經散寒，古稱「陰氣匯聚之處」，容易手腳冰冷者可多溫敷。'},
+  {name:'梁丘穴',emoji:'🦵',loc:'大腿前側，髕骨（膝蓋骨）外上緣往上約三指寬處',benefit:'胃經郄穴，具備優秀理氣止痛效果，適合突發性胃部不適急救。'},
+  {name:'犢鼻穴',emoji:'🦵',loc:'屈膝時，膝蓋骨下方韌帶外側的明顯凹陷處（外膝眼）',benefit:'通經活絡、疏利關節，是保養膝蓋、預防髕骨勞損的必按穴。'},
+  {name:'足三里',emoji:'🦵',loc:'膝蓋骨外側凹陷（外膝眼）往下約四指寬，脛骨前緣外側一指寬處',benefit:'常按足三里勝吃老母雞。滋養脾胃、大補元氣的核心強壯穴。'},
+  {name:'上巨虛',emoji:'🦵',loc:'小腿前外側，足三里穴再往下約四指寬處',benefit:'大腸下合穴，能清理大腸積熱，改善排便不順與體內濕熱。'},
+  {name:'條口穴',emoji:'🦵',loc:'小腿前外側，上巨虛穴再往下約三指寬處（小腿骨外側）',benefit:'舒筋活絡，對於上班族因久坐缺乏運動導致的小腿抽筋很有效。'},
+  {name:'下巨虛',emoji:'🦵',loc:'小腿前外側，條口穴再往下約一指半寬處',benefit:'小腸下合穴，能調理小腸機能，幫助身體更好地吸收水分與營養。'},
+  {name:'豐隆穴',emoji:'🦵',loc:'小腿外側正中央（外膝眼與外踝尖連線中點），骨頭外側約兩指寬肌肉處',benefit:'中醫最強排濕化痰名穴，搭配輕濕茶，能加速體內贅水代謝。'},
+  {name:'解溪穴',emoji:'🦶',loc:'足背與小腿交界處的橫紋中央凹陷中，兩條大筋之間',benefit:'清胃瀉火、舒利關節，能緩解長時間穿高跟鞋引發的腳踝酸痛。'},
+  {name:'衝陽穴',emoji:'👣',loc:'足背最高突起處，約在腳背正中摸得到動脈搏動的骨縫處',benefit:'胃經原穴，能提振中焦胃氣，對於精神低迷、食慾不振有保養效。'},
+  {name:'陷谷穴',emoji:'👣',loc:'足背上，第二腳趾與第三腳趾骨頭根部結合前方的凹陷處',benefit:'利水消腫，能快速緩解清晨起床後臉部、眼瞼與足背的水腫感。'},
+  {name:'內庭穴',emoji:'👣',loc:'足背上，第二腳趾與第三腳趾腳趾丫（趾蹼緣）後方的凹陷處',benefit:'胃經滎穴，專瀉胃火。適合日常口乾舌燥、易有口臭、爆痘者。'},
+  {name:'厲兌穴',emoji:'👣',loc:'第二腳趾爪甲外側（靠小趾側），距離指甲角約小不點處',benefit:'胃經井穴，清熱醒腦、安神定志，下午昏沉時刺激此處能提神。'},
+  {name:'隱白穴',emoji:'👣',loc:'大腳趾爪甲內側（靠大拇指側邊緣），距離指甲角約小不點處',benefit:'脾經井穴，健脾統血、補氣安神，對日常睡眠不踏實有調養之效。'},
+  {name:'大都穴',emoji:'👣',loc:'大腳趾內側邊緣，大腳趾根部大關節前下方的紅白肉邊緣處',benefit:'健脾和胃、幫助消化，能改善飲食過飽引發的腹脹、泛酸。'},
+  {name:'太白穴',emoji:'👣',loc:'大腳趾內側邊緣，大腳趾根部大關節後下方弓腳步的小凹陷處',benefit:'脾經原穴，能直接增強脾臟運化水谷精微能力，全面提振體力。'},
+  {name:'公孫穴',emoji:'👣',loc:'腳掌內側邊緣，太白穴往後約兩橫指寬，足弓最高的骨頭下緣凹陷處',benefit:'連結任脈，是調理胃痛、經痛、壓力型腸胃痙攣的核心樞紐。'},
+  {name:'商丘穴',emoji:'🦶',loc:'內腳踝骨頭前下方，骨頭突起與腳踝連線中點的凹陷處',benefit:'健脾化濕、通絡利關節，能改善久坐產生的下肢腳踝水腫沉重。'},
+  {name:'三陰交',emoji:'🦶',loc:'內腳踝骨頭尖端，往上約四指寬（橫放四指），小腿骨後緣凹陷處',benefit:'肝脾腎三經交會。女性保養抗衰、氣血雙補黃金要穴。孕婦禁按。'},
+  {name:'漏谷穴',emoji:'🦵',loc:'小腿內側骨頭後緣，內腳踝骨尖往上約兩掌寬處',benefit:'健脾消滯、利尿祛濕，日常揉按可保養下肢淋巴循環。'},
+  {name:'地機穴',emoji:'🦵',loc:'小腿內側骨頭後緣，膝蓋內側橫紋頭往下約一掌寬處',benefit:'脾經郄穴，具備優秀調節氣血能力，女性生理期日常保養常客。'},
+  {name:'陰陵泉',emoji:'🦵',loc:'小腿內側，膝蓋內側骨頭下方（用手沿小腿骨往上摸到轉彎處大凹陷）',benefit:'脾經合穴，專責體內排濕、消腫。身體沈重、下身水腫必按。'},
+  {name:'血海穴',emoji:'🦵',loc:'大腿內側，屈膝時，膝蓋骨內側上緣再往上約三指寬肌肉處',benefit:'活血化瘀、引血歸海。能促進下肢血流，紅潤面色、調和氣血。'},
+  {name:'箕門穴',emoji:'🦵',loc:'大腿內側肌肉處，血海穴往上約一掌半寬的肌肉縫隙中',benefit:'利尿通淋、疏通腹股溝經絡，有助於維持下半身良好新陳代謝。'},
+  {name:'沖門穴',emoji:'🤰',loc:'大腿根部鼠溪部橫紋外側，大約在下腹部中線旁開一掌寬處',benefit:'健脾化濕、理氣止痛，能暢通下腹部與大腿之間的微循環。'},
+  {name:'府舍穴',emoji:'🤰',loc:'下腹部鼠溪部上方，沖門穴往上約一拇指寬處',benefit:'和胃理氣，調理突發性下腹部因久坐不動引發的痙攣或悶脹。'},
+  {name:'腹結穴',emoji:'🤰',loc:'下腹部，肚臍外側約一掌寬，再往下約一指半寬處',benefit:'理氣寬腸、幫助排便，能改善辦公族因缺乏走動引發的習慣不順。'},
+  {name:'大橫穴',emoji:'🤰',loc:'腹部，平行肚臍水平線，往左右外側旁開約一掌寬處',benefit:'溫陽散寒、活化腸道蠕動，日常順時針按壓能排除腹部積氣。'},
+  {name:'腹哀穴',emoji:'🤰',loc:'上腹部，大橫穴（肚臍旁一掌寬）再往上約四指寬處',benefit:'健脾和胃、消食導滯，能舒緩因飲食不當造成的消化不適。'},
+  {name:'食竇穴',emoji:'🧘',loc:'前胸外側第五肋骨間隙，大約平胸口中線旁開一掌半寬處',benefit:'理氣和中、寬胸利膈，有助維持胃部與胸腔交界處的流暢感。'},
+  {name:'天溪穴',emoji:'🧘',loc:'前胸外側第四肋骨間隙（約平乳頭水平線外側），旁開一掌半寬處',benefit:'寬胸通乳、保養胸部肌群，是維持上半身血液循環的經典美胸穴。'},
+  {name:'胸鄉穴',emoji:'🧘',loc:'前胸外側第三肋骨間隙，平行中線旁開約一掌半寬處',benefit:'理氣寬胸，能放鬆因長期對著電腦造成的胸大肌外側硬塊與緊繃。'},
+  {name:'周榮穴',emoji:'🧘',loc:'前胸外側第二肋骨間隙，平行中線旁開約一掌半寬處',benefit:'宣肺止咳、開胸順氣，隨悠長深呼吸輕按，能使呼吸更顯從容。'},
+  {name:'大包穴',emoji:'🏹',loc:'側身正中線上，腋窩正中央往下約平一掌寬處的肋骨縫中',benefit:'脾之大絡，統領全身氣血。日常點按能緩解全身酸痛、極度疲勞。'},
+  {name:'極泉穴',emoji:'🏹',loc:'腋窩頂點，正中央摸得到大動脈跳動的凹陷處',benefit:'寬胸理氣、打通手臂微循環，日常感到心慌、焦慮時的舒壓點。'},
+  {name:'青靈穴',emoji:'💪',loc:'手臂內側，手肘內側橫紋端往上約四指寬處的肌肉縫中',benefit:'理氣化痰、通絡止痛，能放鬆上臂內側因長期提重物累積的緊繃。'},
+  {name:'少海穴',emoji:'💪',loc:'屈肘時，手肘內側橫紋端與手肘內側突出骨頭中點的凹陷處',benefit:'心經合穴，清神志、舒關節，適合在心煩意亂時輕按安定情緒。'},
+  {name:'靈道穴',emoji:'🤲',loc:'前臂掌側小指這條線上，手腕橫紋再往上約一指半寬處',benefit:'安神醒腦、舒緩咽喉，能日常調理高壓工作引發的隱形緊繃感。'},
+  {name:'通里穴',emoji:'🤲',loc:'前臂掌側小指這條線上，手腕橫紋再往上約一拇指寬處',benefit:'心經絡穴，利咽開竅，在日常說話過多導致舌尖發麻、乾澀時適用。'},
+  {name:'陰隙穴',emoji:'🤲',loc:'前臂掌側小指這條線上，手腕橫紋再往上約半指寬處',benefit:'心經郄穴，清熱安神、調理夜間盜汗，能撫平過於躁動的心火。'},
+  {name:'神門穴',emoji:'🙏',loc:'手腕橫紋上，靠近小指側這端，骨頭與肌腱之間的明顯凹陷處',benefit:'心經原穴，安神定志。睡前搭配安神好眠飲輕按，放鬆過勞大腦。'},
+  {name:'少府穴',emoji:'👐',loc:'手掌心內，握拳時小指與無名指尖所對應的手掌肉凹陷處',benefit:'心經滎穴，清熱除煩，能迅速緩解因高壓、緊張產生的心慌手發熱。'},
+  {name:'少衝穴',emoji:'🤲',loc:'小指爪甲外側（靠無名指側邊緣），距離指甲角約小不點處',benefit:'心經井穴，清心安神、開竅醒腦，在下午大腦卡關時可作提神。'},
+  {name:'少澤穴',emoji:'🤲',loc:'小指爪甲外側末端（靠外側邊緣），距離指甲角約小不點處',benefit:'小腸經井穴，清熱開竅、通乳理氣，適合女性產後日常保健。'},
+  {name:'前谷穴',emoji:'🤲',loc:'微握拳，小指外側，小指根部關節前方的皮膚邊緣凹陷處',benefit:'清熱消腫，能舒緩因日常過度看螢幕引起的耳鳴、眼睛酸澀不適。'},
+  {name:'後溪穴',emoji:'🤲',loc:'微握拳，手掌外側小指肉下方，手掌橫紋盡頭的突起肉際處',benefit:'連結督脈，是放鬆長期用電腦造成的腰酸背痛、頸椎僵硬黃金穴。'},
+  {name:'腕骨穴',emoji:'🤲',loc:'手掌外側邊緣，後溪穴往後移動，在手掌與手腕交界骨縫凹陷處',benefit:'小腸經原穴，能清熱利濕，放鬆手腕關節，改善滑鼠手疲勞。'},
+  {name:'陽谷穴',emoji:'🤲',loc:'手腕背面外側，手腕橫紋端，尺骨突起骨頭下方的凹陷處',benefit:'清熱理氣、通絡利關節，能有效放鬆整張手背的緊繃感。'},
+  {name:'養老穴',emoji:'🤲',loc:'手腕背面尺骨突出骨頭的上方骨縫凹陷中（轉動手掌時會變明顯）',benefit:'明目舒筋，古稱養老穴，適合日常保養視力、緩解肩臂酸痛。'},
+  {name:'支正穴',emoji:'💪',loc:'前臂背面小指這條線上，手腕背橫紋往上約六指寬處',benefit:'小腸經絡穴，安神醒腦、解表散寒，能日常調理全身上下的氣血。'},
+  {name:'小海穴',emoji:'💪',loc:'手肘外側，肘尖骨頭與手肘內側突起骨頭之間的凹陷處（麻筋點）',benefit:'放鬆手肘、清心安神，可舒緩長期屈肘看手機造成的手臂發麻。'},
+  {name:'肩貞穴',emoji:'🏹',loc:'肩膀後側，當手臂自然下垂時，腋下後方橫紋頭往上約一拇指寬處',benefit:'通絡關節、緩解肩痛，是舒緩上班族辦公累積「肩膀死結」的常備點。'},
+  {name:'臑俞穴',emoji:'🏹',loc:'肩膀後側，肩胛骨上方突起骨頭外側下緣的明显凹陷處',benefit:'舒筋活絡，專門放鬆肩關節後側，改善因長期駝背造成的肌肉僵硬。'},
+  {name:'天宗穴',emoji:'🏹',loc:'後背肩胛骨正中央，按壓下去有明顯酸脹感的凹陷處',benefit:'美背黃金穴。深度釋放肩胛骨慢性酸痛，改善上班族圓肩駝背。'},
+  {name:'秉風穴',emoji:'🏹',loc:'後背肩胛骨上方，當手臂抬起時，肩胛岡骨頭上方的凹陷中央',benefit:'散風活絡，針對經常提重物、聳肩造成的肩背局部酸痛能精準舒緩。'},
+  {name:'曲垣穴',emoji:'🏹',loc:'後背肩胛骨上方的內側端凹陷處（按壓極度酸痛點）',benefit:'專門放鬆肩胛骨上緣肌肉，是擺擺脫慢性疲勞與石頭肩的必按穴。'},
+  {name:'肩外俞',emoji:'🧖',loc:'上背部，低頭摸到脖子最突出骨頭往下第一節脊椎，旁開約四指寬處',benefit:'舒筋活絡、溫通經脈，能深度放鬆整條上背部脊椎兩側的緊繃。'},
+  {name:'肩中俞',emoji:'🧖',loc:'上背部，低頭摸到脖子最突出骨頭（大椎穴）旁開約三指寬處',benefit:'宣肺止咳、放鬆頸根，對於因長時間低頭看平板造成的酸脹立馬緩解。'},
+  {name:'天窗穴',emoji:'🧖',loc:'脖子側面，胸鎖乳突肌後緣，大約與喉結平齊的位置',benefit:'通絡開竅，放鬆頸部兩側線條，能緩解因高壓思考造成的耳鳴。'},
+  {name:'天容穴',emoji:'🧖',loc:'下巴角後方，耳朵下方，大胸鎖乳突肌前緣的凹陷處',benefit:'清熱消腫、理氣化痰，能舒緩日常說話、唱歌過度造成的頸部肌肉緊。'},
+  {name:'顴髎穴',emoji:'👀',loc:'臉部顴骨下緣，外眼角直下線路的骨頭下緣凹陷處',benefit:'放鬆臉部肌肉，提升面部氣氣血微循環，是維持蘋果肌緊緻的面部名穴。'},
+  {name:'聽宮穴',emoji:'👂',loc:'耳朵正前方突起小肉際（耳屏）正中前緣，張口時呈大凹陷處',benefit:'開竅通絡，放鬆咬合肌與耳周肌肉，適合長時間電話溝通後放鬆。'},
+  {name:'睛明穴',emoji:'👀',loc:'眼內角（淚尖處）內側上方約半指寬的微凹陷處',benefit:'膀胱經起點。刺激眼周微循環，迅速改善看螢幕過久的雙眼酸澀。'},
+  {name:'攢竹穴',emoji:'👀',loc:'面部眉毛的眉頭凹陷處（按壓有明顯酸脹骨縫）',benefit:'清熱明目、消除眼部水腫，是辦公族下午重獲明亮雙眸的必按點。'},
+  {name:'眉衝穴',emoji:'💆',loc:'前額部，攢竹穴（眉頭）直上進入髮際線內約半指寬處',benefit:'醒腦開竅，能迅速緩解因缺乏睡眠帶來的頭部前額沉重感。'},
+  {name:'曲差穴',emoji:'💆',loc:'前額部，前額正中線旁開約兩指寬，入髮際線半指寬處',benefit:'清頭明目、調理鼻塞，維持早晨醒來時大腦的清爽度。'},
+  {name:'五處穴',emoji:'💆',loc:'頭頂部，曲差穴再往頭頂後方移動約一拇指寬處',benefit:'安神定志、清熱解表，日常輕按能幫助沉澱繁雜心緒。'},
+  {name:'承光穴',emoji:'💆',loc:'頭頂部，五處穴再往頭頂後方移動約兩指半寬處',benefit:'疏風清熱，能有效放鬆長時間過度用腦後，頭頂骨膜的緊繃感。'},
+  {name:'通天穴',emoji:'💆',loc:'頭頂部，承光穴再往頭頂後方移動約兩指寬處',benefit:'中醫通鼻竅神穴，能快速改善因環境冷熱變化引發的呼吸道不適。'},
+  {name:'絡卻穴',emoji:'💆',loc:'頭頂後部，通天穴再往後方移動約兩指半寬處',benefit:'清心安神、通絡明目，對於日常感到心煩、視力模糊有保養效。'},
+  {name:'玉枕穴',emoji:'💆',loc:'後腦杓，後腦突起大骨頭的上緣，旁開約兩指寬凹陷處',benefit:'放鬆後半腦，適合長時間對著電腦、後腦杓常覺重痛的辦公族。'},
+  {name:'天柱穴',emoji:'🧖',loc:'後腦杓後髮際線正中直上外側，脖子兩側大粗肌肉外側凹陷處',benefit:'打通頭部與身體氣血「關卡」，快速緩解因久坐引發的後頸僵硬。'},
+  {name:'大杼穴',emoji:'🧖',loc:'背部，低頭最突出骨頭下第一節脊椎，旁開約兩指寬處',benefit:'骨之會。統領全身骨骼健康，能放鬆頸椎與胸椎交界處的勞損。'},
+  {name:'風門穴',emoji:'🧖',loc:'背部，低頭最突出骨頭下第二節脊椎，旁開約兩指寬處',benefit:'宣肺驅寒。在換季、冷氣房待久常覺畏寒時，是黃金熱敷點。'},
+  {name:'肺俞穴',emoji:'🧘',loc:'背部，低頭最突出骨頭下第三節脊椎，旁開約兩指寬處',benefit:'肺臟氣血匯聚點。養肺理氣、滋潤呼吸道，搭配草本溫敷最合適。'},
+  {name:'厥陰俞',emoji:'❤️',loc:'背部，低頭最突出骨頭下第四節脊椎，旁開約兩指寬處',benefit:'心包氣血匯聚點。寬胸理氣、舒緩壓力，能撫平日間隱形焦慮。'},
+  {name:'心俞穴',emoji:'❤️',loc:'背部，低頭最突出骨頭下第五節脊椎，旁開約兩指寬處',benefit:'心臟氣血匯聚點。養心安神，睡前搭配好眠飲熱敷背部能助深眠。'},
+  {name:'督俞穴',emoji:'🧘',loc:'背部，低頭最突出骨頭下第六節脊椎，旁開約兩指寬處',benefit:'理氣寬胸、調和督脈，幫助提振身體陽氣，消除中焦瘀滯。'},
+  {name:'膈俞穴',emoji:'🩸',loc:'背部，兩側肩胛骨下角水平連線的脊椎（第七節），旁開約兩指寬處',benefit:'血之會。活血化瘀、調和氣血，女性日常保養、紅潤面色的核心穴。'},
+  {name:'肝俞穴',emoji:'🧘',loc:'背部，肩胛骨下角連線再往下兩節脊椎（第九節），旁開約兩指寬處',benefit:'肝臟氣血匯聚點。疏肝解鬱、清肝明目，適合常熬夜、高壓工作者。'},
+  {name:'膽俞穴',emoji:'🧘',loc:'背部，第九節脊椎再往下第一節（第十節），旁開約兩指寬處',benefit:'膽經氣血匯聚點。調和中焦、利膽開胃，能改善因緊張引發的泛酸。'},
+  {name:'脾俞穴',emoji:'🤰',loc:'背部，第十一胸椎棘突下（約在肋骨下緣水平線），旁開約兩指寬處',benefit:'脾臟氣血匯聚點。強健運化水分能力，是日常排濕、維持體態核心。'},
+  {name:'胃俞穴',emoji:'🤰',loc:'背部，第十一節往下隔一節脊椎（第十二節），旁開約兩指寬處',benefit:'胃部氣血匯聚點。和胃消滯，能緩解因飲食不節引起的腹部飽脹。'},
+  {name:'三焦俞',emoji:'🧘',loc:'腰部，第十二節往下隔一節脊椎（第一腰椎），旁開約兩指寬處',benefit:'通調水道、運化水濕，保養全身淋巴與水液代謝，全面消水腫。'},
+  {name:'腎俞穴',emoji:'💪',loc:'腰部，背後正中線與肚臍水平相對應的脊椎旁開約兩指寬處',benefit:'護腰固腎要穴。日常按揉摩擦至發熱，提振體力、緩解腰肌酸軟。'},
+  {name:'氣海俞',emoji:'💪',loc:'腰部，第三腰椎棘突下，水平中線旁開約兩指寬處',benefit:'調理下焦、理氣化濕，強健腰背核心，給予腰椎完美支撐。'},
+  {name:'大腸俞',emoji:'🤰',loc:'腰部，骨盆兩側最高點骨頭連線水平的脊椎處，旁開約兩指寬處',benefit:'通腑降濁、調理大腸，改善辦公族因久坐缺乏運動的排便不順。'},
+  {name:'關元俞',emoji:'🔥',loc:'下腰部，第五腰椎棘突下，水平中線旁開約兩指寬處',benefit:'培元固本、強健腰膝，對於日常精力不足、容易怕冷者有調養效。'},
+  {name:'小腸俞',emoji:'🤰',loc:'臀部，骨盆薦骨部第一節突起下方，旁開約兩指寬骨縫處',benefit:'調理小腸、利水固澀，幫助身體吸收水分營養，排除濁廢。'},
+  {name:'膀胱俞',emoji:'🤰',loc:'臀部，骨盆薦骨部第二節突起下方，旁開約兩指寬骨縫處',benefit:'化氣利水、調理膀胱，日常按壓有助於維持下半身新陳代謝。'},
+  {name:'中膂俞',emoji:'🦵',loc:'臀部，骨盆薦骨部第三節突起下方，旁開約兩指寬骨縫處',benefit:'溫經散寒，專門放鬆臀部深層肌肉，緩解久坐產生的坐骨不適。'},
+  {name:'白環俞',emoji:'🦵',loc:'臀部，骨盆薦骨部第四節突起下方（接近尾椎），旁開約兩指寬處',benefit:'調經止帶、強健腰骶，對女性骨盆周圍的血液循環很有助益。'},
+  {name:'上髎穴',emoji:'🔥',loc:'薦骨部，第一對後薦骨孔中（脊椎旁開約一拇指寬的骨頭凹陷洞）',benefit:'八髎穴之一。調理下焦、活血通經，女性生理期日常保養黃金區。'},
+  {name:'次髎穴',emoji:'🔥',loc:'薦骨部，第二對後薦骨孔中（骨盆後方突起骨頭下緣的凹陷洞中）',benefit:'八髎穴之首。溫經散寒效果極強，是緩解生理期經痛的秘密武器。'},
+  {name:'中髎穴',emoji:'🔥',loc:'薦骨部，第三對後薦骨孔中（次髎穴再下方的骨洞中）',benefit:'疏導下焦氣血，能放鬆盆腔周圍的慢性僵硬，幫助下身代謝。'},
+  {name:'下髎穴',emoji:'🔥',loc:'薦骨部，第四對後薦骨孔中（中髎穴再下方的骨洞中，接近尾椎）',benefit:'通利下焦，與上三髎配合熱敷，全面活化骨盆與下肢的微循環。'},
+  {name:'會陽穴',emoji:'🦵',loc:'尾骨（屁股最末端尖骨）旁邊，旁開約半指寬凹陷處',benefit:'清熱利濕，能放鬆尾椎骨周圍肌肉，適合因椅子太硬導致的壓迫。'},
+  {name:'承扶穴',emoji:'🦵',loc:'大腿後側，臀部與大腿交界處橫紋的正中央點',benefit:'通絡活血。可刺激臀大肌，改善久坐導致的「臀部失憶」與下垂。'},
+  {name:'殷門穴',emoji:'🦵',loc:'大腿後側正中線上，承扶穴（大腿根）往下約一掌寬處',benefit:'舒筋活絡、強健下肢，專門釋放大腿後側大肌群的酸痛疲勞。'},
+  {name:'浮隙穴',emoji:'🦵',loc:'膝蓋後側外側，膕橫紋外側盡頭骨頭往上約一拇指寬邊緣處',benefit:'通絡止痛、調理下肢痙攣，適合運動後大腿與膝蓋後側的放鬆。'},
+  {name:'委陽穴',emoji:'🦵',loc:'膝蓋後側膕橫紋外側端，大腿後側外側大筋的內側下邊緣',benefit:'三焦經下合穴，通調水道，能加速下肢滯留水分排出，消除腿腫。'},
+  {name:'委中穴',emoji:'🦵',loc:'膝蓋正後方，膕橫紋（膝後皺褶）的正中央凹陷處',benefit:'腰背委中求。大容量疏通背部瘀滯，是緩解慢性腰酸背痛黃金穴。'},
+  {name:'附分穴',emoji:'🧘',loc:'上背部，第二胸椎棘突下，旁開約四指寬處（大杼穴外側）',benefit:'舒筋活絡、放鬆上背，針對長時間敲鍵盤引發的肩胛骨內側酸痛。'},
+  {name:'魄戶穴',emoji:'🧘',loc:'上背部，第三胸椎棘突下，旁開約四指寬處（肺俞穴外側）',benefit:'宣肺平喘、調理慢性疲勞，隨深呼吸輕按能幫助安定浮躁氣機。'},
+  {name:'膏肓穴',emoji:'🏹',loc:'背部，第四胸椎棘突下，旁開約四指寬處（肩胛骨內側邊緣）',benefit:'靠牆利用按摩球定點滾壓，深度解開肩胛骨邊緣的慢性勞損打結。'},
+  {name:'神堂穴',emoji:'❤️',loc:'上背部，第五胸椎棘突下，旁開約四指寬處（心俞穴外側）',benefit:'寬胸理氣、安神寧心，在情緒壓抑、感到呼吸不順時可溫敷。'},
+  {name:'譩譆穴',emoji:'🧘',loc:'上背部，第六胸椎棘突下，旁開約四指寬處',benefit:'理氣寬胸、宣肺解表，古人常用於日常舒緩心胸悶痛、暢通呼吸。'},
+  {name:'膈關穴',emoji:'🧘',loc:'背部，第七胸椎棘突下（肩胛骨下角平齊線路），旁開約四指寬處',benefit:'和胃降逆、活血通絡，有助於舒緩中焦飽脹感，理氣順氣。'},
+  {name:'魂門穴',emoji:'🧘',loc:'背部，第九胸椎棘突下，旁開約四指寬處（肝俞穴外側）',benefit:'疏肝理氣、健脾和胃，對於日常經常生悶氣、情緒緊繃者有撫平效。'},
+  {name:'陽綱穴',emoji:'🤰',loc:'背部，第十胸椎棘突下，旁開約四指寬處',benefit:'消食導滯、調理中焦，幫助增強消化系統對飲食油膩的代謝。'},
+  {name:'意舍穴',emoji:'🤰',loc:'背部，第十一胸椎棘突下（約肋骨下緣），旁開約四指寬處',benefit:'健脾化濕、和胃消滯，能日常增強脾胃運化，幫助維持輕盈。'},
+  {name:'胃倉穴',emoji:'🤰',loc:'背部，第十二胸椎棘突下，旁開約四指寬處（胃俞穴外側）',benefit:'和胃健脾、消食消脹，吃完大餐後可用按摩球定點頂按舒緩。'},
+  {name:'肓門穴',emoji:'🤰',loc:'腰部，第一腰椎棘突下，旁開約四指寬處',benefit:'理氣和胃、通調腸腑，對於舒緩下腹部慢性發脹有很好的保養。'},
+  {name:'志室穴',emoji:'💪',loc:'腰部，背後肚臍正對脊椎再往下隔一節，旁開約四指寬處（腎俞外側）',benefit:'古稱儲藏腎精之處。大補元氣、護腰固腎，熬夜體力透支後必按。'},
+  {name:'胞肓穴',emoji:'🤰',loc:'臀部，薦骨部第二節突起下方，旁開約四指寬處（膀胱俞外側）',benefit:'通利下焦、理氣化濕，幫助調理骨盆腔血液循環，女性保養必備。'},
+  {name:'秩邊穴',emoji:'🦵',loc:'臀部，薦骨部第四節突起下方（尾椎旁線路），旁開約四指寬處',benefit:'放鬆臀部肌肉最高效穴位。能緩解久坐產生的梨狀肌僵硬與酸麻感。'},
+  {name:'合陽穴',emoji:'🦵',loc:'小腿後側，膝蓋後正中紋（委中穴）直下約三指寬處',benefit:'調理下肢痙攣，能舒緩長時間站立、穿高跟鞋累積的小腿肚僵硬。'},
+  {name:'承筋穴',emoji:'🦵',loc:'小腿後側，合陽穴與承山穴（小腿肚中央）連線的正中央隆起肉際處',benefit:'專門舒緩小腿肌肉勞損，日常搭配草本梳由上往下刮拭，消除水腫。'},
+  {name:'承山穴',emoji:'🦵',loc:'小腿後側正中，當微微用力墊腳尖時，小腿肚肌肉浮現的「人」字凹陷尖端處',benefit:'舒筋活絡、消除腿酸。久站、運動後放鬆僵硬小腿肌肉的黃金穴。'},
+  {name:'飛揚穴',emoji:'🦵',loc:'小腿外側後方，外腳踝骨頭尖端直上約一掌加四指寬處',benefit:'膀胱經絡穴，散寒解表、引火下行，能緩解因精力透支的身體沉重。'},
+  {name:'跗陽穴',emoji:'🦵',loc:'小腿外側後方，外腳踝骨頭尖端直上約四指寬，骨頭後方凹陷處',benefit:'陽蹻脈隙穴，專責強捷下肢，能提升雙腿關節與核心的日常耐力。'},
+  {name:'崑崙穴',emoji:'🦶',loc:'腳踝外側，外腳踝骨頭尖端與腳後跟大筋（跟腱）之間的凹陷凹槽中',benefit:'舒緩下背緊繃、引氣下行。對於長時間站立引發足跟不適有放鬆。'},
+  {name:'僕參穴',emoji:'🦶',loc:'足部外側，崑崙穴直下，腳後跟骨頭側面的微凹陷處',benefit:'舒筋活絡、強健足跟，日常走路若容易腳跟酸痛，可用指腹多揉。'},
+  {name:'申脈穴',emoji:'🦶',loc:'腳踝外側，外腳踝骨頭突起下緣正下方的明顯凹陷處',benefit:'通八脈、寧神志。睡前按壓能平息過亢陽氣，幫助身體進入休眠。'},
+  {name:'金門穴',emoji:'🦶',loc:'足部外側，外腳踝骨頭突起前下方，靠近骨頭外側的小凹陷邊緣',benefit:'膀胱經郄穴，具備優秀通絡活血作用，適合舒緩急性足部肌肉緊。'},
+  {name:'京骨穴',emoji:'🦶',loc:'足部外側邊緣，小腳趾骨頭往後摸，摸到一塊突起大骨頭的下緣赤白肉際處',benefit:'膀胱經原穴，能清頭明目、調和氣血，有助於舒緩長時間頭部緊繃。'},
+  {name:'束骨穴',emoji:'👣',loc:'足部外側邊緣，小腳趾根部大關節後下方的紅白肉際凹陷處',benefit:'膀胱經輸穴，專瀉體體內實火，日常按壓有助於緩解因上火引起的頭重。'},
+  {name:'足通谷',emoji:'👣',loc:'足部外側邊緣，小腳趾根部大關節前下方的紅白肉際凹陷處',benefit:'清熱安神、理氣順氣，適合日常工作繁雜、焦慮失眠時的放鬆點。'},
+  {name:'至陰穴',emoji:'👣',loc:'小腳趾爪甲外側邊緣，距離指甲角約小不點處',benefit:'膀胱經終點，清熱醒腦、矯正胎位，下午極度昏沉時掐揉能快速提神。'},
+  {name:'湧泉穴',emoji:'🦶',loc:'腳底板前三分之一的正中央凹陷處（當腳趾向下抓起時出現的窩中）',benefit:'腎經起點，補腎固本。睡前泡腳後推按，引火下行、大補高品質睡眠。'},
+  {name:'然谷穴',emoji:'👣',loc:'足內側緣，內腳踝骨尖前下方，足弓內側隆起大骨頭下緣的赤白肉際凹陷處',benefit:'腎經滎穴，主清虛火。日常有喉嚨乾癢、手腳心燥熱者首選保健點。'},
+  {name:'太溪穴',emoji:'🦶',loc:'腳踝內側，內腳踝骨頭尖端與腳後跟大筋（跟腱）之間的明顯凹陷中',benefit:'腎經原穴兼滋陰大穴。日常點揉能滋潤身體、滋補元氣、紅潤面色。'},
+  {name:'大鐘穴',emoji:'🦶',loc:'腳踝內側，太溪穴稍微往下、再往後腳跟筋邊緣移動的骨頭凹陷處',benefit:'腎經絡穴，益腎平喘、安神定志，日常按壓能增強身體內在定力。'},
+  {name:'水泉穴',emoji:'🦶',loc:'腳踝內側，太溪穴直下約一拇指寬，腳後跟骨頭內側的凹陷骨縫中',benefit:'腎經郄穴，專責女性生理期日常保養，通經活血，維持骨盆腔循環。'},
+  {name:'照海穴',emoji:'🦶',loc:'腳踝內側，內腳踝骨頭突起正下方緣的一拇指寬凹陷處',benefit:'滋陰明目、保養咽喉。經常說話導致嗓音乾啞、眼睛乾澀的救星。'},
+  {name:'復溜穴',emoji:'🦵',loc:'小腿內側，內腳踝骨頭尖端直上約三指寬（橫放三指），後跟大筋前方',benefit:'中醫調汗神穴。能調節體液代謝，針對容易莫名盜汗、水腫者有極佳。'},
+  {name:'交信穴',emoji:'🦵',loc:'小腿內側，復溜穴（腳踝上三指）再往前挪半指寬，小腿骨內側後緣凹陷處',benefit:'調經固本、理氣化濕，主要保養女性下焦氣血循環。'},
+  {name:'築賓穴',emoji:'🦵',loc:'小腿內側肌肉處，內腳踝骨尖直上約一掌半寬，小腿內側肌肉下方邊緣',benefit:'中醫解毒名穴，能日常清除體內代謝廢物，加速氣血全面淨化。'},
+  {name:'陰谷穴',emoji:'🦵',loc:'膝蓋內側後方，屈膝時內側橫紋頭盡頭，兩條硬大筋之間的凹陷處',benefit:'腎經合穴，滋陰祛濕、保養膝關節，適合緩解下肢內側慢性酸重。'},
+  {name:'大赫穴',emoji:'🤰',loc:'下腹部，肚臍往下約四指寬（關元穴），再往左右旁開約半指寬處',benefit:'調和下焦、培元固本，是調理女性日常生理機能的核心黃金穴。'},
+  {name:'橫骨穴',emoji:'🤰',loc:'下腹部最底端，平恥骨聯合上緣中線，往左右旁開約半指寬處',benefit:'益腎固精、通利下焦，能幫助打通小腹最下端的氣血瘀阻。'},
+  {name:'氣穴穴',emoji:'🤰',loc:'下腹部，大赫穴（臍下四指、旁開半指）再往上一拇指寬處',benefit:'調理經帶、利水消腫，幫助維持下腹部微循環順暢與健康。'},
+  {name:'四滿穴',emoji:'🤰',loc:'下腹部，肚臍往下約三指寬，旁開約半指寬處',benefit:'理氣化化濕、消除腹脹，能排除小腹多餘的滯留廢水。'},
+  {name:'中注穴',emoji:'🤰',loc:'下腹部，肚臍往下約一指半寬，旁開約半指寬處',benefit:'通調腸腑、和胃消滯，能幫助大腸正常傳導，改善習慣不順。'},
+  {name:'肓俞穴',emoji:'🤰',loc:'腹部，肚臍正中央緊貼著左右外側邊緣（旁開約半指寬）',benefit:'和胃理氣、潤腸通便，日常摩腹保養時，能加強中焦核心動能。'},
+  {name:'商曲穴',emoji:'🤰',loc:'上腹部，肚臍往上約三指寬，旁開約半指寬處',benefit:'健脾和胃、消食導滯，能緩解因工作壓力引發的突發性胃發脹。'},
+  {name:'石關穴',emoji:'🤰',loc:'上腹部，肚臍往上約四指寬，旁開約半指寬處',benefit:'和胃降逆、理氣開胃，適合日常食慾不振、胃部常覺冰冷者溫敷。'},
+  {name:'陰都穴',emoji:'🤰',loc:'上腹部，肚臍往上約一掌寬，旁開約半指寬處（平中脘穴內側）',benefit:'健脾和胃、通調腸腑，是胃經與腎經氣血交匯點，理氣功能強。'},
+  {name:'腹通谷',emoji:'🤰',loc:'上腹部，肚臍往上約一掌加一拇指寬，旁開約半指寬處',benefit:'和胃消滯、止咳降逆，有助於維持消化道上端賁門的流暢。'},
+  {name:'幽門穴',emoji:'🤰',loc:'上腹部胸窩下方，肚臍往上約一掌加三指寬，旁開約半指寬處',benefit:'和胃降逆、化痰消滯，能緩解大餐後胸窩下方的突發性憋悶感。'},
+  {name:'步廊穴',emoji:'🧘',loc:'前胸部，第五肋骨間隙，平行中央正中線旁開約兩指寬處',benefit:'寬胸理氣、止咳平喘，能放鬆長期伏案看電腦造成的胸骨兩側緊。'},
+  {name:'神封穴',emoji:'🧘',loc:'前胸部，第四肋骨間隙，平行中央正中線旁開約兩指寬處',benefit:'理氣寬胸、通絡消腫，是維持女性胸部健康腺體循環的保健點。'},
+  {name:'靈墟穴',emoji:'🧘',loc:'前胸部，第三肋骨間隙，平行中央正中線旁開約兩指寬處',benefit:'開胸順氣、寬胸利膈，隨均勻呼吸輕揉能迅速帶走心中憋悶感。'},
+  {name:'神藏穴',emoji:'🧘',loc:'前胸部，第二肋骨間隙，平行中央正中線旁開約兩指寬處',benefit:'宣肺止咳、理氣和中，有助於吸入更多新鮮氧氣，重獲滿滿精力。'},
+  {name:'彧中穴',emoji:'🧘',loc:'前胸部，第一肋骨間隙，平行中央正中線旁開約兩指寬處',benefit:'利氣順氣、保養胸腔，改善上班族因長期駝背引發的呼吸淺短。'},
+  {name:'俞府穴',emoji:'🧘',loc:'前胸部上方，鎖骨下緣突起，胸口中線左右旁開約兩指寬凹陷中',benefit:'腎經終點。宣肺理氣、提振精神，緩解全天高壓工作帶來的深度疲勞。'},
+  {name:'天池穴',emoji:'🧘',loc:'胸部外側，乳頭往外側旁開約一拇指寬處（平第四肋間隙）',benefit:'心包經起點，理氣寬胸、活血通絡，能釋放長期壓抑的沉重情緒。'},
+  {name:'天泉穴',emoji:'💪',loc:'手臂內側，腋下前橫紋頭往下約三指寬，兩條手臂大肌腹之間',benefit:'寬胸理氣、舒緩心慌，能放鬆上臂前側因高壓累積的慢肌肉緊。'},
+  {name:'曲澤穴',emoji:'💪',loc:'手肘內側橫紋上，正中央粗肌腱靠小指這一側的微凹陷處',benefit:'心包經合穴，清熱除煩、和胃降逆，在天氣燥熱、心煩意亂時適用。'},
+  {name:'隙門穴',emoji:'💪',loc:'前臂掌側內側，手腕橫紋正中往上約一掌寬肌肉中央',benefit:'心包經郄穴，具備極強平復心跳效果，適合緩解突發性高壓焦慮。'},
+  {name:'間使穴',emoji:'💪',loc:'前臂掌側內側，手腕橫紋正中往上約四指寬處，兩條大筋之間',benefit:'寬胸化痰、安神醒腦，日常輕按有助維持思緒清晰、情緒平穩。'},
+  {name:'內關穴',emoji:'✋',loc:'手腕內側橫紋正中央往上約三指寬處（橫放三指），兩條大筋的正中間',benefit:'日常最強舒壓安神開關。寬胸理氣，緩解心情緊張與心慌。'},
+  {name:'大陵穴',emoji:'✋',loc:'手腕掌側橫紋的正中央，兩條堅硬大筋的正中間凹陷處',benefit:'心包經原穴，專清心口虛火，適合舒緩因熬夜引起的口舌生瘡。'},
+  {name:'勞宮穴',emoji:'👐',loc:'手掌心正中央，當自然握拳時，中指指尖所對應的手掌肉凹陷處',benefit:'清心安神、消除焦慮。在重要簡報或會議前摩擦按壓，平復情緒。'},
+  {name:'中衝穴',emoji:'🤲',loc:'中指指尖的正中央最頂端點（距離指甲外緣約小不點處）',benefit:'心包經井穴，清心開竅、極速提神，午後大腦嚴重卡關時點掐必醒。'},
+  {name:'關衝穴',emoji:'🤲',loc:'無名指爪甲外側（靠小指這一側邊緣），距離指甲角約小不點處',benefit:'三焦經井穴，清熱解表、清利咽喉，日常可掐揉舒緩咽喉乾燥。'},
+  {name:'液門穴',emoji:'🤲',loc:'手背上，無名指與小指腳丫（指蹼緣）後方的赤白肉際凹陷處',benefit:'中醫天然補水穴。能清熱降火，對經常眼睛乾澀、口乾者是滋潤點。'},
+  {name:'中渚穴',emoji:'🤲',loc:'手背上，無名指與小指骨頭根部結合處前方的凹陷骨縫中',benefit:'通經活絡、聰耳明目，能有效放鬆因長期握滑鼠造成的手背肌腱。'},
+  {name:'陽池穴',emoji:'✋',loc:'手腕背面橫紋的正中央凹陷處（平行無名指這條線路上）',benefit:'三焦經原穴。能激發全身熱能循環，是改善冬季手腳冰冷黃金穴。'},
+  {name:'外關穴',emoji:'✋',loc:'手腕背面橫紋正中，往手肘方向移動約三指寬（橫放三指）骨頭縫中',benefit:'聯絡八脈，疏風清熱效果一流，能快速緩解因吹冷氣引起的偏頭。'},
+  {name:'支溝穴',emoji:'💪',loc:'手腕背面橫紋正中，往手肘方向移動約四指寬處的骨頭縫中',benefit:'中醫通便名穴。能理氣通腑，改善辦公族因久坐引發的傳導不順。'},
+  {name:'會宗穴',emoji:'💪',loc:'手腕背面，支溝穴（腕背上四指）再往小指側橫移一指寬的骨頭邊緣',benefit:'三焦經郄穴，清熱安神、通絡止痛，能放鬆前臂深層的慢性疲勞。'},
+  {name:'三陽絡',emoji:'💪',loc:'手腕背面橫紋正中，往手肘方向移動約一掌寬處的骨頭縫中',benefit:'開竅通絡、舒利關節，能全面活化前臂至肩膀的氣血循環線路。'},
+  {name:'四瀆穴',emoji:'💪',loc:'前臂背面，手肘外側肘尖往下約一掌加三指寬處的骨縫中',benefit:'開竅聰耳、清熱通絡，日常輕按能舒緩因疲勞引起的耳朵沉重感。'},
+  {name:'天井穴',emoji:'💪',loc:'手肘外側，手肘彎曲時，肘尖（尺骨鷹嘴）突起正上方約一拇指寬凹陷中',benefit:'三焦經合穴，化痰散結、通絡清熱，適合放鬆手肘關節周圍筋膜。'},
+  {name:'清冷淵',emoji:'💪',loc:'大手臂外側，手肘肘尖突起往上約三指寬處的肌肉外側',benefit:'清熱解表、疏筋利關節，古人常用於日常清除體內燥熱、解暑氣。'},
+  {name:'消濼穴',emoji:'💪',loc:'大手臂外側，清冷淵穴與肩膀後側中點連線的正中央隆起肌肉處',benefit:'清熱安神、通絡止痛，能精準放鬆上臂外側因提重物累積的酸痛。'},
+  {name:'臑會穴',emoji:'💪',loc:'大手臂外側肩膀後下方，三角肌後緣外側（平腋下後橫紋上線路）',benefit:'化痰散結、舒筋活絡，是重塑肩膀外側線條、放鬆三角肌的常用點。'},
+  {name:'肩髎穴',emoji:'🧖',loc:'肩膀後外側，手臂平舉時肩膀後側出現的明顯大凹陷處',benefit:'袪風濕、通關節，能高效緩解久坐電腦前引發的「石頭肩」與硬塊。'},
+  {name:'天髎穴',emoji:'🧖',loc:'肩胛骨內上角骨頭邊緣處（約在肩井穴與曲垣穴連線的中點）',benefit:'專門釋放斜方肌深層勞損，是擺脫慢性肩頸緊繃、頭暈的黃金穴。'},
+  {name:'天牖穴',emoji:'🧖',loc:'耳朵後下方突起大骨頭（乳突）的後下方，大胸鎖乳突肌後緣處',benefit:'清頭明目、通絡開竅，在長時間高強度用腦後輕按，能清醒大腦。'},
+  {name:'翳風穴',emoji:'👂',loc:'耳朵下方，耳垂後方，當乳突骨頭與下巴骨角之間的明顯深凹陷處',benefit:'通開耳竅、活血驅風。能快速舒緩因日常壓力大引發的耳周緊繃。'},
+  {name:'瘈脈穴',emoji:'👂',loc:'耳朵後方骨頭表面，沿著耳廓外緣凹陷處，約在耳垂上方約兩指寬處',benefit:'聰耳開竅、安神定驚，有助於舒緩耳後筋膜因高壓產生的抽痛。'},
+  {name:'顱息穴',emoji:'👂',loc:'耳朵後方骨頭表面，沿著耳廓外緣凹陷處，約在耳尖下方約兩指寬處',benefit:'通絡安神、清頭明目，適合在夜間思緒過多、無法安靜入睡時輕按。'},
+  {name:'角孫穴',emoji:'👂',loc:'將耳朵耳廓向前折起時，耳尖正對應的頭部髮際線邊緣處',benefit:'清熱消腫、舒緩側頭部緊張，日常洗頭時可順便用指腹打圈揉按。'},
+  {name:'耳門穴',emoji:'👂',loc:'耳朵前方突起小肉際（耳屏）上方缺口的前緣，當張口時出現的大凹陷',benefit:'開竅聰耳、通絡活血，放鬆顳顎關節，適合長時間講電話後舒緩。'},
+  {name:'和髎穴',emoji:'💆',loc:'耳朵前方，耳廓根部的前上方（平行耳尖），摸得到微弱血管跳動處',benefit:'疏風清熱、通絡理氣，有助於緩解因長期盯螢幕引發的太陽穴酸脹。'},
+  {name:'絲竹空',emoji:'👁️',loc:'面部眉毛的外側末端，眉尾旁的骨頭微凹陷處',benefit:'三焦經終點。放鬆額頭與眼眶周圍緊繃筋膜，修飾眼神、重現清亮。'},
+  {name:'瞳子髎',emoji:'👀',loc:'面部眼角外側端（外眼角外緣），旁開約半指寬的骨眶外邊緣凹陷中',benefit:'膽經起點。疏風清熱、護眼明目，能有效舒緩魚尾紋四周的緊繃。'},
+  {name:'聽會穴',emoji:'耳',loc:'耳朵前方突起小肉際（耳屏）前下方缺口處，當張口時呈現明顯大凹陷',benefit:'開竅聰耳、放鬆咬合肌，對於高壓生活引起的耳周悶脹有極佳放。'},
+  {name:'客主人',emoji:'💆',loc:'耳朵前方，下關穴上方，當顴骨弓上緣中點的骨頭上緣凹陷處',benefit:'通絡開竅，放鬆面部深層側邊筋膜，緩解因緊張引起的偏頭沉重。'},
+  {name:'頷厭穴',emoji:'💆',loc:'頭部側邊額角髮際線內，約在太陽穴上方一指半寬處',benefit:'疏風清熱、調理前額偏頭痛，在日常思考過度時提供頭部放鬆。'},
+  {name:'懸顱穴',emoji:'💆',loc:'頭部側邊顳部髮際線內，頷厭穴往後下方移動一拇指寬處',benefit:'清頭明目，專門舒緩兩側太陽穴向後延伸的「壓力型」緊繃血管感。'},
+  {name:'懸釐穴',emoji:'💆',loc:'頭部側邊顳部髮際線內，懸顱穴往後下方移動半指寬處',benefit:'安神醒腦、舒緩面部緊繃，日常搭配手指梳理側頭部髮際。'},
+  {name:'曲鬢穴',emoji:'💆',loc:'耳朵前方鬢角髮際線的後邊緣，約平行耳尖的水平位置處',benefit:'通絡活血，能高效放鬆耳上顳肌的慢性勞損，讓思緒重新開機。'},
+  {name:'率谷穴',emoji:'💆',loc:'耳朵尖端（耳尖）正上方，折起耳朵入髮際線內約兩指寬（橫放兩指）處',benefit:'雙手掌根向後上方提拉，快速放鬆側頭部，舒緩精神高壓。'},
+  {name:'天衝穴',emoji:'💆',loc:'耳朵後上方，率谷穴（耳尖上兩指）再往後腦移動約一指寬的髮際內',benefit:'定驚安神、理氣化痰，適合在夜間感到內心浮躁、無法靜心時點按。'},
+  {name:'浮白穴',emoji:'💆',loc:'耳朵後方凸起大骨頭（乳突）的後上方髮際內（約平耳尖後方線路）',benefit:'清熱除煩、保養髮質，中醫認為按壓此處有助於活化頭皮微循環。'},
+  {name:'頭竅陰',emoji:'💆',loc:'耳朵後方，浮白穴與耳後乳突骨頭下緣連線的正中央點處',benefit:'聰耳開竅、平肝熄風，適合日常調理因高壓引發的耳朵沉重。'},
+  {name:'完骨穴',emoji:'💆',loc:'耳朵後方突起大骨頭（乳突）下緣後方的明顯大凹陷骨縫中',benefit:'安神寧心、舒解經絡，是睡前放鬆頸部根部、引導好眠的核心穴。'},
+  {name:'本神穴',emoji:'💆',loc:'前額部髮際線上，約平外眼角直上，入髮際線半指寬處',benefit:'安神定志、清頭明目，古人視為調理精神緊繃、思緒混亂的黃金點。'},
+  {name:'陽白穴',emoji:'👁️',loc:'面部前額，正視前方時瞳孔直上，眉毛上方約一大拇指寬處',benefit:'護眼著名奇穴，能快速提升額頭與眼瞼氣血，改善上眼皮沉重感。'},
+  {name:'頭臨泣',emoji:'💆',loc:'前額部髮際線邊緣，平瞳孔直上，進入髮際內約半指寬凹陷處',benefit:'安神定志、清頭明目，日常高壓工作之餘輕按，能清空大腦疲勞。'},
+  {name:'目窗穴',emoji:'💆',loc:'頭頂部，頭臨泣穴（瞳孔直上髮際內）再往後腦移動約一拇指寬處',benefit:'開竅明目，專門舒緩因長時間盯著電腦螢幕引起的雙眼酸脹與對焦。'},
+  {name:'正營穴',emoji:'💆',loc:'頭頂部，目窗穴再往後腦移動約兩指寬處',benefit:'和胃降逆、清頭明目，對於「壓力大、一緊張就想吐泛酸」極具調。'},
+  {name:'承靈穴',emoji:'💆',loc:'頭頂後部，正營穴再往後腦移動約兩指寬處',benefit:'宣肺順氣、醒腦開竅，隨深呼吸連續輕點，能提升大腦進氧量。'},
+  {name:'腦空穴',emoji:'💆',loc:'後腦部，後腦突起大骨頭的兩側外緣（平行風池穴正上方線路）',benefit:'清熱散風、放鬆後半腦，適合熬夜加班後後腦杓極度沉重者。'},
+  {name:'風池穴',emoji:'🧖',loc:'後腦杓枕骨下方，大脖子肌肉外側，與耳垂齊平的兩側大凹陷窩中',benefit:'久坐辦公族必備。雙手揉按能舒緩肩頸緊繃、緩解頭部沉重。'},
+  {name:'肩井穴',emoji:'🧖',loc:'後頸部大骨突起（大椎穴）與肩膀外側骨頭尖端連線的正中央肌肉最高點',benefit:'放鬆斜方肌黃金要穴。一捏一放改善圓肩駝背、告別僵硬。孕婦禁用。'},
+  {name:'淵腋穴',emoji:'🏹',loc:'側身正中線上，腋窩正中央往下約四指寬處的肋骨縫中',benefit:'寬胸理氣、通絡消腫，能舒緩側胸壁肌肉因長期保持同一姿勢的酸。'},
+  {name:'輒筋穴',emoji:'🏹',loc:'側胸部，淵腋穴（腋下四指寬）平行往胸前方移動一拇指寬處的肋骨縫',benefit:'和胃降逆、理氣寬胸，有助於舒緩因焦慮引起的胸悶與呼吸不暢。'},
+  {name:'日月穴',emoji:'🧘',loc:'前胸下方肋骨緣，乳頭直下線路，乳頭往下約兩條肋骨間隙處',benefit:'膽經募穴。疏肝利膽、調和中焦，能日常調理、改善心情積鬱。'},
+  {name:'京門穴',emoji:'🏹',loc:'側腰部，當身體側邊摸到最下方一條肋骨（第12肋）尖端的正下方凹陷處',benefit:'腎之募穴。專責溫補下焦、利水消腫，對於緩解腰側肌肉酸痛極好。'},
+  {name:'帶脈穴',emoji:'🤰',loc:'側腰部，與肚臍水平齊平的身體側邊凹陷線路上（第11肋骨直下線）',benefit:'約束諸經。日常圍繞帶脈敲擊，能加強腰腹脂肪代謝、緊緻腰身。'},
+  {name:'五樞穴',emoji:'🤰',loc:'下腹部側邊，骨盆前方突起最硬骨頭（髂前上棘）的內側前下方處',benefit:'調經止帶、理氣化濕，專門保養女性下焦腹股溝周圍的微循環。'},
+  {name:'維道穴',emoji:'🤰',loc:'下腹部側邊，五樞穴（骨盆前硬骨內下）再往斜前下方挪約半指寬處',benefit:'膽經與帶脈交會點。健脾和胃、調經固本，幫助維持腹部輕盈。'},
+  {name:'居髎穴',emoji:'🦵',loc:'髖關節外側，骨盆前硬骨尖端與大腿外側最突出骨頭（大轉子）連線中點',benefit:'強捷下肢、舒利關節，能有效放鬆髖關節外側，適合久坐缺乏運動者。'},
+  {name:'環跳穴',emoji:'🦵',loc:'臀部外側，當側臥屈膝時，大腿外側最突出的骨頭尖端與尾椎骨連線的外1/3凹陷處',benefit:'放鬆臀部與坐骨神經核心穴。能徹底釋放久坐帶來的下身麻木。'},
+  {name:'風市穴',emoji:'🦵',loc:'大腿外側正中線上，當人挺直站立、雙手自然下垂時，中指尖所指的肌肉處',benefit:'祛風化濕、強健下肢。日常敲打膽經首選，幫助重塑大腿線條。'},
+  {name:'中瀆穴',emoji:'🦵',loc:'大腿外側正中線上，風市穴（中指尖處）往下約三指寬的大腿肌肉縫中',benefit:'疏通經絡、祛風化濕，專門放鬆大腿外側因久坐缺乏活動產生的淤。'},
+  {name:'膝陽關',emoji:'🦵',loc:'膝蓋外側，膝關節橫紋上方，大腿外側大骨頭突起（股骨外上髁）上方的凹陷',benefit:'疏利關節、通絡活血，是保養膝關節外側、預防跑步膝的黃金點。'},
+  {name:'陽陵泉',emoji:'🦵',loc:'膝蓋外側下方，膝蓋骨外下側可以摸到一個突起小骨頭（腓骨小頭）前下方的明顯凹陷中',benefit:'筋之會。統領全身筋骨，運動前後按壓能迅速消除肌肉酸痛。'},
+  {name:'陽交穴',emoji:'🦵',loc:'小腿外側，外腳踝骨頭尖端直上約一掌加三指寬，小腿骨後緣肌肉處',benefit:'陽維脈隙穴，安神醒腦、通絡止痛，能日常調理、減輕下肢沉重感。'},
+  {name:'外丘穴',emoji:'🦵',loc:'小腿外側，外腳踝骨頭尖端直上約一掌加三指寬，小腿骨前緣肌肉處',benefit:'膽經郄穴，具備優秀疏肝利膽效果，對於緩解突發性肌肉抽筋很速。'},
+  {name:'光明穴',emoji:'🦵',loc:'小腿外側，外腳踝骨頭尖端直上約一掌寬（橫放一掌），骨頭前緣肌肉中',benefit:'膽經絡穴，中醫明目核心要穴。能快速舒緩長時間用眼後的乾澀。'},
+  {name:'陽輔穴',emoji:'🦵',loc:'小腿外側，外腳踝骨頭尖端直上約五指寬，小腿骨前方稍微偏肉際處',benefit:'膽經經穴，清熱散風、通絡活血，能有效改善下肢冰冷，調和氣血。'},
+  {name:'懸鐘穴',emoji:'🦵',loc:'小腿外側，外腳踝骨頭尖端直上約四指寬（橫放四指），小腿骨前緣邊緣',benefit:'髓之會。統領骨髓與大腦健康，日常按壓能強健骨骼、舒緩落枕。'},
+  {name:'丘墟穴',emoji:'🦶',loc:'腳踝外側前下方，外腳踝骨頭突起的前下側，一條大肌腱外側的明顯凹陷中',benefit:'膽經原穴，疏肝利膽。旋轉腳踝並按壓，步伐更加輕盈、不易疲勞。'},
+  {name:'足臨泣',emoji:'👣',loc:'腳背外側，第四小腳趾與小腳趾骨頭根部交接前方，腳背筋外側的骨縫凹陷中',benefit:'通調帶脈、疏肝理氣。有效舒緩偏頭部緊張，疏解累積隱形壓力。'},
+  {name:'地五會',emoji:'👣',loc:'足背外側，第四小腳趾與小腳趾骨縫間，足臨泣穴再往前挪半指寬處',benefit:'清熱散風、通絡消腫，日常輕按有助保養足部骨骼與肌腱循環。'},
+  {name:'俠溪穴',emoji:'👣',loc:'足背外側，第四小腳趾與小腳趾之間的腳趾丫（趾蹼緣）後方赤白肉際凹陷',benefit:'膽經滎穴，清熱瀉火、平肝熄風，適合日常容易耳鳴、面部烘熱者。'},
+  {name:'足竅陰',emoji:'👣',loc:'第四小腳趾爪甲外側（靠小趾側邊緣），距離指甲角約小不點處',benefit:'膽經終點，清熱醒腦、安神定志，在日間精神低迷時作強刺激。'},
+  {name:'大敦穴',emoji:'👣',loc:'大腳趾爪甲外側邊緣（靠第二腳趾這一側），距離指甲角約小不點處',benefit:'肝經井穴，疏肝理氣、清心醒腦，對於日常維持平穩情緒很有幫助。'},
+  {name:'行間穴',emoji:'👣',loc:'足背上，大腳趾與第二腳趾之間的腳趾丫（趾蹼緣）後方的赤白肉際凹陷處',benefit:'肝經滎穴，專清肝火。適合日常容易暴躁、口乾舌燥、心煩易怒者。'},
+  {name:'太衝穴',emoji:'👣',loc:'足背上，大腳趾與第二腳趾骨頭根部結合處後方的明顯大凹陷骨縫中',benefit:'肝經原穴，日常最強疏肝解鬱名穴。釋放情緒緊張與隱形壓力。'},
+  {name:'中封穴',emoji:'🦶',loc:'足背與腳踝交界處，內腳踝骨頭尖端的前下方，一條大韌帶內側凹陷中',benefit:'疏肝通絡、清泄下焦濕熱，有助於維持下肢腳踝關節的靈活。'},
+  {name:'蠡溝穴',emoji:'🦵',loc:'小腿內側正中央，內腳踝骨頭尖端直上約掌面一掌加一指寬，骨頭正表面處',benefit:'肝經絡穴，專責調理女性私密處保健，清熱利濕，常保清爽舒適。'},
+  {name:'中都穴',emoji:'🦵',loc:'小腿內側正中央，內腳踝骨頭尖端直上約掌面一掌加四指寬，骨頭正表面處',benefit:'肝經郄穴，理氣化瘀、通經止痛，主要保養女性下腹氣血流速。'},
+  {name:'膝關穴',emoji:'🦵',loc:'小腿內側，陰陵泉穴（小腿骨轉彎凹陷）水平往後腦方向移動約一拇指寬處',benefit:'疏利關節、通絡活血，是保養膝關節內側、預防上下樓梯酸痛的要穴。'},
+  {name:'曲泉穴',emoji:'🦵',loc:'膝蓋內側，當屈膝到極致時，膝內側橫紋頭上方的肌肉凹陷骨縫中',benefit:'肝經合穴，滋陰養肝、調經活血，是調理女性日常生理期精準保養點。'},
+  {name:'陰包穴',emoji:'🦵',loc:'大腿內側，膝蓋骨內側上緣往上約一掌寬（橫放一掌），兩條大肌肉之間',benefit:'調經止痛、通利下焦，能深度釋放久坐引發的大腿內側緊繃瘀阻。'},
+  {name:'足五里',emoji:'🦵',loc:'大腿內側大腿根部，腹股溝下端，平行恥骨中線外側約四指寬的大肌邊緣',benefit:'健脾化濕、疏通腹股溝，能活化下半身主要淋巴匯聚區的新陳代謝。'},
+  {name:'陰廉穴',emoji:'🦵',loc:'大腿內側大腿根部，腹股溝下端，足五里穴再往大腿根方向挪一拇指寬處',benefit:'女性下焦保養核心。調經固本、溫經散寒，幫助骨盆腔微循環。'},
+  {name:'急脈穴',emoji:'🤰',loc:'下腹部最底端，大腿根部腹股溝處，恥骨結節外下方動脈搏動旁開半指處',benefit:'理氣散寒、疏通經絡，不宜深壓，日常可用掌心微熱溫敷腹股溝。'},
+  {name:'章門穴',emoji:'🏹',loc:'側腹部，當雙臂自然下垂時，手肘尖正好對應的肋骨下緣尖端正下方凹陷處',benefit:'臟之會兼脾之募穴。日常敲擊能協調肝脾、大減腹部發脹，維持體態。'},
+  {name:'前胸部下緣，平乳頭直下的垂直線路上，乳頭往下約兩條肋骨間隙凹陷骨縫中',benefit:'肝之募穴。大容量疏肝理氣，高壓上班族開胸解鬱、消除悶氣核心。'},
+  {name:'會陰穴',emoji:'🧘',loc:'人體軀幹底部正中央，前陰與肛門之間的凹陷軟肉際中',benefit:'任脈起點，統領全身陰經，正規醫學定位點，日常保持乾爽即可。'},
+  {name:'曲骨穴',emoji:'🤰',loc:'下腹部正中線上，肚子最下端摸到耻骨硬骨頭上緣的凹陷縫隙中',benefit:'通利下焦、調經固本，是女性日常保養骨盆底肌群的經絡定位點。'},
+  {name:'中極穴',emoji:'🤰',loc:'下腹部正中線上，肚臍眼正下方約一掌寬（四指橫放再加一拇指寬）處',benefit:'膀胱募穴。主要調理泌尿與生理系統，維持下焦氣血循環良好代謝。'},
+  {name:'關元穴',emoji:'🔥',loc:'下腹部正中線上，肚臍眼正下方約四指寬（四指併攏橫放）處',benefit:'男子藏精、女子蓄血。培元固本、大補身體元氣與核心防禦力。'},
+  {name:'石門穴',emoji:'🤰',loc:'下腹部正中線上，肚臍眼正下方約三指寬（三指橫放）處',benefit:'三焦募穴。通調水道、運化水濕，有助於排除小腹多餘的多餘贅水。'},
+  {name:'氣海穴',emoji:'🌬️',loc:'下腹部正中線上，肚臍眼正下方約兩指寬（食指與中指橫放）處',benefit:'人體元氣匯聚之海。補氣助陽，快速改善容易怕冷與精神不濟。'},
+  {name:'陰交穴',emoji:'🤰',loc:'下腹部正中線上，肚臍眼正下方約一拇指寬處',benefit:'任脈與沖脈交會點。調經固本、理氣化濕，幫助維持小腹溫暖。'},
+  {name:'神闕穴',emoji:'🤰',loc:'人體腹部的肚臍眼正中央',benefit:'禁止針刺，最適合雙手搓熱溫敷。大補中焦脾胃陽氣，調理怕冷體質。'},
+  {name:'水分穴',emoji:'🤰',loc:'上腹部正中線上，肚臍眼正上方約一拇指寬處',benefit:'中醫利水化濕名穴。配合輕濕茶，能加速全身水液代謝、消除虛胖。'},
+  {name:'下脘穴',emoji:'🤰',loc:'上腹部正中線上，肚臍眼正上方約兩指寬（食指中指橫放）處',benefit:'任脈與脾經交會點。和胃消滯、引導食物向下消化，改善飽脹感。'},
+  {name:'建里穴',emoji:'🤰',loc:'上腹部正中線上，肚臍眼正上方約三指寬（三指橫放）處',benefit:'健脾和胃、促進日常能量吸收，適合體質虛弱、常覺胃寒者保養。'},
+  {name:'中脘穴',emoji:'🧘',loc:'上腹部正中線上，胸口骨頭下端（劍突）與肚臍眼連線的正中央點',benefit:'胃之募穴。調和脾胃、理氣和中，大餐後或胃部不適的黃金休養點。'},
+  {name:'上脘穴',emoji:'🤰',loc:'上腹部正中線上，中脘穴（胸口與肚臍正中）再往上一拇指寬處',benefit:'和胃降逆、化痰消滯，能舒緩因進食過快引發的胃食道逆流感。'},
+  {name:'巨闕穴',emoji:'❤️',loc:'上腹部正中線上，胸口骨頭下端（劍突）往下約兩指寬的凹陷處',benefit:'心之募穴。寬胸理氣、安神寧心，適合日常步調快、常覺焦慮心慌者。'},
+  {name:'鳩尾穴',emoji:'❤️',loc:'上腹部正中線上，胸口最下方軟骨骨尖（劍突）正下方的微凹陷處',benefit:'任脈絡穴，清心化痰、安定神志，情緒高度壓抑時可用指腹輕揉。'},
+  {name:'中庭穴',emoji:'🧘',loc:'前胸正中線上，胸口硬骨骨頭最下端基部的微凹陷處',benefit:'寬胸利膈、和胃降逆，有助於舒緩胸窩下方的慢性癟悶與憋氣感。'},
+  {name:'膻中穴',emoji:'❤️',loc:'前胸正中線上，兩側乳頭水平連線的正中央骨頭凹陷點',benefit:'理氣寬胸要穴。心情積壓委屈、胸悶、常嘆氣者，掌心摩擦發熱溫敷。'},
+  {name:'玉堂穴',emoji:'🧘',loc:'前胸正中線上，膻中穴（兩乳頭正中）往上一條肋骨縫隙凹陷處',benefit:'宣肺止咳、開胸順氣，隨悠長吐納按壓，能讓緊繃的肋骨肌群放鬆。'},
+  {name:'紫宮穴',emoji:'🧘',loc:'前胸正中線上，膻中穴（兩乳頭正中）往上兩條肋骨縫隙凹陷處',benefit:'理氣順氣、保養胸腔，改善因高壓上班引起的「憋氣、吸不飽氣」。'},
+  {name:'華蓋穴',emoji:'🧘',loc:'前胸正中線上，膻中穴（兩乳頭正中）往上三條肋骨縫隙凹陷處',benefit:'宣肺平喘、通利咽喉，經常演講、溝通導致的呼吸道乾澀有正面保。'},
+  {name:'璇璣穴',emoji:'🧘',loc:'前胸正中線上，脖子根部最下方大凹陷處，再往下移動一拇指寬的硬骨中央',benefit:'寬胸順氣、通咽利竅，輕輕向上推按，能有效開通胸腔最上端氣機。'},
+  {name:'天突穴',emoji:'🧖',loc:'脖子根部正前方，胸骨柄上角正中央的明顯大圓弧凹陷窩窩中',benefit:'中醫宣肺理氣、潤喉要穴。能快速舒緩突發性喉嚨乾癢、咳嗽不適。'},
+  {name:'廉泉穴',emoji:'👄',loc:'脖子前方正中線上，喉結上方，舌頭下方骨頭（舌骨）上緣的凹陷邊緣處',benefit:'清心瀉火、通利舌本，日常說話過多、嗓音乾澀疲勞的潤喉保健點。'},
+  {name:'承漿穴',emoji:'👄',loc:'面部下唇正下方，下巴肉最上端橫向凹陷溝（頦唇溝）的正中央點',benefit:'任脈終點。醒腦通絡、調節面部微循環，日常感到極度口乾時按壓。'},
+  {name:'長強穴',emoji:'🧘',loc:'人體軀幹背面底部，尾骨尖端下方約半指寬，尾骨與肛門正中凹陷處',benefit:'督脈起點，統領全身陽氣。正規醫學定位點，不宜揉按，保持乾燥。'},
+  {name:'腰俞穴',emoji:'🦵',loc:'後背部正中線上，臀部股溝上端起點，尾骨上方凸起的骨頭凹陷骨縫中',benefit:'通絡理氣、強健腰骶，能有效放鬆臀部與尾椎骨周圍的慢性僵硬。'},
+  {name:'腰陽關',emoji:'💪',loc:'腰部後正中線上，骨盆兩側最高點骨頭連線的脊椎下方凹陷骨縫處',benefit:'溫背散寒、舒利關節，是調理久坐引發下背腰椎酸軟的黃金要穴。'},
+  {name:'命門穴',emoji:'🧘',loc:'後背正中線上，腰部正中央，大約平行前方肚臍眼正後方的脊椎凹陷骨縫中',benefit:'溫補腎陽、強健腰膝。激發全身防禦能量，徹底瓦解久坐腰椎酸軟。'},
+  {name:'懸樞穴',emoji:'💪',loc:'後背正中線上，命門穴（肚臍正後方）再往頭頂方向隔一節脊椎的凹陷處',benefit:'健脾和胃、強健腰肌，幫助提振中焦核心動能，消除下背部沉重。'},
+  {name:'脊中穴',emoji:'💪',loc:'後背正中線上，大約在兩側肋骨下緣水平連線正中央的脊椎凹陷骨縫中',benefit:'健脾祛濕、調和中焦，對於缺乏運動、腹部易積濕氣者有正面調養。'},
+  {name:'中樞穴',emoji:'💪',loc:'後背正中線上，脊中穴再往頭頂方向隔一節脊椎的凹陷骨縫處',benefit:'和胃消滯、舒利胸椎，可用按摩球靠牆定點頂按，放鬆中段背脊。'},
+  {name:'筋縮穴',emoji:'🧘',loc:'後背正中線上，大約平行兩側肩胛骨最下角連線再往下一節脊椎的凹陷骨縫中',benefit:'中醫舒筋活絡名穴。專責緩解因情緒緊張、高壓引發的全背肌肉繃緊。'},
+  {name:'至陽穴',emoji:'☀️',loc:'後背正中線上，後背左右兩側肩胛骨最下角水平連線的正中央脊椎凹陷處',benefit:'溫通督脈陽氣。寬胸利膈，改善氣血運行不暢引發的身體沉重感。'},
+  {name:'靈台穴',emoji:'🧘',loc:'後背正中線上，至陽穴（兩肩胛下角正中）再往頭頂方向隔一節脊椎的凹陷處',benefit:'宣肺止咳、清心安神，適合在全天高強度工作後熱敷，沉澱思緒。'},
+  {name:'神道穴',emoji:'❤️',loc:'後背正中線上，至陽穴（兩肩胛下角正中）再往頭頂方向隔兩節脊椎的凹陷處',benefit:'養心安神、理氣寬胸，容易受驚、心慌浮躁者的常備脊椎保健點。'},
+  {name:'身柱穴',emoji:'💪',loc:'後背正中線上，後背上方兩側肩胛骨突起岡骨內側端連線中點的脊椎凹陷骨縫處',benefit:'小兒與成人強壯保健要穴。日常溫敷能補氣增體力，增強身體耐受力。'},
+  {name:'陶道穴',emoji:'🧖',loc:'後背正中線上，低頭最突出大骨頭往下隔一節脊椎的凹陷骨縫中',benefit:'解表散寒、通絡理氣，在冷氣房吹久常覺後背發涼時的溫敷黃金點。'},
+  {name:'大椎穴',emoji:'🧖',loc:'後頸部與上背交界處，當低頭時，脖子根部最突出的一顆大骨頭正下方凹陷處',benefit:'益氣通陽要穴。熱水沖淋能快速緩解伏案整天肩頸僵硬、振奮陽氣。'},
+  {name:'啞門穴',emoji:'💆',loc:'後腦杓中線，脖子與後腦杓交界處，後髮際線正中央直上約半指寬凹陷中',benefit:'開竅通絡、清頭明目，正規經穴定位點，不宜重壓，輕柔摩動即可。'},
+  {name:'風府穴',emoji:'💆',loc:'後腦杓中線，後髮際線正中央直上約一拇指寬，摸得到大枕骨下方的明顯大凹陷處',benefit:'中醫驅風名穴。能快速舒緩因受風寒引發的後腦杓沉重與脖子硬。'},
+  {name:'腦戶穴',emoji:'💆',loc:'後腦杓中線，風府穴往頭頂後方移動，在後腦杓突起大骨頭上緣的凹陷處',benefit:'清頭明目、醒腦開竅，能有效減輕長時間思考後的後半腦骨膜緊。'},
+  {name:'強間穴',emoji:'💆',loc:'後腦杓中線，大約在後腦杓風府穴與頭頂百會穴連線的正中央點處',benefit:'平肝熄風、安神定志，日常按壓有助於舒緩高壓引發的隱形心煩。'},
+  {name:'後頂穴',emoji:'💆',loc:'頭頂中線，頭頂正中央百會穴往後腦杓方向移動約一拇指半寬處',benefit:'清頭明目、調理落枕，能放鬆頭頂至後腦之間的頭皮筋膜。'},
+  {name:'百會穴',emoji:'💆',loc:'頭頂正中央（大約是左右兩側耳尖向上連線，與頭頂正中線的黃金交叉點處）',benefit:'開竅醒腦、升陽舉陷。迅速緩解午後思緒停滯、注意力不集中。'},
+  {name:'前頂穴',emoji:'💆',loc:'頭頂中線，頭頂正中央百會穴往臉部前額方向移動約一拇指半寬處',benefit:'疏風清熱、醒腦開竅，日常用指腹打圈揉按，幫助頭部血液循環。'},
+  {name:'顖會穴',emoji:'💆',loc:'頭頂前部中線，頭頂正中央百會穴往臉部前額方向移動約三拇指寬處',benefit:'清頭明目、調理鼻塞，適合在早晨醒來仍覺腦袋昏沉時輕輕連續點。'},
+  {name:'上星穴',emoji:'💆',loc:'前額正中線上，由前額面部髮際線正中央往頭頂方向移動約一拇指寬處',benefit:'中醫調理前額緊繃與鼻塞要穴，適合長期對著電腦、眼晴乾澀者。'},
+  {name:'神庭穴',emoji:'💆',loc:'前額正中線上，由前額面部髮際線正中央往頭頂方向微移約半指寬的邊緣處',benefit:'安神醒腦名穴。能平息混亂思緒、安定神經，是極佳的冥想保健點。'},
+  {name:'素髎穴',emoji:'👃',loc:'面部正中央，鼻子最前端的鼻尖正中心點',benefit:'開竅通利鼻竅，在日間感到極度昏沉、體力不支時，輕掐能提神。'},
+  {name:'水溝穴',emoji:'🚨',loc:'面部人中處，在鼻子下方與上唇之間的溝槽（人中溝）的上三分之一交界點',benefit:'急救、提神要穴。下午精神極度不濟、昏沉欲睡時是天然提神法。'},
+  {name:'兌端穴',emoji:'👄',loc:'面部，上唇正中央，嘴唇皮膚與紅唇交界線路的最中點突起處',benefit:'清熱消腫、生津止渴，日常若容易口乾舌燥、嘴角發炎時可輕揉。'},
+  {name:'齦交穴',emoji:'👄',loc:'口腔內，當翻開上唇時，上唇系帶與上排牙齒牙齦相黏接的中央縫際處',benefit:'督脈終點。正規定位點，日常刷牙保持口腔清潔健康即可。'},
+  {name:'印堂穴',emoji:'🧘',loc:'面部前額，左右兩側眉毛內側端（兩眉頭）連線的正中央點處',benefit:'安神定驚、平息肝火。釋放眉心緊繃，改善日常緊繃與睡眠品質。'},
+  {name:'太陽穴',emoji:'💆',loc:'面部兩側，眉尾與外眼角外側連線中點，再往後方移動約一大拇指寬的明顯骨頭凹陷處',benefit:'清頭明目。快速清醒頭腦，緩解高壓思考後的太陽穴酸脹感。'},
+  {name:'睛中穴',emoji:'👀',loc:'面部眉毛上，當正視前方時瞳孔直上的眉毛正中央點處（又稱魚腰穴）',benefit:'明目通絡、放鬆眼瞼，消除長時間看電子螢幕造成的眼周酸重。'},
+  {name:'球後穴',emoji:'👀',loc:'面部眼眶下緣，大約在外眼角往內挪約四分之一寬度的眼眶硬骨邊緣處',benefit:'中醫清熱明目要穴，能精準活化眼底微血管，維持雙眸水潤清亮。'},
+  {name:'金津穴',emoji:'👅',loc:'口腔內，張口舌頭向上捲起時，舌下系帶左側的那條青紫色靜脈條索線上',benefit:'生津止渴、清泄胃火，正規點位，日常常用溫水或茶飲漱口保裝。'},
+  {name:'玉液穴',emoji:'👅',loc:'口腔內，張口舌頭向上捲起時，舌下系帶右側的那條青紫色靜脈條索線上',benefit:'與金津穴相對，主治口乾、舌強，日常保持口腔健康循環。'},
+  {name:'夾承漿',emoji:'👄',loc:'面部下巴，承漿穴（下唇正中下凹陷）水平往左右旁開約一拇指寬的骨縫凹陷處',benefit:'放鬆下巴與咬合肌群，對於長期說話、面部表情緊繃者大有幫助。'},
+  {name:'牽正穴',emoji:'👄',loc:'面部頰部，大約在耳朵耳垂正前方，旁開約半指到一拇指寬的臉肉之處',benefit:'放鬆面部核心神經與肌肉，維持氣色紅潤與面部線條的對稱感。'},
+  {name:'安眠穴',emoji:'🙏',loc:'耳朵後方，翳風穴（耳垂後凹陷）與風池穴（後腦大凹陷）水平連線的正中央點處',benefit:'黃金助眠奇穴。睡前搭配熱敷揉按，能光速安定過度興奮的神經。'},
+  {name:'子宮穴',emoji:'🤰',loc:'下腹部，肚臍眼正下方約掌面一掌寬處，再往左右旁開約四指寬（橫放四指）肌肉處',benefit:'女性宮寒保養聖穴。日常溫敷，能全面溫通經絡、調經散寒。'},
+  {name:'定喘穴',emoji:'🧖',loc:'上背部，低頭脖子根部最突出大骨頭（大椎穴）水平往左右旁開約半指寬骨縫中',benefit:'宣肺平喘、放鬆頸根部肌肉，專門對抗因長時間低頭引發的氣喘。'},
+  {name:'夾脊穴',emoji:'🧘',loc:'後背部，整條脊椎從上到下（胸椎至腰椎），每一個脊椎骨突起硬骨外側旁開約半指寬的整條骨肉凹槽縫隙線路（左右各一整條線路）',benefit:'華佗夾脊。統領整條脊椎氣血，靠牆用按摩球上下滾動，全面解壓。'},
+  {name:'腰痛點',emoji:'🤲',loc:'手背上，大約在手腕背橫紋往下約三指寬，食指與中指骨縫、以及無名指與小指骨縫之間的兩處凹陷凹槽中（一手共2個穴點）',benefit:'日常急性腰肌酸軟的閃電緩解點，頻繁搬重物或久坐者的保健穴。'},
+  {name:'落枕穴',emoji:'🤲',loc:'手背上，食指與中指根部大關節的後方，往手腕方向移動約半指寬的凹陷骨縫中',benefit:'專門保養脖子與肩頸，早晨醒來若覺脖子轉動不靈活，大力按壓。'},
+  {name:'鶴頂穴',emoji:'🦵',loc:'膝蓋部位，膝蓋骨（髕骨）上緣正中央，大腿肌肉與膝蓋骨交界處的明顯大凹陷窩中',benefit:'通絡活血、強健膝蓋，經常爬樓梯、上下坡導致膝蓋無力的保養點。'},
+  {name:'膝眼穴',emoji:'🦵',loc:'屈膝時，膝蓋骨下方韌帶的左右兩側，呈現像眼睛一樣的兩個明顯大凹陷窩窩中（包含內膝眼與外膝眼）',benefit:'疏利關節、祛風化濕，久坐室內冷氣房、膝蓋常覺冰冷者熱敷首選。'}
+];
+
+const CATS=[
+  {id:'all',label:'全部'},
+  {id:'eyecare',label:'｜視｜明眸靈采'},
+  {id:'voice',label:'｜聲｜寶肺潤喉'},
+  {id:'sleep',label:'｜寢｜陪你好睡'},
+  {id:'daily',label:'｜日｜日日好元'},
+  {id:'monthly',label:'｜月｜月月呵護'},
+  {id:'bodysculpture',label:'｜孅｜亮白纖姿'},
+  {id:'restore',label:'｜癒｜修護補給'},
+  {id:'prevent',label:'｜預｜防患未然'},
+  {id:'maternity',label:'｜孕｜媽咪滋補'},
+  {id:'children',label:'｜童｜學齡照護'},
+  {id:'strength',label:'｜壯｜昂首飛揚'},
+  {id:'topicaluse',label:'外用養護'},
+];
+
+let currentCat='all';
+let currentBoxTeaId=null;
+let todayWeatherCondition='rainy'; // default, updated by API
+let todayWeatherLabel='台灣・雨';
+let todayWeatherDesc='下雨';
+
+// ---- UTILS ----
+function scrollToId(id){
+  const el=document.getElementById(id);
+  if(el)el.scrollIntoView({behavior:'smooth'});
+}
+function closeMobileNav(){document.getElementById('navMobile').classList.remove('open')}
+
+// Real Taiwan time
+function getTWTime(){
+  // Use real current time with Taiwan offset (UTC+8)
+  const now=new Date();
+  const twOffset=8*60;
+  const utc=now.getTime()+(now.getTimezoneOffset()*60000);
+  const tw=new Date(utc+(twOffset*60000));
+  const d=tw.getFullYear()+'/'+(String(tw.getMonth()+1).padStart(2,'0'))+'/'+String(tw.getDate()).padStart(2,'0');
+  const h=tw.getHours();
+  const p=h<6?'清晨':h<12?'上午':h<18?'下午':'夜晚';
+  const hash=tw.getFullYear()*10000+(tw.getMonth()+1)*100+tw.getDate();
+  return{dateStr:d,period:p,hash,tw};
+}
+
+function getTodayKey(){
+  const{dateStr}=getTWTime();
+  return'hsmed_div_'+dateStr;
+}
+
+// Weather from Open-Meteo (free, no key needed) - Taiwan coords: 25.04,121.53
+async function fetchTaiwanWeather(){
+  try{
+    const url='https://api.open-meteo.com/v1/forecast?latitude=25.0375&longitude=121.5625&current=weather_code,precipitation&timezone=Asia%2FTaipei';
+    const res=await fetch(url);
+    const data=await res.json();
+    const code=data.current.weather_code;
+    const precip=data.current.precipitation;
+    // WMO weather code mapping
+    let cond,label,desc;
+    if(code===0){cond='sunny';label='☀️ 晴';desc='晴天'}
+    else if(code<=2){cond='sunny';label='🌤 晴時多雲';desc='晴時多雲'}
+    else if(code<=3){cond='cloudy';label='☁️ 陰';desc='陰天'}
+    else if(code<=49){cond='cloudy';label='🌫 霧';desc='霧'}
+    else if(code<=69||precip>0){cond='rainy';label='🌧 雨';desc='下雨'}
+    else if(code<=79){cond='cloudy';label='🌨 雪';desc='下雪'}
+    else if(code<=82){cond='rainy';label='🌦 陣雨';desc='陣雨'}
+    else if(code<=99){cond='rainy';label='⛈ 雷雨';desc='雷雨'}
+    else{cond='cloudy';label='🌥 多雲';desc='多雲'}
+    todayWeatherCondition=cond;
+    todayWeatherLabel='台灣・'+label.split(' ')[1]||label;
+    todayWeatherDesc=desc;
+    const wEl=document.getElementById('weatherDisplay');
+    if(wEl)wEl.textContent='台灣・'+label;
+    // Update any displayed result text that has the weather
+    updateWeatherDisplays(label,desc);
+  }catch(e){
+    console.log('Weather API fallback');
+    // Keep defaults
+  }
+}
+
+function updateWeatherDisplays(label,desc){
+  // Update time+weather badge in divination if already showing
+  const drDate=document.getElementById('drDate');
+  if(drDate&&drDate.textContent){
+    const{dateStr,period}=getTWTime();
+    drDate.textContent='台灣時間 '+dateStr+' '+period+'・'+label;
+  }
+  const bbrDate=document.getElementById('bbrDate');
+  if(bbrDate&&bbrDate.textContent){
+    const{dateStr,period}=getTWTime();
+    bbrDate.textContent='台灣時間 '+dateStr+' '+period+'・'+label;
+  }
+}
+
+function getTeaForDate(){
+  const{hash}=getTWTime();
+  const pool=WEATHER_MAP[todayWeatherCondition]||WEATHER_MAP['rainy'];
+  return pool[hash%pool.length];
+}
+
+// ---- NAV ----
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
+},{passive:true});
+document.getElementById('navToggle').addEventListener('click',()=>{
+  document.getElementById('navMobile').classList.toggle('open');
+});
+
+// ---- TIME ----
+const{dateStr,period}=getTWTime();
+document.getElementById('timeVal').textContent=dateStr+' '+period;
+// Fetch real weather (async)
+fetchTaiwanWeather();
+
+// ---- TABS ----
+function buildTabs(){
+  const wrap=document.getElementById('catTabs');
+  wrap.innerHTML=CATS.map(c=>'<button class="ctab'+(c.id===currentCat?' active':'')+'" data-cat="'+c.id+'">'+c.label+'</button>').join('');
+  wrap.querySelectorAll('.ctab').forEach(b=>{
+    b.addEventListener('click',()=>{
+      currentCat=b.dataset.cat;
+      wrap.querySelectorAll('.ctab').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      renderCards();
+    });
+  });
+}
+
+// ---- CARDS ----
+function renderCards(){
+  const grid=document.getElementById('cardsGrid');
+  const list=currentCat==='all'?PRODUCTS:PRODUCTS.filter(p=>p.cat===currentCat);
+  grid.innerHTML=list.map(p=>`
+    <div class="flip-card" id="fc-${p.id}" onclick="handleCardClick(event,'${p.id}')">
+      <div class="fci">
+        <div class="fcf">
+          <p class="fc-cat">${p.catLabel}</p>
+          <p class="fc-pain">${p.pain.replace(/\n/g,'<br>')}</p>
+          <p class="fc-hint">點擊看詳情</p>
+        </div>
+        <div class="fcb">
+          <div class="fcb-img">${cardImg(p)}</div>
+          <p class="fcb-cat">${p.catLabel}</p>
+          <p class="fcb-name">${p.name}</p>
+          <p class="fcb-desc">${p.desc}</p>
+          <button class="fcb-more" onclick="event.stopPropagation();openModal('${p.id}')">查看完整介紹 →</button>
+        </div>
+      </div>
+    </div>`).join('');
+  setTimeout(function(){ injectImages(cardsGrid); }, 50);
+}
+
+function handleCardClick(e,id){
+  if(e.target.closest('.fcb-more'))return;
+  const card=document.getElementById('fc-'+id);
+  if(card.classList.contains('flipped')){openModal(id);}
+  else{card.classList.add('flipped');}
+}
+
+// ---- MODAL ----
+function openModal(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  if(!p)return;
+  if(document.getElementById('modal-overlay'))return;
+  const m=document.createElement('div');
+  m.className='modal-overlay';
+  m.id='modal-overlay';
+  m.innerHTML=`
+    <div class="modal" role="dialog" aria-modal="true" aria-label="${p.name}">
+      <button class="modal-close" onclick="closeModal()" aria-label="關閉">✕</button>
+      <div class="modal-hero cat-bg-${p.cat||'daily'}">
+        <div class="modal-hero-emoji">${p.emoji||'🍵'}</div>
+        <p class="modal-cat">${p.catLabel}</p>
+        <h2 class="modal-name">${p.name}</h2>
+        <p class="modal-price">${p.price}</p>
+      </div>
+      <div class="modal-body">
+        <p class="modal-stitle">你的需求</p>
+        <div class="modal-pain">${p.pain.replace(/\n/g,'<br>')}</div>
+        <p class="modal-stitle">產品介紹</p>
+        <p class="modal-desc">${p.desc}</p>
+        <a class="modal-cta" href="${p.url}" target="_blank" rel="noopener">前往官網了解完整資訊 ↗</a>
+      </div>
+    </div>`;
+  document.body.appendChild(m);
+  document.body.style.overflow='hidden';
+  setTimeout(function(){ injectImages(m); }, 50);
+  m.addEventListener('click',e=>{if(e.target===m)closeModal();});
+}
+function closeModal(){
+  const m=document.getElementById('modal-overlay');
+  if(m){m.remove();document.body.style.overflow='';}
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+// ---- DIVINATION ----
+function doDivination(){
+  const btn=document.getElementById('divBtn');
+  btn.disabled=true;btn.textContent='占卜中…';
+  setTimeout(()=>{
+    const teaId=getTeaForDate();
+    const{dateStr,period,hash}=getTWTime();
+    const td=DIV_DATA[teaId]||DIV_DATA['moisture-balance-herbal-tea'];
+    const wk=todayWeatherCondition in (td.msgs||{}) ? todayWeatherCondition : Object.keys(td.msgs||{rainy:[]})[0]||'rainy';
+    const msgs=td.msgs[wk]||td.msgs['rainy']||['今日草木為你選了這一杯好茶。'];
+    const poems=(td.poems||{})[wk]||(td.poems||{})['rainy']||['草本護心，日日好元'];
+    const idx=hash%msgs.length;
+    localStorage.setItem(getTodayKey(),JSON.stringify({teaId,idx,wk}));
+    showDivResult(teaId,td.name,dateStr,period,msgs[idx],poems[idx]);
+    currentBoxTeaId=teaId;
+    updateBoxHint(td.name);
+  },1100);
+}
+function showDivResult(teaId,name,dateStr,period,desc,poem){
+  document.getElementById('divIdle').classList.add('hidden');
+  document.getElementById('divUsed').classList.add('hidden');
+  const r=document.getElementById('divResult');r.classList.remove('hidden');
+  document.getElementById('drDate').textContent='台灣時間 '+dateStr+' '+period+'・'+todayWeatherLabel;
+  document.getElementById('drName').textContent='【'+name+'】';
+  document.getElementById('drDesc').textContent=desc;
+  document.getElementById('drPoem').textContent=poem;
+  document.getElementById('drGo').onclick=()=>goToProduct(teaId);
+}
+function showDivUsed(saved){
+  document.getElementById('divIdle').classList.add('hidden');
+  document.getElementById('divResult').classList.add('hidden');
+  const u=document.getElementById('divUsed');u.classList.remove('hidden');
+  const td=DIV_DATA[saved.teaId]||DIV_DATA['moisture-balance-herbal-tea'];
+  const wk=saved.wk||(td.msgs&&todayWeatherCondition in td.msgs?todayWeatherCondition:Object.keys(td.msgs||{})[0]||'rainy');
+  const msgs=(td.msgs&&td.msgs[wk])||['今日草木為你選了這款好茶。'];
+  const idx=saved.idx%msgs.length;
+  document.getElementById('duName').textContent='【'+td.name+'】';
+  document.getElementById('duDesc').textContent=msgs[idx];
+  document.getElementById('duGo').onclick=()=>goToProduct(saved.teaId);
+  currentBoxTeaId=saved.teaId;
+  updateBoxHint(td.name);
+}
+function updateBoxHint(name){
+  document.getElementById('bbHint').textContent='今日茶款已定：'+name+'，可無限次抽取任務';
+}
+function goToProduct(id){
+  scrollToId('products');
+  setTimeout(()=>{
+    currentCat='all';buildTabs();renderCards();
+    setTimeout(()=>{
+      const card=document.getElementById('fc-'+id);
+      if(card){card.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>card.classList.add('flipped'),500);}
+    },100);
+  },300);
+}
+const saved=localStorage.getItem(getTodayKey());
+if(saved){showDivUsed(JSON.parse(saved));}
+
+// ---- BLIND BOX ----
+function getBoxTeaId(){
+  if(currentBoxTeaId)return currentBoxTeaId;
+  const s=localStorage.getItem(getTodayKey());
+  if(s)return JSON.parse(s).teaId;
+  return getTeaForDate();
+}
+function openBox(){
+  const btn=document.getElementById('bbOpenBtn');
+  const box=document.getElementById('bbBox');
+  btn.disabled=true;btn.textContent='開啟中…';
+  box.classList.add('opening');
+  setTimeout(()=>{
+    box.classList.remove('opening');box.classList.add('opened');
+    document.getElementById('bbQ').textContent='🎉';
+    renderBoxResult();
+    btn.style.display='none';
+    document.getElementById('bbResult').classList.remove('hidden');
+  },700);
+}
+function rerollBox(){
+  const box=document.getElementById('bbBox');
+  box.classList.remove('opened');
+  document.getElementById('bbQ').textContent='?';
+  document.getElementById('bbResult').classList.add('hidden');
+  const btn=document.getElementById('bbOpenBtn');
+  btn.style.display='';btn.disabled=false;btn.textContent='打開盲盒';
+}
+function renderBoxResult(){
+  const teaId=getBoxTeaId();
+  const td=DIV_DATA[teaId]||DIV_DATA['moisture-balance-herbal-tea']||Object.values(DIV_DATA)[0];
+  const ex=EXERCISES[Math.floor(Math.random()*EXERCISES.length)];
+  const ac=ACUPOINTS[Math.floor(Math.random()*ACUPOINTS.length)];
+  const{dateStr,period}=getTWTime();
+  document.getElementById('bbrDate').textContent='台灣時間 '+dateStr+' '+period+'・'+todayWeatherLabel;
+  document.getElementById('bbrTea').textContent='【'+td.name+'】';
+  document.getElementById('bbrEx').textContent=ex.name;
+  document.getElementById('bbrAcName').textContent=ac.emoji+' '+ac.name+'（'+ac.loc+'）';
+  document.getElementById('bbrAcDesc').textContent=ac.benefit;
+  document.querySelectorAll('.bbi').forEach(el=>{el.style.animation='none';el.offsetHeight;el.style.animation='';});
+  document.getElementById('bbGoBtn').onclick=()=>goToProduct(teaId);
+}
+
+// ---- INIT ----
+buildTabs();
+renderCards();
+</script>
+</body>
+</html>
